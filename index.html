@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>NEON BEATS | تجربه موسیقی آینده</title>
+    <!-- Font Awesome 6 (Free Icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts: Vazir for Persian + Poppins for English numbers -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0a0a0f;
+            font-family: 'Inter', sans-serif;
+            color: #fff;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Animated gradient background */
+        .bg-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 30%, rgba(255, 0, 150, 0.15), rgba(0, 255, 255, 0.05), #0a0a0f);
+            z-index: -2;
+        }
+
+        .noise {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-radial-gradient(circle at 20% 30%, rgba(0,0,0,0.2), #000 0.5px);
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.4;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #ff2a6d;
+            border-radius: 10px;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 8%;
+            backdrop-filter: blur(12px);
+            background: rgba(10, 10, 20, 0.6);
+            border-bottom: 1px solid rgba(255, 42, 109, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff2a6d, #05d9e8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -1px;
+        }
+        .logo span {
+            font-size: 1rem;
+            background: none;
+            color: #ccc;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        .nav-links a {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+            font-size: 0.95rem;
+        }
+        .nav-links a:hover {
+            color: #ff2a6d;
+            text-shadow: 0 0 5px #ff2a6d;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 2rem 8%;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        .hero-content {
+            flex: 1;
+        }
+        .hero-content .badge {
+            color: #05d9e8;
+            font-weight: 500;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            background: rgba(5, 217, 232, 0.15);
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            backdrop-filter: blur(4px);
+            margin-bottom: 1rem;
+        }
+        .hero-content h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            background: linear-gradient(to right, #fff, #ff2a6d, #05d9e8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .hero-content p {
+            font-size: 1.1rem;
+            color: #b0b0c0;
+            max-width: 500px;
+            margin: 1.5rem 0;
+            line-height: 1.5;
+        }
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: linear-gradient(95deg, #ff2a6d, #d6006e);
+            border: none;
+            padding: 0.9rem 2rem;
+            border-radius: 40px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 0 12px rgba(255, 42, 109, 0.4);
+        }
+        .btn-primary:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 22px #ff2a6d;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid #05d9e8;
+            padding: 0.9rem 2rem;
+            border-radius: 40px;
+            color: #05d9e8;
+            font-weight: bold;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+        .btn-outline:hover {
+            background: #05d9e8;
+            color: #0a0a0f;
+            box-shadow: 0 0 12px cyan;
+        }
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        .vinyl {
+            background: radial-gradient(circle, #222, #000);
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            box-shadow: 0 0 50px rgba(5, 217, 232, 0.4), 0 20px 35px black;
+            animation: spin 12s linear infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .vinyl-inner {
+            width: 100px;
+            height: 100px;
+            background: #ff2a6d;
+            border-radius: 50%;
+            box-shadow: inset 0 0 15px black;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Music Player Section (Modern Mock) */
+        .player-section {
+            padding: 5rem 8%;
+            text-align: center;
+            background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(2px);
+        }
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+        .section-title span {
+            color: #ff2a6d;
+            border-bottom: 2px solid #05d9e8;
+        }
+        .music-card {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(20, 20, 35, 0.6);
+            border-radius: 2rem;
+            padding: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(12px);
+        }
+        .track-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .track-art {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(145deg, #ff2a6d, #6200ff);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+        .track-details h4 {
+            font-size: 1.3rem;
+        }
+        .track-details p {
+            color: #aaa;
+        }
+        .wave {
+            display: flex;
+            gap: 5px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .wave span {
+            width: 6px;
+            height: 25px;
+            background: #05d9e8;
+            border-radius: 3px;
+            animation: waveAnim 1s infinite ease alternate;
+        }
+        .wave span:nth-child(2) { animation-delay: 0.2s; height: 40px; background:#ff2a6d;}
+        .wave span:nth-child(3) { animation-delay: 0.4s; height: 30px; }
+        .wave span:nth-child(4) { animation-delay: 0.6s; height: 45px; background:#ff2a6d;}
+        .wave span:nth-child(5) { animation-delay: 0.8s; height: 20px; }
+        @keyframes waveAnim {
+            0% { height: 10px; opacity: 0.4;}
+            100% { height: 48px; opacity: 1;}
+        }
+        .controls button {
+            background: #1f1f2e;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            margin: 0 10px;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .controls button:hover {
+            background: #ff2a6d;
+            transform: scale(1.05);
+        }
+
+        /* Tracks Grid */
+        .tracks-grid {
+            padding: 3rem 8%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .track-item {
+            background: linear-gradient(145deg, #11111b, #0a0a10);
+            border-radius: 1.5rem;
+            padding: 1rem;
+            transition: 0.3s;
+            border: 1px solid rgba(255,42,109,0.2);
+        }
+        .track-item:hover {
+            transform: translateY(-8px);
+            border-color: #ff2a6d;
+            box-shadow: 0 20px 35px rgba(0,0,0,0.5);
+        }
+        .album-cover {
+            width: 100%;
+            aspect-ratio: 1;
+            background: linear-gradient(45deg, #2a1a3a, #0f0f1f);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+        .track-item h3 {
+            margin: 0.8rem 0 0.2rem;
+        }
+        .play-btn-sm {
+            background: #ff2a6d;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            margin-top: 0.8rem;
+            width: 100%;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2.5rem;
+            border-top: 1px solid rgba(5,217,232,0.2);
+            margin-top: 3rem;
+            color: #aaa;
+        }
+        .social-icons i {
+            font-size: 1.6rem;
+            margin: 0 12px;
+            color: #ccc;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+        .social-icons i:hover {
+            color: #ff2a6d;
+            text-shadow: 0 0 8px #ff2a6d;
+        }
+        @media (max-width: 800px) {
+            .hero-content h1 { font-size: 2.8rem; }
+            .navbar { flex-direction: column; gap: 1rem; }
+            .nav-links { gap: 1rem; }
+            .vinyl { width: 200px; height: 200px; }
+        }
+    </style>
+</head>
+<body>
+<div class="bg-glow"></div>
+<div class="noise"></div>
+
+<nav class="navbar">
+    <div class="logo">NEON BEATS <span>🎧</span></div>
+    <div class="nav-links">
+        <a href="#">خانه</a>
+        <a href="#">آلبوم‌ها</a>
+        <a href="#">پادکست</a>
+        <a href="#">تورها</a>
+        <a href="#">فروشگاه</a>
+    </div>
+    <div><i class="fas fa-search" style="color:#ff2a6d; cursor: pointer;"></i></div>
+</nav>
+
+<section class="hero">
+    <div class="hero-content">
+        <div class="badge"><i class="fas fa-headphones"></i> جدیدترین آلبوم: CYBER SOUL</div>
+        <h1>صدای بی‌مرز<br> آینده اینجاست</h1>
+        <p>ارتباط با انرژی ناب الکترونیک و هیپ‌هاپ. بیش از ۱۰ میلیون استریم در سراسر جهان. تجربه‌ای فراواقعی.</p>
+        <div class="btn-group">
+            <button class="btn-primary" id="heroPlayBtn"><i class="fas fa-play"></i> پخش آنی</button>
+            <button class="btn-outline"><i class="fas fa-list-ul"></i> دیدن لیست</button>
+        </div>
+    </div>
+    <div class="hero-image">
+        <div class="vinyl">
+            <div class="vinyl-inner"></div>
+        </div>
+    </div>
+</section>
+
+<section class="player-section">
+    <h2 class="section-title">اکنون <span>در حال پخش</span> 🔥</h2>
+    <div class="music-card">
+        <div class="track-info">
+            <div class="track-art"><i class="fas fa-music"></i></div>
+            <div class="track-details">
+                <h4 id="currentTrackName">Neon Dreams</h4>
+                <p id="currentArtistName">NEON BEATS</p>
+            </div>
+        </div>
+        <div class="wave">
+            <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="controls">
+            <button id="prevBtn"><i class="fas fa-backward-step"></i></button>
+            <button id="playPauseMain"><i class="fas fa-play"></i></button>
+            <button id="nextBtn"><i class="fas fa-forward-step"></i></button>
+        </div>
+        <p style="margin-top: 15px; font-size: 0.75rem; opacity:0.7;">⭐ پخش آزمایشی | دموی اینتراکتیو</p>
+    </div>
+</section>
+
+<h2 class="section-title" style="text-align:center; padding-top: 1rem;">آلبوم <span>پیشنهادی هفته</span> 🎵</h2>
+<div class="tracks-grid" id="tracksContainer">
+    <!-- دیتا توسط js پر می‌شه -->
+</div>
+
+<footer>
+    <div class="social-icons">
+        <i class="fab fa-spotify"></i>
+        <i class="fab fa-soundcloud"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-youtube"></i>
+    </div>
+    <p style="margin-top: 20px;">© 2025 NEON BEATS | تمامی حقوق برای کدنویس محفوظ است, با عشق به موسیقی الکترونیک</p>
+</footer>
+
+<script>
+    // لیست آهنگهای نمونه (موک آپ)
+    const playlist = [
+        { name: "Neon Dreams", artist: "NEON BEATS", cover: "🎧" },
+        { name: "Midnight Drive", artist: "Luna Echo", cover: "🌙" },
+        { name: "Cyber Punk Bass", artist: "NEON BEATS", cover: "🤖" },
+        { name: "Lost Frequencies", artist: "Synthwave", cover: "📡" }
+    ];
+
+    let currentTrackIndex = 0;
+    let isPlaying = false;
+    let audio = null;   // we use Audio object but for demo we just simulate
+
+    // تابع برای آپدیت UI پلیر
+    function updatePlayerUI() {
+        const track = playlist[currentTrackIndex];
+        document.getElementById("currentTrackName").innerText = track.name;
+        document.getElementById("currentArtistName").innerText = track.artist;
+        // تغییر آیکون play/pause
+        const playBtn = document.getElementById("playPauseMain");
+        if(isPlaying) {
+            playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+        } else {
+            playBtn.innerHTML = '<i class="fas fa-play"></i>';
+        }
+        // نمایش آلبوم آرت در هدر موبایل (اختیاری)
+    }
+
+    // سیمولیشن پخش (چون مرورگر جدید نیاز به تعامل داره، برای دمو کلیک اول رو هندل می‌کنیم)
+    function playSimulated() {
+        if(!isPlaying) {
+            isPlaying = true;
+            updatePlayerUI();
+            // ساخت یک آبجکت صوتی واقعی برای کلیک کاربر (فقط برای رضایت خاطر)
+            if(!audio) {
+                // silence fake? but we don't have real file, برای جلوگیری از ارور فقط یک بیپ خفیف نه! بهتره صدای خاموش بذاریم
+                audio = new Audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3");
+                audio.loop = false;
+                audio.volume = 0.3;
+                audio.play().catch(e => console.log("برای پخش واقعی روی صفحه کلیک کن"));
+            } else {
+                audio.play().catch(e=> console.log("نیاز به تعامل"));
+            }
+        } else {
+            isPlaying = false;
+            if(audio) { audio.pause(); }
+            updatePlayerUI();
+        }
+    }
+
+    function nextTrack() {
+        if(audio && isPlaying) audio.pause();
+        isPlaying = false;
+        currentTrackIndex = (currentTrackIndex + 1) % playlist.length;
+        if(audio) {
+            audio.src = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
+            if(isPlaying) audio.play().catch(e=>null);
+        }
+        updatePlayerUI();
+        // اگر در حالت پلی بود بعد از تغییر آهنگ دوباره پلی کن
+        if(isPlaying) {
+            if(audio) audio.play().catch(e=>null);
+        }
+    }
+
+    function prevTrack() {
+        if(audio && isPlaying) audio.pause();
+        isPlaying = false;
+        currentTrackIndex = (currentTrackIndex - 1 + playlist.length) % playlist.length;
+        if(audio) {
+            audio.src = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
+            if(isPlaying) audio.play().catch(e=>null);
+        }
+        updatePlayerUI();
+    }
+
+    // load tracks into grid
+    function loadTracksGrid() {
+        const container = document.getElementById("tracksContainer");
+        container.innerHTML = "";
+        playlist.forEach((track, idx) => {
+            const card = document.createElement("div");
+            card.className = "track-item";
+            card.innerHTML = `
+                <div class="album-cover">${track.cover}</div>
+                <h3>${track.name}</h3>
+                <p style="color:#05d9e8; font-size:0.8rem;">${track.artist}</p>
+                <button class="play-btn-sm" data-index="${idx}"><i class="fas fa-play"></i> پخش قطعه</button>
+            `;
+            container.appendChild(card);
+        });
+        document.querySelectorAll(".play-btn-sm").forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                const idx = parseInt(btn.getAttribute("data-index"));
+                if(audio && isPlaying) audio.pause();
+                currentTrackIndex = idx;
+                isPlaying = false;
+                updatePlayerUI();
+                // شروع پخش
+                if(!audio) {
+                    audio = new Audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3");
+                }
+                audio.src = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
+                audio.play().then(() => {
+                    isPlaying = true;
+                    updatePlayerUI();
+                }).catch(() => {
+                    alert("برای پخش واقعی، مرورگر نیاز به تعامل داره! دکمه پخش رو در پلیر اصلی بزن.");
+                    isPlaying = false;
+                    updatePlayerUI();
+                });
+            });
+        });
+    }
+
+    // Event listeners
+    document.getElementById("playPauseMain").addEventListener("click", () => {
+        if(audio === null) {
+            audio = new Audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3");
+            audio.loop = false;
+        }
+        if(!isPlaying) {
+            audio.play().then(() => {
+                isPlaying = true;
+                updatePlayerUI();
+            }).catch(err => {
+                alert("جهت پخش، ابتدا روی صفحه کلیک کنید یا دکمه پخش آهنگ های پایین را بزنید.");
+            });
+        } else {
+            audio.pause();
+            isPlaying = false;
+            updatePlayerUI();
+        }
+    });
+    document.getElementById("nextBtn").addEventListener("click", nextTrack);
+    document.getElementById("prevBtn").addEventListener("click", prevTrack);
+    document.getElementById("heroPlayBtn").addEventListener("click", () => {
+        if(audio === null) {
+            audio = new Audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3");
+        }
+        if(!isPlaying) {
+            audio.play().then(() => {
+                isPlaying = true;
+                updatePlayerUI();
+            }).catch(() => alert("فقط کافیه روی پلیر اصلی دکمه play رو بزنی!"));
+        } else {
+            audio.pause();
+            isPlaying = false;
+            updatePlayerUI();
+        }
+    });
+
+    loadTracksGrid();
+    updatePlayerUI();
+
+    // for stopping noise when page hidden (optional)
+    window.addEventListener("beforeunload", () => {
+        if(audio) audio.pause();
+    });
+</script>
+</body>
+</html>
