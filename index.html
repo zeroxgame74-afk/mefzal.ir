@@ -174,16 +174,16 @@
             text-align: center;
             letter-spacing: 1px;
         }
-        /* تگ مخصوص پرطرفدار با آیکون کاستوم */
+        /* تگ پرطرفدار وسط قرار گرفت */
         .custom-tag {
-            display: inline-flex;
+            display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
             background: linear-gradient(135deg, #e6a017, #d45500);
             padding: 6px 16px;
             border-radius: 40px;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: 700;
             color: #fff7e0;
             width: fit-content;
@@ -323,6 +323,7 @@
             margin-top: 10px;
         }
 
+        /* استایل دقیق و مرتب برای گروه مفضال */
         .big-box {
             background: #2c4a35;
             border-radius: 2rem;
@@ -333,7 +334,7 @@
             text-align: center;
         }
         .big-box h2 {
-            font-size: 2.5rem;
+            font-size: 2.3rem;
             border-bottom: 3px solid var(--pistachio);
             display: inline-block;
             margin-bottom: 2rem;
@@ -345,35 +346,36 @@
             align-items: center;
             justify-content: center;
             gap: 1rem;
-            margin-bottom: 1.8rem;
-            font-size: 1.3rem;
-            background: #1f3f2c80;
-            padding: 1rem 1.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            background: #1f3f2c99;
+            padding: 0.9rem 1.5rem;
             border-radius: 70px;
             flex-wrap: wrap;
+            transition: all 0.2s;
         }
         .info-row i {
-            font-size: 2rem;
-            width: 2.4rem;
+            font-size: 1.8rem;
+            width: 2.2rem;
             color: var(--pistachio);
         }
         .phone-number {
             direction: ltr;
-            font-size: 1.7rem;
+            font-size: 1.5rem;
             font-weight: bold;
             letter-spacing: 2px;
             background: #1b2f23;
-            padding: 0.4rem 1.2rem;
+            padding: 0.3rem 1.2rem;
             border-radius: 50px;
             display: inline-block;
         }
         .group-footnote {
             margin-top: 2rem;
             text-align: center;
-            font-size: 1.1rem;
-            background: #1a3a2a70;
+            font-size: 1rem;
+            background: #1a3a2a90;
             border-radius: 2rem;
-            padding: 1rem;
+            padding: 0.9rem;
         }
         footer {
             margin-top: 4rem;
@@ -394,7 +396,7 @@
             }
             .info-row {
                 font-size: 1rem;
-                padding: 0.8rem;
+                padding: 0.7rem;
             }
             .phone-number {
                 font-size: 1.2rem;
@@ -408,6 +410,9 @@
             }
             .download-simple {
                 justify-content: center;
+            }
+            .big-box h2 {
+                font-size: 1.7rem;
             }
         }
         .hidden-section {
@@ -485,7 +490,6 @@
 </footer>
 
 <script>
-    // سرود با تگ پرطرفدار و آیکون کاستوم
     const songsData = [
         {
             id: 1,
@@ -635,7 +639,6 @@
         songsArray.forEach(song => {
             const card = document.createElement('div');
             card.className = 'song-card';
-            // ساخت قسمت تگ با آیکون کاستوم
             let tagHtml = '';
             if (song.tag) {
                 tagHtml = `<div class="custom-tag"><i class="fas fa-fire"></i> ${escapeHtml(song.tag)}</div>`;
@@ -713,4 +716,4 @@
     });
 </script>
 </body>
-    </html>
+</html>
