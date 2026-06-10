@@ -167,36 +167,36 @@
             padding: 1rem 1rem 0.7rem;
         }
         
-        /* باکس اختصاصی عنوان سرود (مثل باکس توضیحات) */
+        /* باکس عنوان سرود - سایز جدید */
         .song-title-box {
             background: #1f3f2c;
-            padding: 0.6rem 0.6rem;
+            padding: 0.5rem 0.8rem;
             border-radius: 40px;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
             text-align: center;
             border: 1px solid rgba(163, 201, 168, 0.3);
         }
         .song-title {
-            font-size: 1.5rem;
+            font-size: 1.1rem;
             font-weight: 800;
             color: #fbf5cf;
             letter-spacing: 1px;
         }
         
-        /* تگ پرطرفدار با همان استایل اختصاصی خودش (تغییر نکرده) */
+        /* تگ پرطرفدار - سایز جدید هماهنگ با عنوان */
         .custom-tag {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
             background: linear-gradient(135deg, #e6a017, #d45500);
-            padding: 6px 16px;
+            padding: 0.5rem 0.8rem;
             border-radius: 40px;
-            font-size: 0.85rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: #fff7e0;
             width: fit-content;
-            margin: 0 auto 12px auto;
+            margin: 0 auto 1rem auto;
             box-shadow: 0 2px 8px rgba(0,0,0,0.2);
             border: 1px solid #ffcd7e;
         }
@@ -333,21 +333,21 @@
             margin-top: 10px;
         }
 
-        /* استایل گروه مفضال (باکس تودرتو حذف شد) */
-        .group-header-box {
-            background: #2c4a35;
-            border-radius: 2rem;
-            padding: 1.5rem;
-            margin-top: 1.5rem;
-            border: 2px solid var(--pistachio);
+        /* استایل جدید گروه مفضال (کاملاً شبیه صفحه هماهنگی) */
+        .group-header {
             text-align: center;
+            margin-bottom: 2rem;
         }
-        .group-header-box h2 {
-            font-size: 2.3rem;
-            color: #f7f3cf;
+        .group-header h2 {
+            font-size: 2rem;
+            background: #2c4a35;
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 60px;
+            border: 2px solid var(--pistachio);
         }
         .group-info-list {
-            margin: 2rem auto;
+            margin: 0 auto;
             max-width: 700px;
         }
         .info-row {
@@ -378,13 +378,14 @@
             display: inline-block;
         }
         .group-footnote {
-            margin-top: 1rem;
+            margin-top: 2rem;
             text-align: center;
             font-size: 1rem;
             background: #1a3a2a90;
             border-radius: 2rem;
             padding: 0.9rem;
         }
+
         footer {
             margin-top: 4rem;
             background: #14281e;
@@ -419,8 +420,8 @@
             .download-simple {
                 justify-content: center;
             }
-            .group-header-box h2 {
-                font-size: 1.7rem;
+            .group-header h2 {
+                font-size: 1.5rem;
             }
         }
         .hidden-section {
@@ -482,11 +483,10 @@
             <h2>درباره گروه حرفه‌ای مفضال</h2>
             <p>پیشرو در تولید سرودهای فاخر و هماهنگی بی‌نظیر</p>
         </div>
-        <!-- باکس فقط برای عنوان گروه مفضال (بدون تو رفتگی) -->
-        <div class="group-header-box">
+        <!-- گروه مفضال: بدون هیچ باکس تودرتو، فقط به سبک صفحه هماهنگی -->
+        <div class="group-header">
             <h2><i class="fas fa-users"></i> گروه مفضال</h2>
         </div>
-        <!-- اطلاعات بیرون از باکس -->
         <div class="group-info-list">
             <div class="info-row"><i class="fas fa-user-tie"></i><strong>مدیر مجموعه:</strong> ابوالفضل حیدری</div>
             <div class="info-row"><i class="fas fa-microphone-alt"></i><strong>امور ضبط و آموزگار سرود:</strong> مهدی اکبری | حمیدرضا نخعی</div>
@@ -730,4 +730,4 @@
     });
 </script>
 </body>
-                </html>
+    </html>
