@@ -183,7 +183,7 @@
             letter-spacing: 1px;
         }
         
-        /* تگ پرطرفدار وسط */
+        /* تگ پرطرفدار با همان استایل اختصاصی خودش (تغییر نکرده) */
         .custom-tag {
             display: flex;
             align-items: center;
@@ -333,25 +333,19 @@
             margin-top: 10px;
         }
 
-        /* استایل گروه مفضال (متن‌ها بیرون از باکس) */
-        .big-box {
+        /* استایل گروه مفضال (باکس تودرتو حذف شد) */
+        .group-header-box {
             background: #2c4a35;
             border-radius: 2rem;
-            padding: 2rem;
+            padding: 1.5rem;
             margin-top: 1.5rem;
             border: 2px solid var(--pistachio);
-            box-shadow: 0 20px 30px -15px rgba(0,0,0,0.4);
             text-align: center;
         }
-        .big-box h2 {
+        .group-header-box h2 {
             font-size: 2.3rem;
-            border-bottom: 3px solid var(--pistachio);
-            display: inline-block;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
             color: #f7f3cf;
         }
-        /* استایل اطلاعات بیرون از باکس (مثل هماهنگی) */
         .group-info-list {
             margin: 2rem auto;
             max-width: 700px;
@@ -367,7 +361,6 @@
             padding: 0.9rem 1.5rem;
             border-radius: 70px;
             flex-wrap: wrap;
-            transition: all 0.2s;
         }
         .info-row i {
             font-size: 1.8rem;
@@ -426,7 +419,7 @@
             .download-simple {
                 justify-content: center;
             }
-            .big-box h2 {
+            .group-header-box h2 {
                 font-size: 1.7rem;
             }
         }
@@ -489,11 +482,11 @@
             <h2>درباره گروه حرفه‌ای مفضال</h2>
             <p>پیشرو در تولید سرودهای فاخر و هماهنگی بی‌نظیر</p>
         </div>
-        <!-- باکس فقط برای عنوان گروه مفضال -->
-        <div class="big-box">
+        <!-- باکس فقط برای عنوان گروه مفضال (بدون تو رفتگی) -->
+        <div class="group-header-box">
             <h2><i class="fas fa-users"></i> گروه مفضال</h2>
         </div>
-        <!-- اطلاعات بیرون از باکس (مثل تب هماهنگی) -->
+        <!-- اطلاعات بیرون از باکس -->
         <div class="group-info-list">
             <div class="info-row"><i class="fas fa-user-tie"></i><strong>مدیر مجموعه:</strong> ابوالفضل حیدری</div>
             <div class="info-row"><i class="fas fa-microphone-alt"></i><strong>امور ضبط و آموزگار سرود:</strong> مهدی اکبری | حمیدرضا نخعی</div>
@@ -737,4 +730,4 @@
     });
 </script>
 </body>
-    </html>
+                </html>
