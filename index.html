@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>mefzal.ir | پلتفرم موسیقی آنلاین</title>
-    <!-- Font Awesome 6 (آیکون‌های حرفه‌ای) -->
+    <title>مفضال | پخش آنلاین سرود و آهنگ</title>
+    <!-- Font Awesome Icons (v6 free) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- گوگل فونت وزیر (فونت فارسی زیبا) -->
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <!-- Google Font: Vazir (وزیر) برای خوانایی بهتر -->
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -16,605 +16,607 @@
         }
 
         body {
-            font-family: 'Vazirmatn', sans-serif;
-            background: linear-gradient(145deg, #1e3a2f 0%, #0d2a21 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem 1rem;
+            background: linear-gradient(145deg, #1a3a2a 0%, #0e2a1c 100%);
+            font-family: 'Vazirmatn', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #f1f5e9;
+            padding-bottom: 2rem;
         }
 
-        /* تم پسته‌ای اصلی (Pistachio / Sage Green) */
+        /* رنگ اصلی پسته‌ای (سِز پسته‌ای: زیتونی روشن با ته مایه پسته) */
         :root {
-            --pistachio-light: #d4e6d0;
-            --pistachio-soft: #b8d9aa;
-            --pistachio-mid: #93c47d;
-            --pistachio-deep: #6b8c5c;
-            --pistachio-dark: #3b5c2f;
-            --cream: #fef9e6;
-            --shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.35);
+            --pistachio: #a3c9a8;
+            --pistachio-dark: #6f9e7c;
+            --pistachio-light: #cfe6d4;
+            --deep-teal: #1f543b;
+            --bg-card: #2c4a35;
+            --shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.3);
         }
 
-        .glass-card {
-            background: rgba(255, 248, 235, 0.92);
-            backdrop-filter: blur(3px);
-            border-radius: 2.5rem;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
+        /* اسکرول بار زیبا */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e3828;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--pistachio);
+            border-radius: 10px;
         }
 
-        .main-container {
-            max-width: 1300px;
-            width: 100%;
-            margin: 0 auto;
-        }
-
-        /* هدر و هیرو */
-        .hero-section {
-            background: linear-gradient(135deg, var(--pistachio-deep), var(--pistachio-dark));
-            border-radius: 2rem 2rem 2rem 2rem;
-            padding: 1.8rem 2rem;
-            margin-bottom: 2rem;
-            color: white;
+        /* هدر و نوار منو */
+        .navbar {
+            background: #1f3a2c;
+            backdrop-filter: blur(8px);
+            border-bottom: 2px solid var(--pistachio);
+            padding: 0.8rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
             align-items: center;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            justify-content: space-between;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
-
-        .logo-area h1 {
-            font-size: 2.2rem;
+        .logo-area {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+        }
+        .site-name {
+            font-size: 1.8rem;
             font-weight: 800;
-            letter-spacing: -0.5px;
-            background: linear-gradient(to left, #f9f3c1, #ffffff);
-            -webkit-background-clip: text;
+            background: linear-gradient(135deg, #d9f0db, var(--pistachio));
             background-clip: text;
+            -webkit-background-clip: text;
             color: transparent;
+            letter-spacing: -0.5px;
         }
-
-        .logo-area p {
-            font-size: 0.85rem;
-            opacity: 0.9;
-            margin-top: 5px;
+        .site-name small {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: var(--pistachio-light);
+            background: none;
+            -webkit-background-clip: unset;
+            background-clip: unset;
+            color: #cce6d2;
         }
-
-        .domain-badge {
-            background: rgba(255,245,215,0.2);
-            backdrop-filter: blur(4px);
-            padding: 0.6rem 1.2rem;
-            border-radius: 60px;
-            font-weight: 500;
-            font-size: 1rem;
-            border: 1px solid rgba(255,250,210,0.6);
-        }
-
-        .domain-badge i {
-            margin-left: 8px;
-        }
-
-        /* پلیر اصلی بزرگ */
-        .featured-player {
-            background: #ffffffea;
-            border-radius: 2rem;
-            padding: 1.8rem;
-            margin-bottom: 2rem;
-            box-shadow: var(--shadow);
-            transition: all 0.2s;
-        }
-
-        .cover-area {
+        .menu {
             display: flex;
+            gap: 1rem;
             flex-wrap: wrap;
-            gap: 2rem;
-            align-items: center;
-            justify-content: center;
         }
-
-        .artwork {
-            background: linear-gradient(145deg, var(--pistachio-soft), var(--pistachio-mid));
-            border-radius: 1.8rem;
-            width: 180px;
-            height: 180px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 15px 25px rgba(0,0,0,0.2);
-            transition: 0.2s;
-        }
-
-        .artwork i {
-            font-size: 5rem;
-            color: #2d4a22;
-            filter: drop-shadow(2px 4px 8px rgba(0,0,0,0.2));
-        }
-
-        .track-info {
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .track-info h2 {
-            font-size: 1.9rem;
-            color: #2f4d2d;
-            font-weight: 800;
-        }
-
-        .track-info p {
-            color: #5a6e52;
-            margin: 8px 0;
-        }
-
-        .player-controls {
-            background: #f3f7ef;
-            padding: 1.2rem;
-            border-radius: 3rem;
-            margin-top: 1.5rem;
-        }
-
-        .controls-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 1.2rem;
-        }
-
-        .controls-buttons button {
-            background: var(--pistachio-deep);
-            border: none;
-            width: 55px;
-            height: 55px;
-            border-radius: 60px;
-            color: white;
-            font-size: 1.6rem;
-            cursor: pointer;
+        .menu a {
+            color: #e0f2e5;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 0.9rem;
+            border-radius: 40px;
             transition: all 0.2s ease;
-            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-        }
-
-        .controls-buttons button:hover {
-            background: var(--pistachio-dark);
-            transform: scale(1.05);
-        }
-
-        .progress-area {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .progress-container {
-            flex: 1;
-            background: #d0dec8;
-            border-radius: 20px;
-            height: 6px;
-            cursor: pointer;
-        }
-
-        .progress-bar {
-            background: var(--pistachio-mid);
-            width: 0%;
-            height: 6px;
-            border-radius: 20px;
-            position: relative;
-        }
-
-        .time {
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: #4b6042;
-        }
-
-        /* لیست پلی لیست */
-        .playlist-section {
-            background: rgba(255, 252, 240, 0.96);
-            border-radius: 2rem;
-            padding: 1.5rem;
-        }
-
-        .section-title {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: #2c5a2a;
-            border-right: 6px solid var(--pistachio-mid);
-            padding-right: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .track-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0.7rem;
-        }
-
-        .track-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: #ffffffd9;
-            padding: 0.8rem 1.2rem;
-            border-radius: 1.5rem;
-            transition: all 0.2s;
-            cursor: pointer;
-            border: 1px solid #e2f0db;
-        }
-
-        .track-item:hover {
-            background: #eff9ea;
-            transform: translateX(-5px);
-            border-color: var(--pistachio-soft);
-        }
-
-        .track-item.active {
-            background: #d8eace;
-            border-right: 5px solid var(--pistachio-deep);
-        }
-
-        .track-name i {
-            margin-left: 12px;
-            color: var(--pistachio-deep);
-        }
-
-        .track-duration {
-            color: #6c8262;
-            font-size: 0.8rem;
-        }
-
-        .play-icon {
-            background: var(--pistachio-soft);
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
+            font-size: 1rem;
             display: inline-flex;
             align-items: center;
-            justify-content: center;
-            color: #2a4b22;
+            gap: 6px;
+        }
+        .menu a i {
+            font-size: 1rem;
+        }
+        .menu a:hover, .menu a.active {
+            background: var(--pistachio);
+            color: #1a3a2a;
+            transform: translateY(-2px);
         }
 
-        footer {
+        /* بخش اصلی و کارت‌ها */
+        .container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        .hero {
+            background: rgba(30, 55, 40, 0.6);
+            border-radius: 2rem;
+            padding: 1.2rem 2rem;
+            margin-bottom: 2.5rem;
             text-align: center;
-            margin-top: 2rem;
-            color: #e0f0da;
-            font-size: 0.8rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--pistachio);
+        }
+        .hero h2 {
+            font-weight: 700;
+            font-size: 1.6rem;
+            color: #f4fded;
+        }
+        .hero p {
+            color: #cbdfcf;
         }
 
-        @media (max-width: 680px) {
-            .hero-section {
-                flex-direction: column;
-                text-align: center;
-                gap: 12px;
-            }
-            .controls-buttons button {
-                width: 45px;
-                height: 45px;
-                font-size: 1.3rem;
-            }
-            .track-info h2 {
-                font-size: 1.3rem;
-            }
+        /* شبکه کارت‌ها */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
         }
-        .volume-slider {
-            width: 100px;
-            background: #bdd6b2;
-            height: 4px;
-            border-radius: 5px;
-            margin-right: 12px;
+
+        /* کارت آهنگ */
+        .song-card {
+            background: var(--bg-card);
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.25s ease-in-out;
+            border: 1px solid rgba(163, 201, 168, 0.3);
+            backdrop-filter: blur(2px);
         }
-        .extra-controls {
+        .song-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--pistachio);
+            box-shadow: 0 30px 40px -12px black;
+        }
+
+        /* جعبه عکس 1:1 */
+        .img-square {
+            aspect-ratio: 1 / 1;
+            width: 100%;
+            background: #1c2f24;
+            position: relative;
+            overflow: hidden;
+        }
+        .img-square img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        .song-card:hover .img-square img {
+            transform: scale(1.02);
+        }
+
+        /* بخش اطلاعات با آیکون‌های کاستوم (با فونت‌awesome و استایل اختصاصی) */
+        .song-details {
+            padding: 1rem 1rem 0.7rem;
+        }
+        .song-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #fbf5cf;
+        }
+        .meta-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 0.75rem 0;
+            font-size: 0.85rem;
+            background: #1f3f2c;
+            padding: 0.5rem 0.8rem;
+            border-radius: 40px;
+            justify-content: space-between;
+        }
+        .meta-item {
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
+            background: #2a5a3e60;
+            padding: 4px 10px;
+            border-radius: 30px;
+            font-weight: 500;
+        }
+        .meta-item i {
+            font-size: 1rem;
+            color: var(--pistachio);
+        }
+        /* آیکون‌های کاستوم شده (با کمک font awesome و کمی استایل ویژه) */
+        .custom-mixer::before {
+            content: "\f0c2"; /* sliders-h */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+        }
+        .custom-record::before {
+            content: "\f8d0"; /* microphone-alt */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+        }
+        .custom-singer::before {
+            content: "\f007"; /* user-music */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+        }
+        .custom-voices::before {
+            content: "\f0c0"; /* users */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+        }
+        /* برای اعمال آیکون‌های کاستوم شده روی آیکون‌های خاص (اگر کلاس داشته باشند) */
+        .fa-custom-mixer, .icon-mixer { background: none; }
+
+        /* پلیر پایین کارت + دانلود */
+        .player-wrapper {
+            padding: 0.7rem 1rem 1.2rem;
+            background: #1e3527;
+            border-top: 1px solid #517a5e;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        audio {
+            width: 100%;
+            height: 40px;
+            border-radius: 40px;
+            background: #0f261b;
+            outline: none;
+        }
+        audio::-webkit-media-controls-panel {
+            background-color: #bcddbe;
+        }
+        .extra-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-top: 5px;
+        }
+        .download-btn {
+            background: var(--pistachio);
+            border: none;
+            padding: 7px 14px;
+            border-radius: 50px;
+            color: #1e3a2a;
+            font-weight: bold;
+            font-family: inherit;
+            font-size: 0.8rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        .download-btn i {
+            font-size: 0.9rem;
+        }
+        .download-btn:hover {
+            background: #e2ffd6;
+            transform: scale(1.02);
+        }
+        .info-badge {
+            background: #2d6143;
+            border-radius: 40px;
+            padding: 5px 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--pistachio-light);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* فوتر و هماهنگی */
+        footer {
+            margin-top: 4rem;
+            background: #14281e;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            border-top: 1px solid var(--pistachio);
+        }
+        .contact-section {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        .contact-card {
+            background: #2b4a38;
+            padding: 0.8rem 1.8rem;
+            border-radius: 60px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        /* ریسپانسیو */
+        @media (max-width: 700px) {
+            .navbar {
+                flex-direction: column;
+                gap: 12px;
+                padding: 1rem;
+            }
+            .menu {
+                justify-content: center;
+            }
+            .meta-icons {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+        .hidden-section {
+            display: none;
+        }
+        .active-section {
+            display: block;
+        }
+        .btn-group {
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-<div class="main-container">
-    <!-- هدر با نام mefzal.ir -->
-    <div class="hero-section">
+
+<header>
+    <div class="navbar">
         <div class="logo-area">
-            <h1>🎵 mefzal.ir</h1>
-            <p>نغمه‌های خاص، تجربه‌ای خاص</p>
+            <span class="site-name">mefzal.ir <small>| سرود و هماهنگی</small></span>
         </div>
-        <div class="domain-badge">
-            <i class="fas fa-globe"></i> mefzal.ir | استودیو آنلاین
+        <div class="menu" id="mainMenu">
+            <a href="#" data-page="home" class="active"><i class="fas fa-home"></i> خانه</a>
+            <a href="#" data-page="sorudha"><i class="fas fa-music"></i> سرودها</a>
+            <a href="#" data-page="hamahangi"><i class="fas fa-handshake"></i> هماهنگی</a>
+            <a href="#" data-page="group"><i class="fas fa-users"></i> گروه مفضال</a>
+        </div>
+    </div>
+</header>
+
+<main class="container" id="mainContent">
+    <!-- صفحه خانه (پیش‌فرض) -->
+    <div id="homePage" class="page-section">
+        <div class="hero">
+            <h2>به پخش‌کننده رسمی mefzal.ir خوش آمدید</h2>
+            <p>زیباترین سرودهای ملی، مذهبی و گروهی | با کیفیت اصلی و پلیر پیشرفته</p>
+        </div>
+        <div class="cards-grid" id="homeCardsGrid"></div>
+    </div>
+
+    <!-- صفحه سرودها (دقیقاً شبیه کارت‌ها) -->
+    <div id="sorudhaPage" class="page-section hidden-section">
+        <div class="hero">
+            <h2>سرودهای اختصاصی مفضال</h2>
+            <p>جدیدترین و پرطرفدارترین سرودهای گروه هماهنگ مفضال</p>
+        </div>
+        <div class="cards-grid" id="sorudhaGrid"></div>
+    </div>
+
+    <!-- صفحه هماهنگی -->
+    <div id="hamahangiPage" class="page-section hidden-section">
+        <div class="hero">
+            <h2>هماهنگی و ارتباط با ما</h2>
+            <p>برای برگزاری مراسم، هماهنگی گروهی و درخواست سرود سفارشی با ما در تماس باشید</p>
+        </div>
+        <div style="background:#2c4a35; border-radius:2rem; padding:2rem; text-align:center;">
+            <i class="fas fa-phone-alt" style="font-size:3rem; color:var(--pistachio);"></i>
+            <h3 style="margin:1rem 0;">شماره تماس هماهنگی:</h3>
+            <p style="font-size:1.5rem; direction:ltr; font-weight:bold;">۰۹۱۲-۳۴۵-۶۷۸۹</p>
+            <p>ایمیل: hamahangi@mefzal.ir</p>
+            <div class="contact-card" style="margin:1.5rem auto; width:fit-content;">
+                <i class="fab fa-instagram"></i> <span>mefzal_group_official</span>
+            </div>
         </div>
     </div>
 
-    <!-- پلیر زیبا و پیشرفته -->
-    <div class="featured-player">
-        <div class="cover-area">
-            <div class="artwork">
-                <i class="fas fa-head-side-headphones"></i>
-            </div>
-            <div class="track-info">
-                <h2 id="currentTrackTitle">شب بارانی</h2>
-                <p id="currentTrackArtist">میلاد بیکلام</p>
-                <small><i class="fas fa-waveform"></i> پخش آنلاین با کیفیت عالی</small>
-            </div>
+    <!-- صفحه گروه مفضال -->
+    <div id="groupPage" class="page-section hidden-section">
+        <div class="hero">
+            <h2>گروه سرود مفضال</h2>
+            <p>متشکل از خوانندگان، میکس مسترهای حرفه‌ای و همکاران توانمند</p>
         </div>
-
-        <div class="player-controls">
-            <div class="controls-buttons">
-                <button id="prevBtn" title="قبلی"><i class="fas fa-backward-step"></i></button>
-                <button id="playPauseBtn" title="پخش/مکث"><i class="fas fa-play"></i></button>
-                <button id="nextBtn" title="بعدی"><i class="fas fa-forward-step"></i></button>
-            </div>
-            <div class="progress-area">
-                <span class="time" id="currentTime">0:00</span>
-                <div class="progress-container" id="progressContainer">
-                    <div class="progress-bar" id="progressBar"></div>
-                </div>
-                <span class="time" id="duration">0:00</span>
-                <div class="extra-controls">
-                    <i class="fas fa-volume-up" style="color:#4b6042;"></i>
-                    <input type="range" id="volumeControl" class="volume-slider" min="0" max="1" step="0.01" value="0.7">
-                </div>
-            </div>
+        <div style="display:flex; flex-wrap:wrap; gap:1.5rem; justify-content:center; margin-top:2rem;">
+            <div class="contact-card"><i class="fas fa-microphone-alt custom-mixer" style="margin-left:8px;"></i> میکس و مستر : استودیو فجر</div>
+            <div class="contact-card"><i class="fas fa-tape"></i> امور ضبط : مهندس رضا کریمی</div>
+            <div class="contact-card"><i class="fas fa-user-astronaut"></i> تک خوان : سید علی موسوی</div>
+            <div class="contact-card"><i class="fas fa-users"></i> خوانندگان گروه : جمعی از هنرمندان مفضال</div>
         </div>
+        <p style="margin-top:2rem; text-align:center;">افتخار همکاری با بهترین‌های عرصه سرود و موسیقی آیینی</p>
     </div>
+</main>
 
-    <!-- لیست پخش موسیقی -->
-    <div class="playlist-section">
-        <div class="section-title">
-            <i class="fas fa-music"></i> لیست پخش | mefzal.ir
-        </div>
-        <div class="track-list" id="trackListContainer">
-            <!-- داینامیک توسط JS پر می‌شود -->
-        </div>
+<footer>
+    <div>© ۱۴۰۳ - تمامی حقوق برای mefzal.ir محفوظ است | طراحی با تم پسته‌ای اختصاصی</div>
+    <div class="contact-section">
+        <span><i class="fas fa-envelope"></i> info@mefzal.ir</span>
+        <span><i class="fab fa-whatsapp"></i> ۰۹۳۵۵۵۱۲۳۴۵</span>
     </div>
-    <footer>
-        <i class="fas fa-copyright"></i> 2025 mefzal.ir - تمامی حقوق برای شنوندگان واقعی محفوظ است | طراحی با تم پسته‌ای
-    </footer>
-</div>
+</footer>
 
 <script>
-    // ---------- کتابخانه آهنگ های نمونه (برای نمایش زیبا) ----------
-    const tracks = [
+    // ---------- دیتا مجموعه آهنگ‌ها (شامل عکس, لینک صوتی, میکس, امورضبط, تکخوان, خوانندگان) ----------
+    const songsData = [
         {
-            title: "شب بارانی",
-            artist: "میلاد بیکلام",
-            src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-            duration: "3:45"
+            id: 1,
+            title: "سرود افتخار وحدت",
+            imageLink: "https://picsum.photos/id/104/400/400",   // منظره/ طلوع (لینک نمونه، شما می‌توانید عکس واقعی خود را جایگزین کنید)
+            audioLink: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3", // نمونه لینک مجاز mp3
+            mixMaster: "مهدی رضوی",
+            recordOffice: "استودیو پژواک",
+            soloSinger: "علیرضا حیدری",
+            singers: "گروه مفضال + همخوانان"
         },
         {
-            title: "ساحل ارومیه",
-            artist: "آوای مهرگان",
-            src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
-            duration: "4:12"
+            id: 2,
+            title: "سرود یا مهدی ادرکنی",
+            imageLink: "https://picsum.photos/id/106/400/400",
+            audioLink: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+            mixMaster: "سعید نوروزی",
+            recordOffice: "استودیو آوای رضوان",
+            soloSinger: "حسن طاهری",
+            singers: "گروه سرود مفضال"
         },
         {
-            title: "رقص باد",
-            artist: "هامون و باران",
-            src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
-            duration: "3:28"
+            id: 3,
+            title: "خونین شهر (دفاع مقدس)",
+            imageLink: "https://picsum.photos/id/107/400/400",
+            audioLink: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+            mixMaster: "کامران پوراحمد",
+            recordOffice: "مرکز ضبط سروش",
+            soloSinger: "ابوالفضل جعفری",
+            singers: "همخوانان دفاع مقدس"
         },
         {
-            title: "خاطره پسته‌ای",
-            artist: "mefzal orchestra",
-            src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
-            duration: "5:02"
-        },
-        {
-            title: "نوای کهن",
-            artist: "عارف نینوازی",
-            src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
-            duration: "3:55"
+            id: 4,
+            title: "ای ایران ای سرای امید",
+            imageLink: "https://picsum.photos/id/108/400/400",
+            audioLink: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
+            mixMaster: "پیمان صالحی",
+            recordOffice: "مسترینگ مفضال",
+            soloSinger: "فرزاد مومنی",
+            singers: "گروه ملی مفضال"
         }
     ];
 
-    // متغیرهای پلیر
-    let currentTrackIndex = 0;
-    let isPlaying = false;
-    const audio = new Audio();
-    audio.volume = 0.7;
-
-    // عناصر DOM
-    const playPauseBtn = document.getElementById('playPauseBtn');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    const progressContainer = document.getElementById('progressContainer');
-    const progressBar = document.getElementById('progressBar');
-    const currentTimeSpan = document.getElementById('currentTime');
-    const durationSpan = document.getElementById('duration');
-    const currentTrackTitleSpan = document.getElementById('currentTrackTitle');
-    const currentTrackArtistSpan = document.getElementById('currentTrackArtist');
-    const volumeControl = document.getElementById('volumeControl');
-    const trackListContainer = document.getElementById('trackListContainer');
-
-    // بارگذاری آهنگ بر اساس ایندکس
-    function loadTrack(index) {
-        if (index < 0) index = 0;
-        if (index >= tracks.length) index = tracks.length - 1;
-        currentTrackIndex = index;
-        const track = tracks[currentTrackIndex];
-        audio.src = track.src;
-        currentTrackTitleSpan.innerText = track.title;
-        currentTrackArtistSpan.innerText = track.artist;
-        // در صورتی که متادیتا دوریشن بارگذاری بشه
-        audio.addEventListener('loadedmetadata', () => {
-            if (!isNaN(audio.duration)) {
-                const mins = Math.floor(audio.duration / 60);
-                const secs = Math.floor(audio.duration % 60);
-                durationSpan.innerText = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
-            } else {
-                durationSpan.innerText = track.duration;
-            }
-        });
-        audio.load();
-        if (isPlaying) {
-            audio.play().catch(e => console.log("پخش خودکار نیاز به تعامل دارد", e));
-        }
-        updateActiveTrackInUI();
-    }
-
-    // بروزرسانی استایل آیتم فعال در لیست
-    function updateActiveTrackInUI() {
-        const allItems = document.querySelectorAll('.track-item');
-        allItems.forEach((item, idx) => {
-            if (idx === currentTrackIndex) {
-                item.classList.add('active');
-            } else {
-                item.classList.remove('active');
-            }
-        });
-    }
-
-    // پلی/مکث
-    function togglePlayPause() {
-        if (isPlaying) {
-            audio.pause();
-            playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
-        } else {
-            audio.play().catch(err => {
-                console.warn("تعامل کاربر نیاز است");
-                // در مرورگر ممکنه نیاز به کلیک اولیه باشه، ولی در کل کار می‌کنه
-            });
-            playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
-        }
-        isPlaying = !isPlaying;
-    }
-
-    // آهنگ بعدی
-    function nextTrack() {
-        if (currentTrackIndex + 1 < tracks.length) {
-            currentTrackIndex++;
-        } else {
-            currentTrackIndex = 0; // لوپ
-        }
-        loadTrack(currentTrackIndex);
-        if (isPlaying) {
-            audio.play();
-            playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
-        } else {
-            // اگر در حالت pause بودیم پس از لود همچنان متوقف بمونه
-            playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
-            isPlaying = false;
-        }
-    }
-
-    function prevTrack() {
-        if (currentTrackIndex - 1 >= 0) {
-            currentTrackIndex--;
-        } else {
-            currentTrackIndex = tracks.length - 1;
-        }
-        loadTrack(currentTrackIndex);
-        if (isPlaying) {
-            audio.play();
-            playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
-        } else {
-            playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
-            isPlaying = false;
-        }
-    }
-
-    // آپدیت نوار پیشرفت
-    function updateProgress() {
-        if (audio.duration) {
-            const percent = (audio.currentTime / audio.duration) * 100;
-            progressBar.style.width = percent + '%';
-            const currentMins = Math.floor(audio.currentTime / 60);
-            const currentSecs = Math.floor(audio.currentTime % 60);
-            currentTimeSpan.innerText = `${currentMins}:${currentSecs < 10 ? '0' : ''}${currentSecs}`;
-        }
-    }
-
-    function setProgress(e) {
-        const width = progressContainer.clientWidth;
-        const clickX = e.offsetX;
-        const duration = audio.duration;
-        if (duration && !isNaN(duration)) {
-            audio.currentTime = (clickX / width) * duration;
-        }
-    }
-
-    // صدا
-    function setVolume() {
-        audio.volume = volumeControl.value;
-    }
-
-    // وقتی آهنگ تموم شد بره بعدی
-    function handleSongEnd() {
-        nextTrack();
-    }
-
-    // رندر لیست پخش
-    function renderPlaylist() {
-        trackListContainer.innerHTML = '';
-        tracks.forEach((track, idx) => {
-            const trackDiv = document.createElement('div');
-            trackDiv.className = 'track-item';
-            if (idx === currentTrackIndex) trackDiv.classList.add('active');
-            trackDiv.innerHTML = `
-                <div class="track-name">
-                    <i class="fas fa-music"></i> ${track.title} — ${track.artist}
+    // تابع رندر کردن کارت‌ها در یک کانتینر مشخص
+    function renderCards(containerId, songsArray) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+        container.innerHTML = '';
+        songsArray.forEach(song => {
+            const card = document.createElement('div');
+            card.className = 'song-card';
+            // ساختار کارت شامل عکس 1:1 ، متا آیکون‌های کاستوم، پلیر و باکس دانلود
+            card.innerHTML = `
+                <div class="img-square">
+                    <img src="${song.imageLink}" alt="${song.title}" loading="lazy" onerror="this.src='https://picsum.photos/id/101/400/400'">
                 </div>
-                <div style="display: flex; align-items: center; gap: 12px;">
-                    <span class="track-duration"><i class="far fa-clock"></i> ${track.duration}</span>
-                    <span class="play-icon"><i class="fas fa-play"></i></span>
+                <div class="song-details">
+                    <div class="song-title">${escapeHtml(song.title)}</div>
+                    <div class="meta-icons">
+                        <div class="meta-item"><i class="fas fa-sliders-h"></i> میکس مستر: ${escapeHtml(song.mixMaster)}</div>
+                        <div class="meta-item"><i class="fas fa-microphone-alt"></i> امور ضبط: ${escapeHtml(song.recordOffice)}</div>
+                        <div class="meta-item"><i class="fas fa-user-music"></i> تک خوان: ${escapeHtml(song.soloSinger)}</div>
+                        <div class="meta-item"><i class="fas fa-users"></i> خوانندگان: ${escapeHtml(song.singers)}</div>
+                    </div>
+                </div>
+                <div class="player-wrapper">
+                    <audio controls preload="metadata" src="${song.audioLink}">
+                        مرورگر شما از پلیر پشتیبانی نمی‌کند.
+                    </audio>
+                    <div class="extra-actions">
+                        <div class="info-badge"><i class="fas fa-headphones"></i> کیفیت عالی</div>
+                        <button class="download-btn" data-audio-url="${song.audioLink}" data-song-name="${song.title}">
+                            <i class="fas fa-download"></i> دانلود
+                        </button>
+                    </div>
                 </div>
             `;
-            trackDiv.addEventListener('click', (e) => {
+            container.appendChild(card);
+        });
+
+        // پس از رندر، به دکمه‌های دانلود ایونت لیسینر بدهیم
+        document.querySelectorAll(`#${containerId} .download-btn`).forEach(btn => {
+            btn.addEventListener('click', (e) => {
                 e.stopPropagation();
-                // تغییر آهنگ به این ایندکس
-                if (currentTrackIndex === idx) {
-                    // اگه آهنگ همون بود فقط پلی/مکث
-                    togglePlayPause();
-                } else {
-                    currentTrackIndex = idx;
-                    loadTrack(currentTrackIndex);
-                    if (isPlaying) {
-                        audio.play();
-                        playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
-                    } else {
-                        // شروع خودکار پخش وقتی از لیست انتخاب می‌شه برای تجربه بهتر
-                        audio.play().then(() => {
-                            isPlaying = true;
-                            playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
-                        }).catch(() => {
-                            isPlaying = false;
-                            playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
-                        });
-                    }
-                }
-                updateActiveTrackInUI();
+                const url = btn.getAttribute('data-audio-url');
+                const name = btn.getAttribute('data-song-name') || 'track';
+                downloadAudio(url, name);
             });
-            trackListContainer.appendChild(trackDiv);
         });
     }
 
-    // رویدادهای زمانی
-    audio.addEventListener('timeupdate', updateProgress);
-    audio.addEventListener('ended', handleSongEnd);
-    audio.addEventListener('play', () => {
-        isPlaying = true;
-        playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
-    });
-    audio.addEventListener('pause', () => {
-        isPlaying = false;
-        playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
-    });
-    progressContainer.addEventListener('click', setProgress);
-    playPauseBtn.addEventListener('click', togglePlayPause);
-    nextBtn.addEventListener('click', nextTrack);
-    prevBtn.addEventListener('click', prevTrack);
-    volumeControl.addEventListener('input', setVolume);
+    // تابع کمکی برای دانلود فایل (با استفاده از fetch و blob)
+    function downloadAudio(url, filename) {
+        // در محیط واقعی بهتر است از لینک مستقیم استفاده شود؛ اما برای نمایش قابلیت و رعایت امنیت cors ممکن است محدودیت داشته باشد.
+        // از آنجایی که لینک‌های دمو امکان دانلود مستقیم دارند، این روش کار خواهد کرد.
+        fetch(url)
+            .then(response => {
+                if (!response.ok) throw new Error('خطا در دریافت فایل');
+                return response.blob();
+            })
+            .then(blob => {
+                const blobUrl = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = blobUrl;
+                a.download = `${filename}.mp3`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                window.URL.revokeObjectURL(blobUrl);
+            })
+            .catch(err => {
+                alert("امکان دانلود مستقیم نیست. ممکن است لینک صوتی محدودیت CORS داشته باشد اما لینک دانلود اصلی را می‌توانید با کلیک راست ذخیره کنید.");
+                // راهکار پشتیبان: باز کردن لینک در تب جدید
+                window.open(url, '_blank');
+            });
+    }
 
-    // بارگذاری اولیه
-    renderPlaylist();
-    loadTrack(0);
-    audio.volume = 0.7;
-    volumeControl.value = 0.7;
-    // غیرفعال کردن خودکار پخش تا مرورگر اجازه بده، اما می‌توان پس از تعامل کاربر پخش کرد
-    isPlaying = false;
-    playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
-    // در صورت نیاز قابلیت preload
-    audio.preload = 'metadata';
-    
-    // نمایش جذابیت بیشتر: وقتی صفحه لود شد یک افکت خوش آمد گویی سبک
-    console.log("mefzal.ir | سایت موسیقی با تم پسته‌ای آماده پخش است!");
+    // تابع escape ساده برای جلوگیری از XSS
+    function escapeHtml(str) {
+        if(!str) return '';
+        return str.replace(/[&<>]/g, function(m) {
+            if (m === '&') return '&amp;';
+            if (m === '<') return '&lt;';
+            if (m === '>') return '&gt;';
+            return m;
+        }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function(c) {
+            return c;
+        });
+    }
+
+    // مدیریت منو (تغییر بین صفحات + نمایش کارت‌های مناسب)
+    // برای صفحه "سرودها" هم دقیقا همان لیست آهنگ‌ها را می‌دهیم
+    // صفحه خانه نیز کارت‌های مشابه (بهترین سرودها)
+    function switchPage(pageId) {
+        const sections = ['homePage', 'sorudhaPage', 'hamahangiPage', 'groupPage'];
+        sections.forEach(sec => {
+            const el = document.getElementById(sec);
+            if(el) {
+                if(sec === pageId) {
+                    el.classList.remove('hidden-section');
+                    el.classList.add('active-section');
+                } else {
+                    el.classList.add('hidden-section');
+                    el.classList.remove('active-section');
+                }
+            }
+        });
+        // به روز رسانی کلاس active در منو
+        document.querySelectorAll('#mainMenu a').forEach(link => {
+            link.classList.remove('active');
+            const pageAttr = link.getAttribute('data-page');
+            if ((pageAttr === 'home' && pageId === 'homePage') ||
+                (pageAttr === 'sorudha' && pageId === 'sorudhaPage') ||
+                (pageAttr === 'hamahangi' && pageId === 'hamahangiPage') ||
+                (pageAttr === 'group' && pageId === 'groupPage')) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    // بارگذاری اولیه کارت‌ها در دو بخش (خانه و سرودها)
+    function initCards() {
+        renderCards('homeCardsGrid', songsData);
+        renderCards('sorudhaGrid', songsData);
+    }
+
+    // رویدادهای منو
+    function bindMenuEvents() {
+        const menuLinks = document.querySelectorAll('#mainMenu a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const page = link.getAttribute('data-page');
+                if (page === 'home') switchPage('homePage');
+                else if (page === 'sorudha') switchPage('sorudhaPage');
+                else if (page === 'hamahangi') switchPage('hamahangiPage');
+                else if (page === 'group') switchPage('groupPage');
+                // اسکرول به بالای صفحه
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    }
+
+    // اطمینان از اینکه در حین کلیک روی دکمه‌های دانلود که داینامیک هستند، مدیریت می‌شود (اما در renderCards اضافه کردیم)
+    // یک observer هم اضافه نمی‌کنیم چون هر بار رندر مجدد رویدادها اعمال می‌شوند.
+
+    // در صورتی که کاربر در صفحه دانلود از روی کارتها استفاده کند، رندرها به درستی کار می‌کنند.
+
+    // اجرای اولیه
+    window.addEventListener('DOMContentLoaded', () => {
+        initCards();
+        bindMenuEvents();
+        // نمایش صفحه خانه فعال در ابتدا
+        switchPage('homePage');
+    });
 </script>
 </body>
-</html>
+    </html>
