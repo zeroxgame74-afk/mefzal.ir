@@ -167,38 +167,42 @@
             padding: 1rem 1rem 0.7rem;
         }
         
-        /* باکس عنوان سرود - سایز جدید */
+        /* باکس عنوان سرود و تگ هم اندازه */
+        .song-title-box, .custom-tag {
+            width: 100%;
+            max-width: 260px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 8px 12px;
+            border-radius: 40px;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
         .song-title-box {
             background: #1f3f2c;
-            padding: 0.5rem 0.8rem;
-            border-radius: 40px;
-            margin-bottom: 1rem;
-            text-align: center;
-            border: 1px solid rgba(163, 201, 168, 0.3);
+            border: 1px solid rgba(163, 201, 168, 0.4);
         }
         .song-title {
-            font-size: 1.1rem;
-            font-weight: 800;
             color: #fbf5cf;
-            letter-spacing: 1px;
+            font-size: 1rem;
+            font-weight: 700;
         }
-        
-        /* تگ پرطرفدار - سایز جدید هماهنگ با عنوان */
         .custom-tag {
+            background: linear-gradient(135deg, #e6a017, #d45500);
+            border: 1px solid #ffcd7e;
+            color: #fff7e0;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            background: linear-gradient(135deg, #e6a017, #d45500);
-            padding: 0.5rem 0.8rem;
-            border-radius: 40px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #fff7e0;
-            width: fit-content;
-            margin: 0 auto 1rem auto;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-            border: 1px solid #ffcd7e;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .custom-tag:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
         .custom-tag i {
             font-size: 1rem;
@@ -255,7 +259,6 @@
             transition: 0.2s;
             color: #1e3a2a;
             font-size: 1.3rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
             flex-shrink: 0;
         }
         .play-btn:hover {
@@ -282,7 +285,6 @@
             height: 100%;
             background: var(--pistachio);
             border-radius: 10px;
-            transition: width 0.05s linear;
         }
         .time-info {
             font-size: 0.7rem;
@@ -302,13 +304,11 @@
             border-radius: 50px;
             color: #1e3a2a;
             font-weight: bold;
-            font-family: inherit;
             font-size: 0.75rem;
             display: inline-flex;
             align-items: center;
             gap: 8px;
             cursor: pointer;
-            transition: 0.2s;
             flex-shrink: 0;
         }
         .download-simple:hover {
@@ -333,7 +333,7 @@
             margin-top: 10px;
         }
 
-        /* استایل جدید گروه مفضال (کاملاً شبیه صفحه هماهنگی) */
+        /* گروه مفضال */
         .group-header {
             text-align: center;
             margin-bottom: 2rem;
@@ -342,7 +342,7 @@
             font-size: 2rem;
             background: #2c4a35;
             display: inline-block;
-            padding: 0.8rem 2rem;
+            padding: 0.6rem 1.8rem;
             border-radius: 60px;
             border: 2px solid var(--pistachio);
         }
@@ -356,34 +356,33 @@
             justify-content: center;
             gap: 1rem;
             margin-bottom: 1.5rem;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             background: #1f3f2c99;
-            padding: 0.9rem 1.5rem;
+            padding: 0.8rem 1.5rem;
             border-radius: 70px;
             flex-wrap: wrap;
         }
         .info-row i {
-            font-size: 1.8rem;
-            width: 2.2rem;
+            font-size: 1.6rem;
+            width: 2rem;
             color: var(--pistachio);
         }
         .phone-number {
             direction: ltr;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: bold;
-            letter-spacing: 2px;
             background: #1b2f23;
-            padding: 0.3rem 1.2rem;
+            padding: 0.2rem 1rem;
             border-radius: 50px;
             display: inline-block;
         }
         .group-footnote {
             margin-top: 2rem;
             text-align: center;
-            font-size: 1rem;
+            font-size: 0.9rem;
             background: #1a3a2a90;
             border-radius: 2rem;
-            padding: 0.9rem;
+            padding: 0.8rem;
         }
 
         footer {
@@ -402,13 +401,6 @@
             }
             .menu {
                 justify-content: center;
-            }
-            .info-row {
-                font-size: 1rem;
-                padding: 0.7rem;
-            }
-            .phone-number {
-                font-size: 1.2rem;
             }
             .player-row {
                 flex-direction: column;
@@ -442,6 +434,7 @@
         <div class="menu" id="mainMenu">
             <a href="#" data-page="home" class="active"><i class="fas fa-home"></i> خانه</a>
             <a href="#" data-page="sorudha"><i class="fas fa-music"></i> سرودها</a>
+            <a href="#" data-page="popular"><i class="fas fa-fire"></i> پرطرفدار</a>
             <a href="#" data-page="hamahangi"><i class="fas fa-handshake"></i> هماهنگی</a>
             <a href="#" data-page="group"><i class="fas fa-users"></i> گروه مفضال</a>
         </div>
@@ -463,6 +456,13 @@
         </div>
         <div class="cards-grid" id="sorudhaGrid"></div>
     </div>
+    <div id="popularPage" class="page-section hidden-section">
+        <div class="hero">
+            <h2><i class="fas fa-fire"></i> پرطرفدارترین سرودها</h2>
+            <p>محبوب‌ترین و پربازدیدترین سرودهای گروه مفضال</p>
+        </div>
+        <div class="cards-grid" id="popularGrid"></div>
+    </div>
     <div id="hamahangiPage" class="page-section hidden-section">
         <div class="hero">
             <h2>هماهنگی و ارتباط با ما</h2>
@@ -483,7 +483,6 @@
             <h2>درباره گروه حرفه‌ای مفضال</h2>
             <p>پیشرو در تولید سرودهای فاخر و هماهنگی بی‌نظیر</p>
         </div>
-        <!-- گروه مفضال: بدون هیچ باکس تودرتو، فقط به سبک صفحه هماهنگی -->
         <div class="group-header">
             <h2><i class="fas fa-users"></i> گروه مفضال</h2>
         </div>
@@ -518,7 +517,6 @@
     function createSimplePlayer(audioSrc, trackTitle) {
         const container = document.createElement('div');
         container.className = 'player-simple';
-        
         const row = document.createElement('div');
         row.className = 'player-row';
         
@@ -559,7 +557,6 @@
         
         const audio = new Audio(audioSrc);
         audio.preload = 'metadata';
-        
         let isPlaying = false;
         
         function formatTime(sec) {
@@ -587,14 +584,13 @@
             isPlaying = false;
             playBtn.innerHTML = '<i class="fas fa-play"></i>';
             progressFill.style.width = '0%';
-            timeSpan.innerText = `${formatTime(0)} / ${formatTime(audio.duration)}`;
         });
         
         playBtn.addEventListener('click', () => {
             if (isPlaying) {
                 audio.pause();
             } else {
-                audio.play().catch(e => console.log("پخش خودکار مسدود شد"));
+                audio.play().catch(e => console.log("play error"));
             }
             isPlaying = !isPlaying;
             playBtn.innerHTML = isPlaying ? '<i class="fas fa-pause"></i>' : '<i class="fas fa-play"></i>';
@@ -653,7 +649,7 @@
             card.className = 'song-card';
             let tagHtml = '';
             if (song.tag) {
-                tagHtml = `<div class="custom-tag"><i class="fas fa-fire"></i> ${escapeHtml(song.tag)}</div>`;
+                tagHtml = `<div class="custom-tag" data-tag="${escapeHtml(song.tag)}"><i class="fas fa-fire"></i> ${escapeHtml(song.tag)}</div>`;
             }
             card.innerHTML = `
                 <div class="img-square">
@@ -675,10 +671,64 @@
             card.appendChild(player);
             container.appendChild(card);
         });
+        
+        // اضافه کردن رویداد کلیک به تگ‌های پرطرفدار
+        document.querySelectorAll(`#${containerId} .custom-tag`).forEach(tag => {
+            tag.addEventListener('click', (e) => {
+                e.stopPropagation();
+                // رفتن به صفحه پرطرفدارها
+                switchPage('popularPage');
+                // اسکرول به بالای صفحه
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    }
+    
+    function renderPopularCards() {
+        const popularSongs = songsData.filter(song => song.tag === "پرطرفدار");
+        const container = document.getElementById('popularGrid');
+        if (!container) return;
+        container.innerHTML = '';
+        popularSongs.forEach(song => {
+            const card = document.createElement('div');
+            card.className = 'song-card';
+            let tagHtml = '';
+            if (song.tag) {
+                tagHtml = `<div class="custom-tag" data-tag="${escapeHtml(song.tag)}"><i class="fas fa-fire"></i> ${escapeHtml(song.tag)}</div>`;
+            }
+            card.innerHTML = `
+                <div class="img-square">
+                    <img src="${song.imageLink}" alt="${song.title}" loading="lazy" onerror="this.src='https://picsum.photos/id/101/400/400'">
+                </div>
+                <div class="song-details">
+                    <div class="song-title-box">
+                        <div class="song-title">${escapeHtml(song.title)}</div>
+                    </div>
+                    ${tagHtml}
+                    <div class="meta-icons">
+                        <div class="meta-item"><i class="fas fa-sliders-h"></i> میکس مستر: ${escapeHtml(song.mixMaster)}</div>
+                        <div class="meta-item"><i class="fas fa-microphone-alt"></i> امور ضبط: ${escapeHtml(song.recordOffice)}</div>
+                        <div class="meta-item"><i class="fas fa-users"></i> گروه سرود: ${escapeHtml(song.singers)}</div>
+                    </div>
+                </div>
+            `;
+            const player = createSimplePlayer(song.audioLink, song.title);
+            card.appendChild(player);
+            container.appendChild(card);
+        });
+        
+        // رویداد کلیک برای تگ‌های داخل صفحه پرطرفدار
+        document.querySelectorAll('#popularGrid .custom-tag').forEach(tag => {
+            tag.addEventListener('click', (e) => {
+                e.stopPropagation();
+                switchPage('popularPage');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
     }
     
     function switchPage(pageId) {
-        const sections = ['homePage', 'sorudhaPage', 'hamahangiPage', 'groupPage'];
+        const sections = ['homePage', 'sorudhaPage', 'popularPage', 'hamahangiPage', 'groupPage'];
         sections.forEach(sec => {
             const el = document.getElementById(sec);
             if(el) {
@@ -696,6 +746,7 @@
             const pageAttr = link.getAttribute('data-page');
             if ((pageAttr === 'home' && pageId === 'homePage') ||
                 (pageAttr === 'sorudha' && pageId === 'sorudhaPage') ||
+                (pageAttr === 'popular' && pageId === 'popularPage') ||
                 (pageAttr === 'hamahangi' && pageId === 'hamahangiPage') ||
                 (pageAttr === 'group' && pageId === 'groupPage')) {
                 link.classList.add('active');
@@ -706,6 +757,7 @@
     function initCards() {
         renderCards('homeCardsGrid', songsData);
         renderCards('sorudhaGrid', songsData);
+        renderPopularCards();
     }
     
     function bindMenuEvents() {
@@ -716,6 +768,7 @@
                 const page = link.getAttribute('data-page');
                 if (page === 'home') switchPage('homePage');
                 else if (page === 'sorudha') switchPage('sorudhaPage');
+                else if (page === 'popular') switchPage('popularPage');
                 else if (page === 'hamahangi') switchPage('hamahangiPage');
                 else if (page === 'group') switchPage('groupPage');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -730,4 +783,4 @@
     });
 </script>
 </body>
-    </html>
+            </html>
