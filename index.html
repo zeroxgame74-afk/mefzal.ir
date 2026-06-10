@@ -7,19 +7,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             background: linear-gradient(145deg, #1a3a2a 0%, #0e2a1c 100%);
             font-family: 'Vazirmatn', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: #f1f5e9;
             padding-bottom: 2rem;
         }
-
         :root {
             --pistachio: #a3c9a8;
             --pistachio-dark: #6f9e7c;
@@ -27,19 +21,9 @@
             --bg-card: #2c4a35;
             --shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.3);
         }
-
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #1e3828;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--pistachio);
-            border-radius: 10px;
-        }
-
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #1e3828; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb { background: var(--pistachio); border-radius: 10px; }
         .navbar {
             background: #1f3a2c;
             backdrop-filter: blur(8px);
@@ -52,13 +36,8 @@
             flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
-        .logo-area {
-            display: flex;
-            align-items: baseline;
-            gap: 10px;
-        }
+        .logo-area { display: flex; align-items: baseline; gap: 10px; }
         .site-name {
             font-size: 1.8rem;
             font-weight: 800;
@@ -66,22 +45,9 @@
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
-            letter-spacing: -0.5px;
         }
-        .site-name small {
-            font-size: 0.9rem;
-            font-weight: 400;
-            color: var(--pistachio-light);
-            background: none;
-            -webkit-background-clip: unset;
-            background-clip: unset;
-            color: #cce6d2;
-        }
-        .menu {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
+        .site-name small { font-size: 0.9rem; font-weight: 400; color: #cce6d2; }
+        .menu { display: flex; gap: 1rem; flex-wrap: wrap; }
         .menu a {
             color: #e0f2e5;
             text-decoration: none;
@@ -94,20 +60,8 @@
             align-items: center;
             gap: 6px;
         }
-        .menu a i {
-            font-size: 1rem;
-        }
-        .menu a:hover, .menu a.active {
-            background: var(--pistachio);
-            color: #1a3a2a;
-            transform: translateY(-2px);
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 2rem auto;
-            padding: 0 1.5rem;
-        }
+        .menu a:hover, .menu a.active { background: var(--pistachio); color: #1a3a2a; transform: translateY(-2px); }
+        .container { max-width: 1400px; margin: 2rem auto; padding: 0 1.5rem; }
         .hero {
             background: rgba(30, 55, 40, 0.6);
             border-radius: 2rem;
@@ -117,96 +71,45 @@
             backdrop-filter: blur(10px);
             border: 1px solid var(--pistachio);
         }
-        .hero h2 {
-            font-weight: 700;
-            font-size: 1.6rem;
-            color: #f4fded;
-        }
-        .hero p {
-            color: #cbdfcf;
-        }
-
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
-            gap: 2rem;
-            margin-top: 1rem;
-        }
-
-        .song-card {
-            background: var(--bg-card);
-            border-radius: 28px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: all 0.25s ease-in-out;
-            border: 1px solid rgba(163, 201, 168, 0.3);
-        }
-        .song-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--pistachio);
-        }
-
-        .img-square {
-            aspect-ratio: 1 / 1;
+        .hero h2 { font-weight: 700; font-size: 1.6rem; color: #f4fded; }
+        .hero p { color: #cbdfcf; }
+        .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 2rem; margin-top: 1rem; }
+        .song-card { background: var(--bg-card); border-radius: 28px; overflow: hidden; box-shadow: var(--shadow); transition: all 0.25s ease-in-out; border: 1px solid rgba(163, 201, 168, 0.3); }
+        .song-card:hover { transform: translateY(-8px); border-color: var(--pistachio); }
+        .img-square { aspect-ratio: 1 / 1; width: 100%; background: #1c2f24; overflow: hidden; }
+        .img-square img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease; }
+        .song-card:hover .img-square img { transform: scale(1.02); }
+        .song-details { padding: 1rem 1rem 0.7rem; }
+        .song-title-box {
             width: 100%;
-            background: #1c2f24;
-            overflow: hidden;
-        }
-        .img-square img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.3s ease;
-        }
-        .song-card:hover .img-square img {
-            transform: scale(1.02);
-        }
-
-        .song-details {
-            padding: 1rem 1rem 0.7rem;
-        }
-
-        /* باکس عنوان سرود و تگ - هم اندازه */
-        .song-title-box, .custom-tag {
-            width: 100%;
-            padding: 6px 10px;
+            padding: 8px 12px;
             border-radius: 30px;
             text-align: center;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-        .song-title-box {
             background: #1f3f2c;
             border: 1px solid rgba(163, 201, 168, 0.4);
+            margin-bottom: 12px;
         }
-        .song-title {
-            color: #fbf5cf;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
+        .song-title { color: #fbf5cf; font-size: 0.9rem; font-weight: 700; }
         .custom-tag {
+            width: 100%;
+            padding: 8px 12px;
+            border-radius: 30px;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 12px;
             background: linear-gradient(135deg, #e6a017, #d45500);
             border: 1px solid #ffcd7e;
             color: #fff7e0;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
+            gap: 8px;
             cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: transform 0.2s;
         }
-        .custom-tag:hover {
-            transform: scale(1.02);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        }
-        .custom-tag i {
-            font-size: 0.85rem;
-            color: #ffefb0;
-        }
-
-        /* باکس میکس مستر، امور ضبط و گروه سرود - بزرگتر شدن */
+        .custom-tag:hover { transform: scale(1.02); }
+        .custom-tag i { font-size: 0.9rem; color: #ffefb0; }
         .meta-icons {
             display: flex;
             flex-wrap: wrap;
@@ -214,7 +117,7 @@
             margin: 0.75rem 0;
             font-size: 0.9rem;
             background: #1f3f2c;
-            padding: 0.6rem 0.6rem;
+            padding: 0.6rem;
             border-radius: 40px;
             justify-content: center;
         }
@@ -227,112 +130,21 @@
             border-radius: 30px;
             font-weight: 500;
         }
-        .meta-item i {
-            font-size: 1rem;
-            color: var(--pistachio);
-        }
+        .meta-item i { font-size: 1rem; color: var(--pistachio); }
+        .player-simple { background: #1e3527; border-top: 1px solid #517a5e; padding: 0.8rem 1rem 1rem; }
+        .player-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: space-between; }
+        .play-btn { background: var(--pistachio); border: none; width: 42px; height: 42px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #1e3a2a; font-size: 1.2rem; flex-shrink: 0; }
+        .play-btn:hover { background: #e2ffd6; transform: scale(1.05); }
+        .progress-wrapper { flex: 3; display: flex; flex-direction: column; gap: 5px; min-width: 140px; }
+        .progress-bar { width: 100%; height: 5px; background: #4f6b58; border-radius: 10px; cursor: pointer; position: relative; }
+        .progress-fill { width: 0%; height: 100%; background: var(--pistachio); border-radius: 10px; }
+        .time-info { font-size: 0.7rem; font-family: monospace; background: #0f261b; padding: 2px 8px; border-radius: 30px; color: #cfe6d4; display: inline-block; direction: ltr; }
+        .download-simple { background: var(--pistachio); border: none; padding: 7px 14px; border-radius: 50px; color: #1e3a2a; font-weight: bold; font-family: 'Vazirmatn', 'Segoe UI', sans-serif; font-size: 0.75rem; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; flex-shrink: 0; }
+        .download-simple:hover { background: #e2ffd6; transform: scale(1.02); }
+        .quality-badge { background: #2d6143; border-radius: 40px; padding: 4px 10px; font-size: 0.65rem; font-weight: 600; color: var(--pistachio-light); display: inline-flex; align-items: center; gap: 6px; }
+        .extra-line { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
 
-        .player-simple {
-            background: #1e3527;
-            border-top: 1px solid #517a5e;
-            padding: 0.8rem 1rem 1rem;
-        }
-        .player-row {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-        .play-btn {
-            background: var(--pistachio);
-            border: none;
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: 0.2s;
-            color: #1e3a2a;
-            font-size: 1.2rem;
-            flex-shrink: 0;
-        }
-        .play-btn:hover {
-            background: #e2ffd6;
-            transform: scale(1.05);
-        }
-        .progress-wrapper {
-            flex: 3;
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            min-width: 140px;
-        }
-        .progress-bar {
-            width: 100%;
-            height: 5px;
-            background: #4f6b58;
-            border-radius: 10px;
-            cursor: pointer;
-            position: relative;
-        }
-        .progress-fill {
-            width: 0%;
-            height: 100%;
-            background: var(--pistachio);
-            border-radius: 10px;
-        }
-        .time-info {
-            font-size: 0.7rem;
-            font-family: monospace;
-            background: #0f261b;
-            padding: 2px 8px;
-            border-radius: 30px;
-            color: #cfe6d4;
-            display: inline-block;
-            width: fit-content;
-            direction: ltr;
-        }
-        .download-simple {
-            background: var(--pistachio);
-            border: none;
-            padding: 7px 14px;
-            border-radius: 50px;
-            color: #1e3a2a;
-            font-weight: bold;
-            font-family: 'Vazirmatn', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-size: 0.75rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            cursor: pointer;
-            flex-shrink: 0;
-        }
-        .download-simple:hover {
-            background: #e2ffd6;
-            transform: scale(1.02);
-        }
-        .quality-badge {
-            background: #2d6143;
-            border-radius: 40px;
-            padding: 4px 10px;
-            font-size: 0.65rem;
-            font-weight: 600;
-            color: var(--pistachio-light);
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .extra-line {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 10px;
-        }
-
-        /* گروه مفضال - کاملاً مثل صفحه هماهنگی */
+        /* ---------- گروه مفضال - کاملاً ساده و بی باکس تودرتو (مثل صفحه هماهنگی) ---------- */
         .group-main-title {
             text-align: center;
             margin: 2rem 0 1.5rem;
@@ -345,6 +157,7 @@
             border-radius: 60px;
             border: 2px solid var(--pistachio);
         }
+        /* ردیف اطلاعات - دقیقاً مثل صفحه هماهنگی */
         .info-row {
             display: flex;
             align-items: center;
@@ -357,75 +170,27 @@
             border-radius: 70px;
             flex-wrap: wrap;
         }
-        .info-row i {
-            font-size: 1.4rem;
-            width: 2rem;
-            color: var(--pistachio);
-        }
-        .phone-number {
-            direction: ltr;
-            font-size: 1.2rem;
-            font-weight: bold;
-            background: #1b2f23;
-            padding: 0.2rem 1rem;
-            border-radius: 50px;
-            display: inline-block;
-        }
-        .group-footnote {
-            margin-top: 1.5rem;
-            text-align: center;
-            font-size: 0.85rem;
-            background: #1a3a2a90;
-            border-radius: 2rem;
-            padding: 0.6rem;
-        }
+        .info-row i { font-size: 1.4rem; width: 2rem; color: var(--pistachio); }
+        .phone-number { direction: ltr; font-size: 1.2rem; font-weight: bold; background: #1b2f23; padding: 0.2rem 1rem; border-radius: 50px; display: inline-block; }
+        .group-footnote { margin-top: 1.5rem; text-align: center; font-size: 0.85rem; background: #1a3a2a90; border-radius: 2rem; padding: 0.6rem; }
 
-        footer {
-            margin-top: 4rem;
-            background: #14281e;
-            padding: 1.5rem;
-            text-align: center;
-            border-top: 1px solid var(--pistachio);
-            font-size: 0.85rem;
-        }
+        footer { margin-top: 4rem; background: #14281e; padding: 1.5rem; text-align: center; border-top: 1px solid var(--pistachio); font-size: 0.85rem; }
         @media (max-width: 700px) {
-            .navbar {
-                flex-direction: column;
-                gap: 12px;
-                padding: 1rem;
-            }
-            .menu {
-                justify-content: center;
-            }
-            .player-row {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .progress-wrapper {
-                width: 100%;
-            }
-            .download-simple {
-                justify-content: center;
-            }
-            .group-main-title h2 {
-                font-size: 1.5rem;
-            }
+            .navbar { flex-direction: column; gap: 12px; padding: 1rem; }
+            .menu { justify-content: center; }
+            .player-row { flex-direction: column; align-items: stretch; }
+            .progress-wrapper { width: 100%; }
+            .download-simple { justify-content: center; }
+            .group-main-title h2 { font-size: 1.5rem; }
         }
-        .hidden-section {
-            display: none;
-        }
-        .active-section {
-            display: block;
-        }
+        .hidden-section { display: none; }
+        .active-section { display: block; }
     </style>
 </head>
 <body>
-
 <header>
     <div class="navbar">
-        <div class="logo-area">
-            <span class="site-name">mefzal.ir <small>| سرود و هماهنگی</small></span>
-        </div>
+        <div class="logo-area"><span class="site-name">mefzal.ir <small>| سرود و هماهنگی</small></span></div>
         <div class="menu" id="mainMenu">
             <a href="#" data-page="home" class="active"><i class="fas fa-home"></i> خانه</a>
             <a href="#" data-page="sorudha"><i class="fas fa-music"></i> سرودها</a>
@@ -435,52 +200,16 @@
         </div>
     </div>
 </header>
-
 <main class="container" id="mainContent">
-    <div id="homePage" class="page-section">
-        <div class="hero">
-            <h2>به پخش‌کننده رسمی mefzal.ir خوش آمدید</h2>
-            <p>زیباترین سرودهای ملی، مذهبی و گروهی | پلیر ساده و حرفه‌ای</p>
-        </div>
-        <div class="cards-grid" id="homeCardsGrid"></div>
-    </div>
-    <div id="sorudhaPage" class="page-section hidden-section">
-        <div class="hero">
-            <h2>سرودهای اختصاصی مفضال</h2>
-            <p>جدیدترین و پرطرفدارترین سرودهای گروه هماهنگ مفضال</p>
-        </div>
-        <div class="cards-grid" id="sorudhaGrid"></div>
-    </div>
-    <div id="popularPage" class="page-section hidden-section">
-        <div class="hero">
-            <h2><i class="fas fa-fire"></i> پرطرفدارترین سرودها</h2>
-            <p>محبوب‌ترین و پربازدیدترین سرودهای گروه مفضال</p>
-        </div>
-        <div class="cards-grid" id="popularGrid"></div>
-    </div>
-    <div id="hamahangiPage" class="page-section hidden-section">
-        <div class="hero">
-            <h2>هماهنگی و ارتباط با ما</h2>
-            <p>برای برگزاری مراسم، هماهنگی گروهی و درخواست سرود سفارشی با ما در تماس باشید</p>
-        </div>
-        <div style="background:#2c4a35; border-radius:2rem; padding:2rem; text-align:center;">
-            <i class="fas fa-phone-alt" style="font-size:3rem; color:var(--pistachio);"></i>
-            <h3 style="margin:1rem 0;">شماره تماس هماهنگی:</h3>
-            <p style="font-size:1.7rem; direction:ltr; font-weight:bold;">۰۹۹۶۵۹۵۵۸۵۶</p>
-            <p>ایمیل: hamahangi@mefzal.ir</p>
-            <div class="info-row" style="justify-content:center; width:fit-content; margin:1rem auto;">
-                <i class="fab fa-instagram"></i> <span>mefzal_group_official</span>
-            </div>
-        </div>
-    </div>
+    <div id="homePage" class="page-section"><div class="hero"><h2>به پخش‌کننده رسمی mefzal.ir خوش آمدید</h2><p>زیباترین سرودهای ملی، مذهبی و گروهی | پلیر ساده و حرفه‌ای</p></div><div class="cards-grid" id="homeCardsGrid"></div></div>
+    <div id="sorudhaPage" class="page-section hidden-section"><div class="hero"><h2>سرودهای اختصاصی مفضال</h2><p>جدیدترین و پرطرفدارترین سرودهای گروه هماهنگ مفضال</p></div><div class="cards-grid" id="sorudhaGrid"></div></div>
+    <div id="popularPage" class="page-section hidden-section"><div class="hero"><h2><i class="fas fa-fire"></i> پرطرفدارترین سرودها</h2><p>محبوب‌ترین و پربازدیدترین سرودهای گروه مفضال</p></div><div class="cards-grid" id="popularGrid"></div></div>
+    <div id="hamahangiPage" class="page-section hidden-section"><div class="hero"><h2>هماهنگی و ارتباط با ما</h2><p>برای برگزاری مراسم، هماهنگی گروهی و درخواست سرود سفارشی با ما در تماس باشید</p></div><div style="background:#2c4a35; border-radius:2rem; padding:1.5rem; text-align:center;"><i class="fas fa-phone-alt" style="font-size:2.5rem; color:var(--pistachio);"></i><h3 style="margin:0.5rem 0;">شماره تماس هماهنگی:</h3><p style="font-size:1.5rem; direction:ltr; font-weight:bold;">۰۹۹۶۵۹۵۵۸۵۶</p><p>ایمیل: hamahangi@mefzal.ir</p><div class="info-row" style="justify-content:center; width:fit-content; margin:1rem auto;"><i class="fab fa-instagram"></i> <span>mefzal_group_official</span></div></div></div>
+    
+    <!-- تب گروه مفضال - فقط عنوان و ردیف اطلاعات، بدون هیچ باکس تودرتوی اضافه -->
     <div id="groupPage" class="page-section hidden-section">
-        <div class="hero">
-            <h2>درباره گروه حرفه‌ای مفضال</h2>
-            <p>پیشرو در تولید سرودهای فاخر و هماهنگی بی‌نظیر</p>
-        </div>
-        <div class="group-main-title">
-            <h2><i class="fas fa-users"></i> گروه مفضال</h2>
-        </div>
+        <div class="hero"><h2>درباره گروه حرفه‌ای مفضال</h2><p>پیشرو در تولید سرودهای فاخر و هماهنگی بی‌نظیر</p></div>
+        <div class="group-main-title"><h2><i class="fas fa-users"></i> گروه مفضال</h2></div>
         <div class="info-row"><i class="fas fa-user-tie"></i><strong>مدیر مجموعه:</strong> ابوالفضل حیدری</div>
         <div class="info-row"><i class="fas fa-microphone-alt"></i><strong>امور ضبط و آموزگار سرود:</strong> مهدی اکبری | حمیدرضا نخعی</div>
         <div class="info-row"><i class="fas fa-laptop-code"></i><strong>سازنده سایت:</strong> محمد حسین صنعتی</div>
@@ -488,10 +217,7 @@
         <div class="group-footnote"><i class="fas fa-star-of-life" style="color: var(--pistachio);"></i> همکاری با بهترین اساتید سرود کشور</div>
     </div>
 </main>
-<footer>
-    <div>© ۱۴۰۳ - تمامی حقوق برای mefzal.ir محفوظ است</div>
-    <div style="margin-top: 6px; font-size: 0.7rem;">هماهنگی و پشتیبانی: 09965955856</div>
-</footer>
+<footer><div>© ۱۴۰۳ - تمامی حقوق برای mefzal.ir محفوظ است</div><div style="margin-top: 6px; font-size: 0.7rem;">هماهنگی و پشتیبانی: 09965955856</div></footer>
 
 <script>
     const songsData = [
@@ -506,270 +232,64 @@
             tag: "پرطرفدار"
         }
     ];
-
     function createSimplePlayer(audioSrc, trackTitle) {
-        const container = document.createElement('div');
-        container.className = 'player-simple';
-        const row = document.createElement('div');
-        row.className = 'player-row';
-        
-        const playBtn = document.createElement('button');
-        playBtn.className = 'play-btn';
-        playBtn.innerHTML = '<i class="fas fa-play"></i>';
-        
-        const progressWrapper = document.createElement('div');
-        progressWrapper.className = 'progress-wrapper';
-        const progressBar = document.createElement('div');
-        progressBar.className = 'progress-bar';
-        const progressFill = document.createElement('div');
-        progressFill.className = 'progress-fill';
+        const container = document.createElement('div'); container.className = 'player-simple';
+        const row = document.createElement('div'); row.className = 'player-row';
+        const playBtn = document.createElement('button'); playBtn.className = 'play-btn'; playBtn.innerHTML = '<i class="fas fa-play"></i>';
+        const progressWrapper = document.createElement('div'); progressWrapper.className = 'progress-wrapper';
+        const progressBar = document.createElement('div'); progressBar.className = 'progress-bar';
+        const progressFill = document.createElement('div'); progressFill.className = 'progress-fill';
         progressBar.appendChild(progressFill);
-        const timeSpan = document.createElement('div');
-        timeSpan.className = 'time-info';
-        timeSpan.innerText = '00:00 / 00:00';
-        progressWrapper.appendChild(progressBar);
-        progressWrapper.appendChild(timeSpan);
-        
-        const downloadBtn = document.createElement('button');
-        downloadBtn.className = 'download-simple';
-        downloadBtn.innerHTML = '<i class="fas fa-download"></i> دانلود';
-        
-        row.appendChild(playBtn);
-        row.appendChild(progressWrapper);
-        row.appendChild(downloadBtn);
-        
-        const extraDiv = document.createElement('div');
-        extraDiv.className = 'extra-line';
-        const badge = document.createElement('div');
-        badge.className = 'quality-badge';
-        badge.innerHTML = '<i class="fas fa-headphones"></i> کیفیت عالی';
+        const timeSpan = document.createElement('div'); timeSpan.className = 'time-info'; timeSpan.innerText = '00:00 / 00:00';
+        progressWrapper.appendChild(progressBar); progressWrapper.appendChild(timeSpan);
+        const downloadBtn = document.createElement('button'); downloadBtn.className = 'download-simple'; downloadBtn.innerHTML = '<i class="fas fa-download"></i> دانلود';
+        row.appendChild(playBtn); row.appendChild(progressWrapper); row.appendChild(downloadBtn);
+        const extraDiv = document.createElement('div'); extraDiv.className = 'extra-line';
+        const badge = document.createElement('div'); badge.className = 'quality-badge'; badge.innerHTML = '<i class="fas fa-headphones"></i> کیفیت عالی';
         extraDiv.appendChild(badge);
-        
-        container.appendChild(row);
-        container.appendChild(extraDiv);
-        
-        const audio = new Audio(audioSrc);
-        audio.preload = 'metadata';
+        container.appendChild(row); container.appendChild(extraDiv);
+        const audio = new Audio(audioSrc); audio.preload = 'metadata';
         let isPlaying = false;
-        
-        function formatTime(sec) {
-            if (isNaN(sec)) return '00:00';
-            const mins = Math.floor(sec / 60);
-            const s = Math.floor(sec % 60);
-            return `${mins.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
-        }
-        
-        function updateUI() {
-            if (audio.duration && !isNaN(audio.duration)) {
-                const percent = (audio.currentTime / audio.duration) * 100;
-                progressFill.style.width = percent + '%';
-                timeSpan.innerText = `${formatTime(audio.currentTime)} / ${formatTime(audio.duration)}`;
-            } else {
-                timeSpan.innerText = `00:00 / 00:00`;
-            }
-        }
-        
+        function formatTime(sec) { if (isNaN(sec)) return '00:00'; const mins = Math.floor(sec / 60); const s = Math.floor(sec % 60); return `${mins.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`; }
+        function updateUI() { if (audio.duration && !isNaN(audio.duration)) { const percent = (audio.currentTime / audio.duration) * 100; progressFill.style.width = percent + '%'; timeSpan.innerText = `${formatTime(audio.currentTime)} / ${formatTime(audio.duration)}`; } else { timeSpan.innerText = `00:00 / 00:00`; } }
         audio.addEventListener('timeupdate', updateUI);
-        audio.addEventListener('loadedmetadata', () => {
-            timeSpan.innerText = `${formatTime(0)} / ${formatTime(audio.duration)}`;
-        });
-        audio.addEventListener('ended', () => {
-            isPlaying = false;
-            playBtn.innerHTML = '<i class="fas fa-play"></i>';
-            progressFill.style.width = '0%';
-        });
-        
-        playBtn.addEventListener('click', () => {
-            if (isPlaying) {
-                audio.pause();
-            } else {
-                audio.play().catch(e => console.log("play error"));
-            }
-            isPlaying = !isPlaying;
-            playBtn.innerHTML = isPlaying ? '<i class="fas fa-pause"></i>' : '<i class="fas fa-play"></i>';
-        });
-        
-        progressBar.addEventListener('click', (e) => {
-            const rect = progressBar.getBoundingClientRect();
-            const clickX = e.clientX - rect.left;
-            const percent = clickX / rect.width;
-            if (audio.duration) {
-                audio.currentTime = percent * audio.duration;
-            }
-        });
-        
-        downloadBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            fetch(audioSrc)
-                .then(res => {
-                    if (!res.ok) throw new Error();
-                    return res.blob();
-                })
-                .then(blob => {
-                    const url = URL.createObjectURL(blob);
-                    const a = document.createElement('a');
-                    a.href = url;
-                    a.download = `${trackTitle}.mp3`;
-                    document.body.appendChild(a);
-                    a.click();
-                    document.body.removeChild(a);
-                    URL.revokeObjectURL(url);
-                })
-                .catch(() => {
-                    window.open(audioSrc, '_blank');
-                });
-        });
-        
+        audio.addEventListener('loadedmetadata', () => { timeSpan.innerText = `${formatTime(0)} / ${formatTime(audio.duration)}`; });
+        audio.addEventListener('ended', () => { isPlaying = false; playBtn.innerHTML = '<i class="fas fa-play"></i>'; progressFill.style.width = '0%'; });
+        playBtn.addEventListener('click', () => { if (isPlaying) audio.pause(); else audio.play().catch(e=>console.log); isPlaying = !isPlaying; playBtn.innerHTML = isPlaying ? '<i class="fas fa-pause"></i>' : '<i class="fas fa-play"></i>'; });
+        progressBar.addEventListener('click', (e) => { const rect = progressBar.getBoundingClientRect(); const percent = (e.clientX - rect.left) / rect.width; if (audio.duration) audio.currentTime = percent * audio.duration; });
+        downloadBtn.addEventListener('click', (e) => { e.stopPropagation(); fetch(audioSrc).then(res=>res.blob()).then(blob=>{ const url=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download=`${trackTitle}.mp3`; document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url); }).catch(()=>window.open(audioSrc,'_blank')); });
         return container;
     }
-    
-    function escapeHtml(str) {
-        if(!str) return '';
-        return str.replace(/[&<>]/g, function(m) {
-            if (m === '&') return '&amp;';
-            if (m === '<') return '&lt;';
-            if (m === '>') return '&gt;';
-            return m;
-        });
-    }
-    
+    function escapeHtml(str) { if(!str) return ''; return str.replace(/[&<>]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;'})[m]); }
     function renderCards(containerId, songsArray) {
-        const container = document.getElementById(containerId);
-        if (!container) return;
-        container.innerHTML = '';
+        const container = document.getElementById(containerId); if (!container) return; container.innerHTML = '';
         songsArray.forEach(song => {
-            const card = document.createElement('div');
-            card.className = 'song-card';
-            let tagHtml = '';
-            if (song.tag) {
-                tagHtml = `<div class="custom-tag" data-tag="${escapeHtml(song.tag)}"><i class="fas fa-fire"></i> ${escapeHtml(song.tag)}</div>`;
-            }
-            card.innerHTML = `
-                <div class="img-square">
-                    <img src="${song.imageLink}" alt="${song.title}" loading="lazy" onerror="this.src='https://picsum.photos/id/101/400/400'">
-                </div>
-                <div class="song-details">
-                    <div class="song-title-box">
-                        <div class="song-title">${escapeHtml(song.title)}</div>
-                    </div>
-                    ${tagHtml}
-                    <div class="meta-icons">
-                        <div class="meta-item"><i class="fas fa-sliders-h"></i> میکس مستر: ${escapeHtml(song.mixMaster)}</div>
-                        <div class="meta-item"><i class="fas fa-microphone-alt"></i> امور ضبط: ${escapeHtml(song.recordOffice)}</div>
-                        <div class="meta-item"><i class="fas fa-users"></i> گروه سرود: ${escapeHtml(song.singers)}</div>
-                    </div>
-                </div>
-            `;
-            const player = createSimplePlayer(song.audioLink, song.title);
-            card.appendChild(player);
-            container.appendChild(card);
+            const card = document.createElement('div'); card.className = 'song-card';
+            let tagHtml = ''; if (song.tag) tagHtml = `<div class="custom-tag"><i class="fas fa-fire"></i> ${escapeHtml(song.tag)}</div>`;
+            card.innerHTML = `<div class="img-square"><img src="${song.imageLink}" alt="${song.title}" loading="lazy" onerror="this.src='https://picsum.photos/id/101/400/400'"></div><div class="song-details"><div class="song-title-box"><div class="song-title">${escapeHtml(song.title)}</div></div>${tagHtml}<div class="meta-icons"><div class="meta-item"><i class="fas fa-sliders-h"></i> میکس مستر: ${escapeHtml(song.mixMaster)}</div><div class="meta-item"><i class="fas fa-microphone-alt"></i> امور ضبط: ${escapeHtml(song.recordOffice)}</div><div class="meta-item"><i class="fas fa-users"></i> گروه سرود: ${escapeHtml(song.singers)}</div></div></div>`;
+            const player = createSimplePlayer(song.audioLink, song.title); card.appendChild(player); container.appendChild(card);
         });
-        
-        document.querySelectorAll(`#${containerId} .custom-tag`).forEach(tag => {
-            tag.addEventListener('click', (e) => {
-                e.stopPropagation();
-                switchPage('popularPage');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-        });
+        document.querySelectorAll(`#${containerId} .custom-tag`).forEach(tag => tag.addEventListener('click', (e) => { e.stopPropagation(); switchPage('popularPage'); window.scrollTo({ top: 0, behavior: 'smooth' }); }));
     }
-    
     function renderPopularCards() {
         const popularSongs = songsData.filter(song => song.tag === "پرطرفدار");
-        const container = document.getElementById('popularGrid');
-        if (!container) return;
-        container.innerHTML = '';
+        const container = document.getElementById('popularGrid'); if (!container) return; container.innerHTML = '';
         popularSongs.forEach(song => {
-            const card = document.createElement('div');
-            card.className = 'song-card';
-            let tagHtml = '';
-            if (song.tag) {
-                tagHtml = `<div class="custom-tag" data-tag="${escapeHtml(song.tag)}"><i class="fas fa-fire"></i> ${escapeHtml(song.tag)}</div>`;
-            }
-            card.innerHTML = `
-                <div class="img-square">
-                    <img src="${song.imageLink}" alt="${song.title}" loading="lazy" onerror="this.src='https://picsum.photos/id/101/400/400'">
-                </div>
-                <div class="song-details">
-                    <div class="song-title-box">
-                        <div class="song-title">${escapeHtml(song.title)}</div>
-                    </div>
-                    ${tagHtml}
-                    <div class="meta-icons">
-                        <div class="meta-item"><i class="fas fa-sliders-h"></i> میکس مستر: ${escapeHtml(song.mixMaster)}</div>
-                        <div class="meta-item"><i class="fas fa-microphone-alt"></i> امور ضبط: ${escapeHtml(song.recordOffice)}</div>
-                        <div class="meta-item"><i class="fas fa-users"></i> گروه سرود: ${escapeHtml(song.singers)}</div>
-                    </div>
-                </div>
-            `;
-            const player = createSimplePlayer(song.audioLink, song.title);
-            card.appendChild(player);
-            container.appendChild(card);
+            const card = document.createElement('div'); card.className = 'song-card';
+            let tagHtml = ''; if (song.tag) tagHtml = `<div class="custom-tag"><i class="fas fa-fire"></i> ${escapeHtml(song.tag)}</div>`;
+            card.innerHTML = `<div class="img-square"><img src="${song.imageLink}" alt="${song.title}" loading="lazy" onerror="this.src='https://picsum.photos/id/101/400/400'"></div><div class="song-details"><div class="song-title-box"><div class="song-title">${escapeHtml(song.title)}</div></div>${tagHtml}<div class="meta-icons"><div class="meta-item"><i class="fas fa-sliders-h"></i> میکس مستر: ${escapeHtml(song.mixMaster)}</div><div class="meta-item"><i class="fas fa-microphone-alt"></i> امور ضبط: ${escapeHtml(song.recordOffice)}</div><div class="meta-item"><i class="fas fa-users"></i> گروه سرود: ${escapeHtml(song.singers)}</div></div></div>`;
+            const player = createSimplePlayer(song.audioLink, song.title); card.appendChild(player); container.appendChild(card);
         });
-        
-        document.querySelectorAll('#popularGrid .custom-tag').forEach(tag => {
-            tag.addEventListener('click', (e) => {
-                e.stopPropagation();
-                switchPage('popularPage');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-        });
+        document.querySelectorAll('#popularGrid .custom-tag').forEach(tag => tag.addEventListener('click', (e) => { e.stopPropagation(); switchPage('popularPage'); window.scrollTo({ top: 0, behavior: 'smooth' }); }));
     }
-    
     function switchPage(pageId) {
         const sections = ['homePage', 'sorudhaPage', 'popularPage', 'hamahangiPage', 'groupPage'];
-        sections.forEach(sec => {
-            const el = document.getElementById(sec);
-            if(el) {
-                if(sec === pageId) {
-                    el.classList.remove('hidden-section');
-                    el.classList.add('active-section');
-                } else {
-                    el.classList.add('hidden-section');
-                    el.classList.remove('active-section');
-                }
-            }
-        });
-        document.querySelectorAll('#mainMenu a').forEach(link => {
-            link.classList.remove('active');
-            const pageAttr = link.getAttribute('data-page');
-            if ((pageAttr === 'home' && pageId === 'homePage') ||
-                (pageAttr === 'sorudha' && pageId === 'sorudhaPage') ||
-                (pageAttr === 'popular' && pageId === 'popularPage') ||
-                (pageAttr === 'hamahangi' && pageId === 'hamahangiPage') ||
-                (pageAttr === 'group' && pageId === 'groupPage')) {
-                link.classList.add('active');
-            }
-        });
+        sections.forEach(sec => { const el = document.getElementById(sec); if(el) el.classList.toggle('hidden-section', sec !== pageId); });
+        document.querySelectorAll('#mainMenu a').forEach(link => { link.classList.remove('active'); const pageAttr = link.getAttribute('data-page'); if ((pageAttr === 'home' && pageId === 'homePage') || (pageAttr === 'sorudha' && pageId === 'sorudhaPage') || (pageAttr === 'popular' && pageId === 'popularPage') || (pageAttr === 'hamahangi' && pageId === 'hamahangiPage') || (pageAttr === 'group' && pageId === 'groupPage')) link.classList.add('active'); });
     }
-    
-    function initCards() {
-        renderCards('homeCardsGrid', songsData);
-        renderCards('sorudhaGrid', songsData);
-        renderPopularCards();
-    }
-    
-    function bindMenuEvents() {
-        const menuLinks = document.querySelectorAll('#mainMenu a');
-        menuLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const page = link.getAttribute('data-page');
-                if (page === 'home') switchPage('homePage');
-                else if (page === 'sorudha') switchPage('sorudhaPage');
-                else if (page === 'popular') switchPage('popularPage');
-                else if (page === 'hamahangi') switchPage('hamahangiPage');
-                else if (page === 'group') switchPage('groupPage');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-        });
-    }
-    
-    window.addEventListener('DOMContentLoaded', () => {
-        initCards();
-        bindMenuEvents();
-        switchPage('homePage');
-    });
+    function initCards() { renderCards('homeCardsGrid', songsData); renderCards('sorudhaGrid', songsData); renderPopularCards(); }
+    function bindMenuEvents() { document.querySelectorAll('#mainMenu a').forEach(link => link.addEventListener('click', (e) => { e.preventDefault(); const page = link.getAttribute('data-page'); if (page === 'home') switchPage('homePage'); else if (page === 'sorudha') switchPage('sorudhaPage'); else if (page === 'popular') switchPage('popularPage'); else if (page === 'hamahangi') switchPage('hamahangiPage'); else if (page === 'group') switchPage('groupPage'); window.scrollTo({ top: 0, behavior: 'smooth' }); })); }
+    window.addEventListener('DOMContentLoaded', () => { initCards(); bindMenuEvents(); switchPage('homePage'); });
 </script>
 </body>
 </html>
