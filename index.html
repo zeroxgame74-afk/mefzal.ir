@@ -174,6 +174,27 @@
             text-align: center;
             letter-spacing: 1px;
         }
+        /* تگ مخصوص پرطرفدار با آیکون کاستوم */
+        .custom-tag {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #e6a017, #d45500);
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #fff7e0;
+            width: fit-content;
+            margin: 0 auto 12px auto;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            border: 1px solid #ffcd7e;
+        }
+        .custom-tag i {
+            font-size: 1rem;
+            color: #ffefb0;
+        }
         .meta-icons {
             display: flex;
             flex-wrap: wrap;
@@ -199,7 +220,6 @@
             color: var(--pistachio);
         }
 
-        /* پلیر ساده با دکمه پلی کنار نوار و دانلود کنارش */
         .player-simple {
             background: #1e3527;
             border-top: 1px solid #517a5e;
@@ -303,7 +323,6 @@
             margin-top: 10px;
         }
 
-        /* باکس گنده گروه مفضال */
         .big-box {
             background: #2c4a35;
             border-radius: 2rem;
@@ -466,16 +485,17 @@
 </footer>
 
 <script>
-    // فقط سرود جدید "قــصــه ایــران" با عنوان زیبا
+    // سرود با تگ پرطرفدار و آیکون کاستوم
     const songsData = [
         {
             id: 1,
-            title: "قــصــه ایــران",
+            title: "قــصــه ایــران!",
             imageLink: "https://cdn.imgurl.ir/uploads/k79772_IMG__.jpg",
             audioLink: "https://cdn.imgurl.ir/uploads/l2257_GHSEH_IRAN__MEFZAL.IR.mp3",
             mixMaster: "احمد غدیریان",
             recordOffice: "مهدی اکبری",
-            singers: "گروه سرود مفضال"
+            singers: "گروه سرود مفضال",
+            tag: "پرطرفدار"
         }
     ];
 
@@ -615,12 +635,18 @@
         songsArray.forEach(song => {
             const card = document.createElement('div');
             card.className = 'song-card';
+            // ساخت قسمت تگ با آیکون کاستوم
+            let tagHtml = '';
+            if (song.tag) {
+                tagHtml = `<div class="custom-tag"><i class="fas fa-fire"></i> ${escapeHtml(song.tag)}</div>`;
+            }
             card.innerHTML = `
                 <div class="img-square">
                     <img src="${song.imageLink}" alt="${song.title}" loading="lazy" onerror="this.src='https://picsum.photos/id/101/400/400'">
                 </div>
                 <div class="song-details">
                     <div class="song-title">${escapeHtml(song.title)}</div>
+                    ${tagHtml}
                     <div class="meta-icons">
                         <div class="meta-item"><i class="fas fa-sliders-h"></i> میکس مستر: ${escapeHtml(song.mixMaster)}</div>
                         <div class="meta-item"><i class="fas fa-microphone-alt"></i> امور ضبط: ${escapeHtml(song.recordOffice)}</div>
@@ -687,4 +713,4 @@
     });
 </script>
 </body>
-</html>
+    </html>
