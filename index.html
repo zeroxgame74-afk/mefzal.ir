@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>مفضال | پخش آنلاین سرود و آهنگ</title>
-    <!-- Font Awesome Icons (v6 free) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Font: Vazir -->
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
@@ -200,27 +198,24 @@
             color: var(--pistachio);
         }
 
-        /* ---------- پلیر کاستوم شده (اختصاصی) ---------- */
-        .custom-player {
+        /* پلیر خفن و ساده با دکمه پلی کنار نوار و دانلود کنارش */
+        .player-simple {
             background: #1e3527;
             border-top: 1px solid #517a5e;
             padding: 0.8rem 1rem 1rem;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
         }
-        .player-controls {
+        .player-row {
             display: flex;
             align-items: center;
             gap: 12px;
             flex-wrap: wrap;
             justify-content: space-between;
         }
-        .play-pause-btn {
+        .play-btn {
             background: var(--pistachio);
             border: none;
-            width: 42px;
-            height: 42px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             cursor: pointer;
             display: flex;
@@ -230,22 +225,22 @@
             color: #1e3a2a;
             font-size: 1.3rem;
             box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            flex-shrink: 0;
         }
-        .play-pause-btn:hover {
+        .play-btn:hover {
             background: #e2ffd6;
             transform: scale(1.05);
         }
-        .progress-area {
-            flex: 2;
-            min-width: 120px;
+        .progress-wrapper {
+            flex: 3;
             display: flex;
-            align-items: center;
-            gap: 8px;
-            direction: ltr;
+            flex-direction: column;
+            gap: 5px;
+            min-width: 140px;
         }
         .progress-bar {
-            flex: 1;
-            height: 5px;
+            width: 100%;
+            height: 6px;
             background: #4f6b58;
             border-radius: 10px;
             cursor: pointer;
@@ -256,77 +251,40 @@
             height: 100%;
             background: var(--pistachio);
             border-radius: 10px;
-            position: relative;
             transition: width 0.05s linear;
         }
-        .time-text {
+        .time-info {
             font-size: 0.7rem;
             font-family: monospace;
             background: #0f261b;
-            padding: 2px 6px;
+            padding: 2px 8px;
             border-radius: 30px;
             color: #cfe6d4;
+            display: inline-block;
+            width: fit-content;
             direction: ltr;
         }
-        .volume-wrapper {
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-        .volume-icon {
-            background: none;
-            border: none;
-            color: var(--pistachio-light);
-            font-size: 1.2rem;
-            cursor: pointer;
-            padding: 6px;
-            border-radius: 50%;
-            transition: 0.2s;
-        }
-        .volume-slider {
-            position: absolute;
-            bottom: 35px;
-            right: 0;
-            background: #1f3a2c;
-            padding: 8px;
-            border-radius: 20px;
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            gap: 5px;
-            border: 1px solid var(--pistachio);
-            z-index: 10;
-        }
-        .volume-slider input {
-            width: 100px;
-            cursor: pointer;
-            background: var(--pistachio);
-            height: 4px;
-            border-radius: 5px;
-        }
-        .volume-wrapper:hover .volume-slider {
-            display: flex;
-        }
-        .download-btn-custom {
+        .download-simple {
             background: var(--pistachio);
             border: none;
-            padding: 6px 12px;
+            padding: 8px 16px;
             border-radius: 50px;
             color: #1e3a2a;
             font-weight: bold;
             font-family: inherit;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
             cursor: pointer;
             transition: 0.2s;
+            flex-shrink: 0;
         }
-        .download-btn-custom:hover {
+        .download-simple:hover {
             background: #e2ffd6;
             transform: scale(1.02);
         }
-        .info-badge {
+        .quality-badge {
             background: #2d6143;
             border-radius: 40px;
             padding: 4px 10px;
@@ -337,12 +295,13 @@
             align-items: center;
             gap: 6px;
         }
-        .extra-actions-custom {
+        .extra-line {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 5px;
+            margin-top: 10px;
         }
+
         /* باکس گنده گروه مفضال */
         .big-box {
             background: #2c4a35;
@@ -420,12 +379,15 @@
             .phone-number {
                 font-size: 1.2rem;
             }
-            .player-controls {
+            .player-row {
                 flex-direction: column;
                 align-items: stretch;
             }
-            .progress-area {
-                margin: 5px 0;
+            .progress-wrapper {
+                width: 100%;
+            }
+            .download-simple {
+                justify-content: center;
             }
         }
         .hidden-section {
@@ -456,7 +418,7 @@
     <div id="homePage" class="page-section">
         <div class="hero">
             <h2>به پخش‌کننده رسمی mefzal.ir خوش آمدید</h2>
-            <p>زیباترین سرودهای ملی، مذهبی و گروهی | پلیر اختصاصی و با کیفیت</p>
+            <p>زیباترین سرودهای ملی، مذهبی و گروهی | پلیر ساده و حرفه‌ای</p>
         </div>
         <div class="cards-grid" id="homeCardsGrid"></div>
     </div>
@@ -503,7 +465,6 @@
 </footer>
 
 <script>
-    // دیتای آهنگ‌ها بدون حذف
     const songsData = [
         {
             id: 1,
@@ -547,175 +508,123 @@
         }
     ];
 
-    // تابع ساخت پلیر کاستوم برای هر کارت
-    function createCustomPlayer(audioSrc, songTitleForDownload) {
-        const containerDiv = document.createElement('div');
-        containerDiv.className = 'custom-player';
+    function createSimplePlayer(audioSrc, trackTitle) {
+        const container = document.createElement('div');
+        container.className = 'player-simple';
         
-        // عناصر پلیر
-        const controlsDiv = document.createElement('div');
-        controlsDiv.className = 'player-controls';
+        const row = document.createElement('div');
+        row.className = 'player-row';
         
         const playBtn = document.createElement('button');
-        playBtn.className = 'play-pause-btn';
+        playBtn.className = 'play-btn';
         playBtn.innerHTML = '<i class="fas fa-play"></i>';
         
-        const progressArea = document.createElement('div');
-        progressArea.className = 'progress-area';
+        const progressWrapper = document.createElement('div');
+        progressWrapper.className = 'progress-wrapper';
         const progressBar = document.createElement('div');
         progressBar.className = 'progress-bar';
         const progressFill = document.createElement('div');
         progressFill.className = 'progress-fill';
         progressBar.appendChild(progressFill);
-        const timeSpan = document.createElement('span');
-        timeSpan.className = 'time-text';
+        const timeSpan = document.createElement('div');
+        timeSpan.className = 'time-info';
         timeSpan.innerText = '00:00 / 00:00';
-        progressArea.appendChild(progressBar);
-        progressArea.appendChild(timeSpan);
+        progressWrapper.appendChild(progressBar);
+        progressWrapper.appendChild(timeSpan);
         
-        // ولوم کاستوم
-        const volumeWrap = document.createElement('div');
-        volumeWrap.className = 'volume-wrapper';
-        const volumeIcon = document.createElement('button');
-        volumeIcon.className = 'volume-icon';
-        volumeIcon.innerHTML = '<i class="fas fa-volume-up"></i>';
-        const volumeSliderDiv = document.createElement('div');
-        volumeSliderDiv.className = 'volume-slider';
-        const volumeInput = document.createElement('input');
-        volumeInput.type = 'range';
-        volumeInput.min = 0;
-        volumeInput.max = 1;
-        volumeInput.step = 0.01;
-        volumeInput.value = 0.7;
-        volumeSliderDiv.appendChild(volumeInput);
-        volumeWrap.appendChild(volumeIcon);
-        volumeWrap.appendChild(volumeSliderDiv);
-        
-        controlsDiv.appendChild(playBtn);
-        controlsDiv.appendChild(progressArea);
-        controlsDiv.appendChild(volumeWrap);
-        
-        // ردیف دانلود و برچسب
-        const extraDiv = document.createElement('div');
-        extraDiv.className = 'extra-actions-custom';
-        const qualityBadge = document.createElement('div');
-        qualityBadge.className = 'info-badge';
-        qualityBadge.innerHTML = '<i class="fas fa-headphones"></i> کیفیت عالی';
         const downloadBtn = document.createElement('button');
-        downloadBtn.className = 'download-btn-custom';
+        downloadBtn.className = 'download-simple';
         downloadBtn.innerHTML = '<i class="fas fa-download"></i> دانلود';
-        downloadBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            downloadAudio(audioSrc, songTitleForDownload);
-        });
-        extraDiv.appendChild(qualityBadge);
-        extraDiv.appendChild(downloadBtn);
         
-        containerDiv.appendChild(controlsDiv);
-        containerDiv.appendChild(extraDiv);
+        row.appendChild(playBtn);
+        row.appendChild(progressWrapper);
+        row.appendChild(downloadBtn);
         
-        // عنصر صوتی مخفی
-        const audioElem = new Audio(audioSrc);
-        audioElem.preload = 'metadata';
-        audioElem.volume = 0.7;
+        const extraDiv = document.createElement('div');
+        extraDiv.className = 'extra-line';
+        const badge = document.createElement('div');
+        badge.className = 'quality-badge';
+        badge.innerHTML = '<i class="fas fa-headphones"></i> کیفیت عالی';
+        extraDiv.appendChild(badge);
+        
+        container.appendChild(row);
+        container.appendChild(extraDiv);
+        
+        const audio = new Audio(audioSrc);
+        audio.preload = 'metadata';
         
         let isPlaying = false;
         
-        function updatePlayButton() {
-            playBtn.innerHTML = isPlaying ? '<i class="fas fa-pause"></i>' : '<i class="fas fa-play"></i>';
+        function formatTime(sec) {
+            if (isNaN(sec)) return '00:00';
+            const mins = Math.floor(sec / 60);
+            const s = Math.floor(sec % 60);
+            return `${mins.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
         }
         
-        function formatTime(seconds) {
-            if (isNaN(seconds)) return '00:00';
-            const mins = Math.floor(seconds / 60);
-            const secs = Math.floor(seconds % 60);
-            return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-        }
-        
-        function updateProgress() {
-            if (audioElem.duration) {
-                const percent = (audioElem.currentTime / audioElem.duration) * 100;
+        function updateUI() {
+            if (audio.duration && !isNaN(audio.duration)) {
+                const percent = (audio.currentTime / audio.duration) * 100;
                 progressFill.style.width = percent + '%';
-                timeSpan.innerText = `${formatTime(audioElem.currentTime)} / ${formatTime(audioElem.duration)}`;
+                timeSpan.innerText = `${formatTime(audio.currentTime)} / ${formatTime(audio.duration)}`;
             } else {
                 timeSpan.innerText = `00:00 / 00:00`;
             }
         }
         
-        audioElem.addEventListener('timeupdate', updateProgress);
-        audioElem.addEventListener('loadedmetadata', () => {
-            timeSpan.innerText = `${formatTime(0)} / ${formatTime(audioElem.duration)}`;
+        audio.addEventListener('timeupdate', updateUI);
+        audio.addEventListener('loadedmetadata', () => {
+            timeSpan.innerText = `${formatTime(0)} / ${formatTime(audio.duration)}`;
+        });
+        audio.addEventListener('ended', () => {
+            isPlaying = false;
+            playBtn.innerHTML = '<i class="fas fa-play"></i>';
+            progressFill.style.width = '0%';
+            timeSpan.innerText = `${formatTime(0)} / ${formatTime(audio.duration)}`;
         });
         
         playBtn.addEventListener('click', () => {
             if (isPlaying) {
-                audioElem.pause();
+                audio.pause();
             } else {
-                audioElem.play().catch(e => console.log("پخش خودکار مسدود شد"));
+                audio.play().catch(e => console.log("پخش خودکار مسدود شد"));
             }
             isPlaying = !isPlaying;
-            updatePlayButton();
+            playBtn.innerHTML = isPlaying ? '<i class="fas fa-pause"></i>' : '<i class="fas fa-play"></i>';
         });
         
-        audioElem.addEventListener('ended', () => {
-            isPlaying = false;
-            updatePlayButton();
-            progressFill.style.width = '0%';
-            timeSpan.innerText = `${formatTime(0)} / ${formatTime(audioElem.duration)}`;
-        });
-        
-        // نوار پیشرفت کلیک
         progressBar.addEventListener('click', (e) => {
             const rect = progressBar.getBoundingClientRect();
             const clickX = e.clientX - rect.left;
-            const width = rect.width;
-            const percent = clickX / width;
-            if (audioElem.duration) {
-                audioElem.currentTime = percent * audioElem.duration;
+            const percent = clickX / rect.width;
+            if (audio.duration) {
+                audio.currentTime = percent * audio.duration;
             }
         });
         
-        // ولوم
-        volumeInput.addEventListener('input', (e) => {
-            audioElem.volume = e.target.value;
-            volumeIcon.innerHTML = audioElem.volume === 0 ? '<i class="fas fa-volume-mute"></i>' : '<i class="fas fa-volume-up"></i>';
+        downloadBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            fetch(audioSrc)
+                .then(res => {
+                    if (!res.ok) throw new Error();
+                    return res.blob();
+                })
+                .then(blob => {
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `${trackTitle}.mp3`;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                })
+                .catch(() => {
+                    window.open(audioSrc, '_blank');
+                });
         });
         
-        volumeIcon.addEventListener('click', () => {
-            if (audioElem.volume > 0) {
-                audioElem.volume = 0;
-                volumeInput.value = 0;
-                volumeIcon.innerHTML = '<i class="fas fa-volume-mute"></i>';
-            } else {
-                audioElem.volume = 0.7;
-                volumeInput.value = 0.7;
-                volumeIcon.innerHTML = '<i class="fas fa-volume-up"></i>';
-            }
-        });
-        
-        return containerDiv;
-    }
-    
-    function downloadAudio(url, filename) {
-        fetch(url)
-            .then(response => {
-                if (!response.ok) throw new Error('خطا');
-                return response.blob();
-            })
-            .then(blob => {
-                const blobUrl = window.URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = blobUrl;
-                a.download = `${filename}.mp3`;
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-                window.URL.revokeObjectURL(blobUrl);
-            })
-            .catch(() => {
-                alert("لینک دانلود در تب جدید باز می‌شود.");
-                window.open(url, '_blank');
-            });
+        return container;
     }
     
     function escapeHtml(str) {
@@ -749,9 +658,8 @@
                     </div>
                 </div>
             `;
-            // اضافه کردن پلیر کاستوم
-            const customPlayer = createCustomPlayer(song.audioLink, song.title);
-            card.appendChild(customPlayer);
+            const player = createSimplePlayer(song.audioLink, song.title);
+            card.appendChild(player);
             container.appendChild(card);
         });
     }
