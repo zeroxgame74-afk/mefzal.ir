@@ -6,7 +6,7 @@
     <title>مفضال | پخش آنلاین سرود و آهنگ</title>
     <!-- Font Awesome Icons (v6 free) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Font: Vazir (وزیر) برای خوانایی بهتر -->
+    <!-- Google Font: Vazir -->
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
@@ -22,7 +22,7 @@
             padding-bottom: 2rem;
         }
 
-        /* رنگ اصلی پسته‌ای (سِز پسته‌ای: زیتونی روشن با ته مایه پسته) */
+        /* رنگ اصلی پسته‌ای */
         :root {
             --pistachio: #a3c9a8;
             --pistachio-dark: #6f9e7c;
@@ -32,7 +32,6 @@
             --shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.3);
         }
 
-        /* اسکرول بار زیبا */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -109,7 +108,6 @@
             transform: translateY(-2px);
         }
 
-        /* بخش اصلی و کارت‌ها */
         .container {
             max-width: 1400px;
             margin: 2rem auto;
@@ -157,7 +155,6 @@
             box-shadow: 0 30px 40px -12px black;
         }
 
-        /* جعبه عکس 1:1 */
         .img-square {
             aspect-ratio: 1 / 1;
             width: 100%;
@@ -176,7 +173,6 @@
             transform: scale(1.02);
         }
 
-        /* بخش اطلاعات با آیکون‌های کاستوم (با فونت‌awesome و استایل اختصاصی) */
         .song-details {
             padding: 1rem 1rem 0.7rem;
         }
@@ -189,13 +185,13 @@
         .meta-icons {
             display: flex;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 0.7rem;
             margin: 0.75rem 0;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             background: #1f3f2c;
             padding: 0.5rem 0.8rem;
             border-radius: 40px;
-            justify-content: space-between;
+            justify-content: flex-start;
         }
         .meta-item {
             display: flex;
@@ -207,34 +203,10 @@
             font-weight: 500;
         }
         .meta-item i {
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: var(--pistachio);
         }
-        /* آیکون‌های کاستوم شده (با کمک font awesome و کمی استایل ویژه) */
-        .custom-mixer::before {
-            content: "\f0c2"; /* sliders-h */
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-        }
-        .custom-record::before {
-            content: "\f8d0"; /* microphone-alt */
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-        }
-        .custom-singer::before {
-            content: "\f007"; /* user-music */
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-        }
-        .custom-voices::before {
-            content: "\f0c0"; /* users */
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-        }
-        /* برای اعمال آیکون‌های کاستوم شده روی آیکون‌های خاص (اگر کلاس داشته باشند) */
-        .fa-custom-mixer, .icon-mixer { background: none; }
 
-        /* پلیر پایین کارت + دانلود */
         .player-wrapper {
             padding: 0.7rem 1rem 1.2rem;
             background: #1e3527;
@@ -295,30 +267,60 @@
             gap: 8px;
         }
 
-        /* فوتر و هماهنگی */
+        /* باکس گنده گروه مفضال */
+        .big-box {
+            background: #2c4a35;
+            border-radius: 2rem;
+            padding: 2rem 2rem;
+            margin-top: 1.5rem;
+            border: 1px solid var(--pistachio);
+            box-shadow: 0 20px 30px -15px rgba(0,0,0,0.4);
+            backdrop-filter: blur(5px);
+        }
+        .big-box h2 {
+            font-size: 2rem;
+            border-bottom: 2px dashed var(--pistachio);
+            display: inline-block;
+            margin-bottom: 1.8rem;
+            padding-bottom: 0.5rem;
+            color: #f7f3cf;
+        }
+        .info-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            background: #1f3f2c60;
+            padding: 0.8rem 1.2rem;
+            border-radius: 60px;
+            flex-wrap: wrap;
+        }
+        .info-row i {
+            font-size: 1.7rem;
+            width: 2rem;
+            color: var(--pistachio);
+        }
+        .phone-number {
+            direction: ltr;
+            font-size: 1.4rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            background: #1b2f23;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            display: inline-block;
+        }
+
         footer {
             margin-top: 4rem;
             background: #14281e;
-            padding: 2rem 1.5rem;
+            padding: 1.5rem;
             text-align: center;
             border-top: 1px solid var(--pistachio);
+            font-size: 0.85rem;
         }
-        .contact-section {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-top: 1rem;
-        }
-        .contact-card {
-            background: #2b4a38;
-            padding: 0.8rem 1.8rem;
-            border-radius: 60px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        /* ریسپانسیو */
+
         @media (max-width: 700px) {
             .navbar {
                 flex-direction: column;
@@ -328,9 +330,11 @@
             .menu {
                 justify-content: center;
             }
-            .meta-icons {
-                flex-wrap: wrap;
-                justify-content: center;
+            .info-row {
+                font-size: 0.9rem;
+            }
+            .phone-number {
+                font-size: 1rem;
             }
         }
         .hidden-section {
@@ -338,9 +342,6 @@
         }
         .active-section {
             display: block;
-        }
-        .btn-group {
-            cursor: pointer;
         }
     </style>
 </head>
@@ -361,7 +362,7 @@
 </header>
 
 <main class="container" id="mainContent">
-    <!-- صفحه خانه (پیش‌فرض) -->
+    <!-- صفحه خانه -->
     <div id="homePage" class="page-section">
         <div class="hero">
             <h2>به پخش‌کننده رسمی mefzal.ir خوش آمدید</h2>
@@ -370,7 +371,7 @@
         <div class="cards-grid" id="homeCardsGrid"></div>
     </div>
 
-    <!-- صفحه سرودها (دقیقاً شبیه کارت‌ها) -->
+    <!-- صفحه سرودها -->
     <div id="sorudhaPage" class="page-section hidden-section">
         <div class="hero">
             <h2>سرودهای اختصاصی مفضال</h2>
@@ -379,7 +380,7 @@
         <div class="cards-grid" id="sorudhaGrid"></div>
     </div>
 
-    <!-- صفحه هماهنگی -->
+    <!-- صفحه هماهنگی (ساده) -->
     <div id="hamahangiPage" class="page-section hidden-section">
         <div class="hero">
             <h2>هماهنگی و ارتباط با ما</h2>
@@ -388,36 +389,59 @@
         <div style="background:#2c4a35; border-radius:2rem; padding:2rem; text-align:center;">
             <i class="fas fa-phone-alt" style="font-size:3rem; color:var(--pistachio);"></i>
             <h3 style="margin:1rem 0;">شماره تماس هماهنگی:</h3>
-            <p style="font-size:1.5rem; direction:ltr; font-weight:bold;">۰۹۱۲-۳۴۵-۶۷۸۹</p>
+            <p style="font-size:1.5rem; direction:ltr; font-weight:bold;">۰۹۹۶۵۹۵۵۸۵۶</p>
             <p>ایمیل: hamahangi@mefzal.ir</p>
-            <div class="contact-card" style="margin:1.5rem auto; width:fit-content;">
+            <div class="info-row" style="justify-content:center; width:fit-content; margin:1rem auto;">
                 <i class="fab fa-instagram"></i> <span>mefzal_group_official</span>
             </div>
         </div>
     </div>
 
-    <!-- صفحه گروه مفضال -->
+    <!-- صفحه گروه مفضال (باکس گنده با اطلاعات درخواستی) -->
     <div id="groupPage" class="page-section hidden-section">
         <div class="hero">
-            <h2>گروه سرود مفضال</h2>
-            <p>متشکل از خوانندگان، میکس مسترهای حرفه‌ای و همکاران توانمند</p>
+            <h2>درباره گروه حرفه‌ای مفضال</h2>
+            <p>پیشرو در تولید سرودهای فاخر و هماهنگی بی‌نظیر</p>
         </div>
-        <div style="display:flex; flex-wrap:wrap; gap:1.5rem; justify-content:center; margin-top:2rem;">
-            <div class="contact-card"><i class="fas fa-microphone-alt custom-mixer" style="margin-left:8px;"></i> میکس و مستر : استودیو فجر</div>
-            <div class="contact-card"><i class="fas fa-tape"></i> امور ضبط : مهندس رضا کریمی</div>
-            <div class="contact-card"><i class="fas fa-user-astronaut"></i> تک خوان : سید علی موسوی</div>
-            <div class="contact-card"><i class="fas fa-users"></i> خوانندگان گروه : جمعی از هنرمندان مفضال</div>
+        <div class="big-box">
+            <h2><i class="fas fa-users"></i> گروه مفضال</h2>
+            
+            <div class="info-row">
+                <i class="fas fa-user-tie custom-icon"></i>
+                <strong>مدیر مجموعه:</strong> ابوالفضل حیدری
+            </div>
+            
+            <div class="info-row">
+                <i class="fas fa-microphone-alt custom-icon"></i>
+                <strong>امور ضبط و آموزگار سرود:</strong> مهدی اکبری | حمیدرضا نخعی
+            </div>
+            
+            <div class="info-row">
+                <i class="fas fa-laptop-code custom-icon"></i>
+                <strong>سازنده سایت:</strong> محمد حسین صنعتی
+            </div>
+            
+            <div class="info-row">
+                <i class="fas fa-phone-square-alt custom-icon"></i>
+                <strong>شماره جهت هماهنگی:</strong> 
+                <span class="phone-number">09965955856</span>
+            </div>
+
+            <div class="info-row" style="background: #2b5e4180; justify-content: center; margin-top: 1rem;">
+                <i class="fas fa-star-of-life"></i> افتخار همکاری با بهترین اساتید سرود کشور
+            </div>
         </div>
-        <p style="margin-top:2rem; text-align:center;">افتخار همکاری با بهترین‌های عرصه سرود و موسیقی آیینی</p>
+        <!-- توضیح اضافه در مورد تک خوان و آیکون کاستوم شده (همانطور که اشاره کردید داخل کارت های آهنگ هم تک خوان با آیکون اختصاصی داریم) -->
+        <div style="margin-top: 2rem; text-align: center; font-size: 0.9rem; background: #1a3a2a70; border-radius: 2rem; padding: 1rem;">
+            <i class="fas fa-user-astronaut" style="color:var(--pistachio); margin-left: 6px;"></i> 
+            تک خوان‌های گروه مفضال در سرودهای مختلف: سید علی موسوی ، علیرضا حیدری و حسن طاهری
+        </div>
     </div>
 </main>
 
 <footer>
-    <div>© ۱۴۰۳ - تمامی حقوق برای mefzal.ir محفوظ است | طراحی با تم پسته‌ای اختصاصی</div>
-    <div class="contact-section">
-        <span><i class="fas fa-envelope"></i> info@mefzal.ir</span>
-        <span><i class="fab fa-whatsapp"></i> ۰۹۳۵۵۵۱۲۳۴۵</span>
-    </div>
+    <div>© ۱۴۰۳ - تمامی حقوق برای mefzal.ir محفوظ است</div>
+    <div style="margin-top: 6px; font-size: 0.7rem;">تمامی محتوا با مدیریت گروه مفضال</div>
 </footer>
 
 <script>
@@ -426,8 +450,8 @@
         {
             id: 1,
             title: "سرود افتخار وحدت",
-            imageLink: "https://picsum.photos/id/104/400/400",   // منظره/ طلوع (لینک نمونه، شما می‌توانید عکس واقعی خود را جایگزین کنید)
-            audioLink: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3", // نمونه لینک مجاز mp3
+            imageLink: "https://picsum.photos/id/104/400/400",
+            audioLink: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
             mixMaster: "مهدی رضوی",
             recordOffice: "استودیو پژواک",
             soloSinger: "علیرضا حیدری",
@@ -440,7 +464,7 @@
             audioLink: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
             mixMaster: "سعید نوروزی",
             recordOffice: "استودیو آوای رضوان",
-            soloSinger: "حسن طاهری",
+            soloSinger: "سید علی موسوی",
             singers: "گروه سرود مفضال"
         },
         {
@@ -450,7 +474,7 @@
             audioLink: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
             mixMaster: "کامران پوراحمد",
             recordOffice: "مرکز ضبط سروش",
-            soloSinger: "ابوالفضل جعفری",
+            soloSinger: "حسن طاهری",
             singers: "همخوانان دفاع مقدس"
         },
         {
@@ -465,7 +489,7 @@
         }
     ];
 
-    // تابع رندر کردن کارت‌ها در یک کانتینر مشخص
+    // تابع رندر کردن کارت‌ها در یک کانتینر مشخص (با آیکون کاستوم برای تک خوان)
     function renderCards(containerId, songsArray) {
         const container = document.getElementById(containerId);
         if (!container) return;
@@ -473,7 +497,6 @@
         songsArray.forEach(song => {
             const card = document.createElement('div');
             card.className = 'song-card';
-            // ساختار کارت شامل عکس 1:1 ، متا آیکون‌های کاستوم، پلیر و باکس دانلود
             card.innerHTML = `
                 <div class="img-square">
                     <img src="${song.imageLink}" alt="${song.title}" loading="lazy" onerror="this.src='https://picsum.photos/id/101/400/400'">
@@ -502,7 +525,7 @@
             container.appendChild(card);
         });
 
-        // پس از رندر، به دکمه‌های دانلود ایونت لیسینر بدهیم
+        // دکمه‌های دانلود داینامیک
         document.querySelectorAll(`#${containerId} .download-btn`).forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.stopPropagation();
@@ -513,13 +536,10 @@
         });
     }
 
-    // تابع کمکی برای دانلود فایل (با استفاده از fetch و blob)
     function downloadAudio(url, filename) {
-        // در محیط واقعی بهتر است از لینک مستقیم استفاده شود؛ اما برای نمایش قابلیت و رعایت امنیت cors ممکن است محدودیت داشته باشد.
-        // از آنجایی که لینک‌های دمو امکان دانلود مستقیم دارند، این روش کار خواهد کرد.
         fetch(url)
             .then(response => {
-                if (!response.ok) throw new Error('خطا در دریافت فایل');
+                if (!response.ok) throw new Error('خطا');
                 return response.blob();
             })
             .then(blob => {
@@ -532,14 +552,12 @@
                 document.body.removeChild(a);
                 window.URL.revokeObjectURL(blobUrl);
             })
-            .catch(err => {
-                alert("امکان دانلود مستقیم نیست. ممکن است لینک صوتی محدودیت CORS داشته باشد اما لینک دانلود اصلی را می‌توانید با کلیک راست ذخیره کنید.");
-                // راهکار پشتیبان: باز کردن لینک در تب جدید
+            .catch(() => {
+                alert("دانلود مستقیم ممکن نیست، لینک فایل در تب جدید باز می‌شود.");
                 window.open(url, '_blank');
             });
     }
 
-    // تابع escape ساده برای جلوگیری از XSS
     function escapeHtml(str) {
         if(!str) return '';
         return str.replace(/[&<>]/g, function(m) {
@@ -547,14 +565,9 @@
             if (m === '<') return '&lt;';
             if (m === '>') return '&gt;';
             return m;
-        }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function(c) {
-            return c;
         });
     }
 
-    // مدیریت منو (تغییر بین صفحات + نمایش کارت‌های مناسب)
-    // برای صفحه "سرودها" هم دقیقا همان لیست آهنگ‌ها را می‌دهیم
-    // صفحه خانه نیز کارت‌های مشابه (بهترین سرودها)
     function switchPage(pageId) {
         const sections = ['homePage', 'sorudhaPage', 'hamahangiPage', 'groupPage'];
         sections.forEach(sec => {
@@ -569,7 +582,6 @@
                 }
             }
         });
-        // به روز رسانی کلاس active در منو
         document.querySelectorAll('#mainMenu a').forEach(link => {
             link.classList.remove('active');
             const pageAttr = link.getAttribute('data-page');
@@ -582,13 +594,11 @@
         });
     }
 
-    // بارگذاری اولیه کارت‌ها در دو بخش (خانه و سرودها)
     function initCards() {
         renderCards('homeCardsGrid', songsData);
         renderCards('sorudhaGrid', songsData);
     }
 
-    // رویدادهای منو
     function bindMenuEvents() {
         const menuLinks = document.querySelectorAll('#mainMenu a');
         menuLinks.forEach(link => {
@@ -599,24 +609,16 @@
                 else if (page === 'sorudha') switchPage('sorudhaPage');
                 else if (page === 'hamahangi') switchPage('hamahangiPage');
                 else if (page === 'group') switchPage('groupPage');
-                // اسکرول به بالای صفحه
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         });
     }
 
-    // اطمینان از اینکه در حین کلیک روی دکمه‌های دانلود که داینامیک هستند، مدیریت می‌شود (اما در renderCards اضافه کردیم)
-    // یک observer هم اضافه نمی‌کنیم چون هر بار رندر مجدد رویدادها اعمال می‌شوند.
-
-    // در صورتی که کاربر در صفحه دانلود از روی کارتها استفاده کند، رندرها به درستی کار می‌کنند.
-
-    // اجرای اولیه
     window.addEventListener('DOMContentLoaded', () => {
         initCards();
         bindMenuEvents();
-        // نمایش صفحه خانه فعال در ابتدا
         switchPage('homePage');
     });
 </script>
 </body>
-    </html>
+            </html>
