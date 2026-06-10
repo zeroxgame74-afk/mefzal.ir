@@ -130,7 +130,7 @@
 
         .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
             gap: 2rem;
             margin-top: 1rem;
         }
@@ -200,60 +200,150 @@
             color: var(--pistachio);
         }
 
-        .player-wrapper {
-            padding: 0.7rem 1rem 1.2rem;
+        /* ---------- پلیر کاستوم شده (اختصاصی) ---------- */
+        .custom-player {
             background: #1e3527;
             border-top: 1px solid #517a5e;
+            padding: 0.8rem 1rem 1rem;
             display: flex;
             flex-direction: column;
             gap: 10px;
         }
-        audio {
-            width: 100%;
-            height: 40px;
-            border-radius: 40px;
-            background: #0f261b;
-            outline: none;
-        }
-        .extra-actions {
+        .player-controls {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            gap: 10px;
-            margin-top: 5px;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: space-between;
         }
-        .download-btn {
+        .play-pause-btn {
             background: var(--pistachio);
             border: none;
-            padding: 7px 14px;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.2s;
+            color: #1e3a2a;
+            font-size: 1.3rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        .play-pause-btn:hover {
+            background: #e2ffd6;
+            transform: scale(1.05);
+        }
+        .progress-area {
+            flex: 2;
+            min-width: 120px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            direction: ltr;
+        }
+        .progress-bar {
+            flex: 1;
+            height: 5px;
+            background: #4f6b58;
+            border-radius: 10px;
+            cursor: pointer;
+            position: relative;
+        }
+        .progress-fill {
+            width: 0%;
+            height: 100%;
+            background: var(--pistachio);
+            border-radius: 10px;
+            position: relative;
+            transition: width 0.05s linear;
+        }
+        .time-text {
+            font-size: 0.7rem;
+            font-family: monospace;
+            background: #0f261b;
+            padding: 2px 6px;
+            border-radius: 30px;
+            color: #cfe6d4;
+            direction: ltr;
+        }
+        .volume-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .volume-icon {
+            background: none;
+            border: none;
+            color: var(--pistachio-light);
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 6px;
+            border-radius: 50%;
+            transition: 0.2s;
+        }
+        .volume-slider {
+            position: absolute;
+            bottom: 35px;
+            right: 0;
+            background: #1f3a2c;
+            padding: 8px;
+            border-radius: 20px;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            border: 1px solid var(--pistachio);
+            z-index: 10;
+        }
+        .volume-slider input {
+            width: 100px;
+            cursor: pointer;
+            background: var(--pistachio);
+            height: 4px;
+            border-radius: 5px;
+        }
+        .volume-wrapper:hover .volume-slider {
+            display: flex;
+        }
+        .download-btn-custom {
+            background: var(--pistachio);
+            border: none;
+            padding: 6px 12px;
             border-radius: 50px;
             color: #1e3a2a;
             font-weight: bold;
             font-family: inherit;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             cursor: pointer;
             transition: 0.2s;
         }
-        .download-btn:hover {
+        .download-btn-custom:hover {
             background: #e2ffd6;
             transform: scale(1.02);
         }
         .info-badge {
             background: #2d6143;
             border-radius: 40px;
-            padding: 5px 12px;
-            font-size: 0.7rem;
+            padding: 4px 10px;
+            font-size: 0.65rem;
             font-weight: 600;
             color: var(--pistachio-light);
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
-
-        /* باکس گنده گروه مفضال - اندازه درشت، متن وسط */
+        .extra-actions-custom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 5px;
+        }
+        /* باکس گنده گروه مفضال */
         .big-box {
             background: #2c4a35;
             border-radius: 2rem;
@@ -306,7 +396,6 @@
             border-radius: 2rem;
             padding: 1rem;
         }
-
         footer {
             margin-top: 4rem;
             background: #14281e;
@@ -315,7 +404,6 @@
             border-top: 1px solid var(--pistachio);
             font-size: 0.85rem;
         }
-
         @media (max-width: 700px) {
             .navbar {
                 flex-direction: column;
@@ -332,8 +420,12 @@
             .phone-number {
                 font-size: 1.2rem;
             }
-            .big-box h2 {
-                font-size: 1.8rem;
+            .player-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .progress-area {
+                margin: 5px 0;
             }
         }
         .hidden-section {
@@ -364,11 +456,10 @@
     <div id="homePage" class="page-section">
         <div class="hero">
             <h2>به پخش‌کننده رسمی mefzal.ir خوش آمدید</h2>
-            <p>زیباترین سرودهای ملی، مذهبی و گروهی | با کیفیت اصلی و پلیر پیشرفته</p>
+            <p>زیباترین سرودهای ملی، مذهبی و گروهی | پلیر اختصاصی و با کیفیت</p>
         </div>
         <div class="cards-grid" id="homeCardsGrid"></div>
     </div>
-
     <div id="sorudhaPage" class="page-section hidden-section">
         <div class="hero">
             <h2>سرودهای اختصاصی مفضال</h2>
@@ -376,7 +467,6 @@
         </div>
         <div class="cards-grid" id="sorudhaGrid"></div>
     </div>
-
     <div id="hamahangiPage" class="page-section hidden-section">
         <div class="hero">
             <h2>هماهنگی و ارتباط با ما</h2>
@@ -392,8 +482,6 @@
             </div>
         </div>
     </div>
-
-    <!-- صفحه گروه مفضال - باکس بزرگ و متن وسط و فونت درشت -->
     <div id="groupPage" class="page-section hidden-section">
         <div class="hero">
             <h2>درباره گروه حرفه‌ای مفضال</h2>
@@ -401,42 +489,21 @@
         </div>
         <div class="big-box">
             <h2><i class="fas fa-users"></i> گروه مفضال</h2>
-            
-            <div class="info-row">
-                <i class="fas fa-user-tie"></i>
-                <strong>مدیر مجموعه:</strong> ابوالفضل حیدری
-            </div>
-            
-            <div class="info-row">
-                <i class="fas fa-microphone-alt"></i>
-                <strong>امور ضبط و آموزگار سرود:</strong> مهدی اکبری | حمیدرضا نخعی
-            </div>
-            
-            <div class="info-row">
-                <i class="fas fa-laptop-code"></i>
-                <strong>سازنده سایت:</strong> محمد حسین صنعتی
-            </div>
-            
-            <div class="info-row">
-                <i class="fas fa-phone-square-alt"></i>
-                <strong>شماره جهت هماهنگی:</strong> 
-                <span class="phone-number">09965955856</span>
-            </div>
+            <div class="info-row"><i class="fas fa-user-tie"></i><strong>مدیر مجموعه:</strong> ابوالفضل حیدری</div>
+            <div class="info-row"><i class="fas fa-microphone-alt"></i><strong>امور ضبط و آموزگار سرود:</strong> مهدی اکبری | حمیدرضا نخعی</div>
+            <div class="info-row"><i class="fas fa-laptop-code"></i><strong>سازنده سایت:</strong> محمد حسین صنعتی</div>
+            <div class="info-row"><i class="fas fa-phone-square-alt"></i><strong>شماره جهت هماهنگی:</strong><span class="phone-number">09965955856</span></div>
         </div>
-        <div class="group-footnote">
-            <i class="fas fa-star-of-life" style="color: var(--pistachio);"></i> 
-            تک خوان‌های گروه مفضال در سرودهای مختلف: سید علی موسوی ، علیرضا حیدری و حسن طاهری
-        </div>
+        <div class="group-footnote"><i class="fas fa-star-of-life" style="color: var(--pistachio);"></i> تک خوان‌های گروه مفضال: سید علی موسوی ، علیرضا حیدری و حسن طاهری</div>
     </div>
 </main>
-
 <footer>
     <div>© ۱۴۰۳ - تمامی حقوق برای mefzal.ir محفوظ است</div>
     <div style="margin-top: 6px; font-size: 0.7rem;">هماهنگی و پشتیبانی: 09965955856</div>
 </footer>
 
 <script>
-    // دیتا با اضافه کردن آیکون کاستوم شده برای تک خوان (در نمایش همون آیکون خاص)
+    // دیتای آهنگ‌ها بدون حذف
     const songsData = [
         {
             id: 1,
@@ -480,52 +547,155 @@
         }
     ];
 
-    function renderCards(containerId, songsArray) {
-        const container = document.getElementById(containerId);
-        if (!container) return;
-        container.innerHTML = '';
-        songsArray.forEach(song => {
-            const card = document.createElement('div');
-            card.className = 'song-card';
-            // آیکون کاستوم شده برای تک خوان: از آیکون "user-astronaut" استفاده کردم که خاص و متمایز است
-            card.innerHTML = `
-                <div class="img-square">
-                    <img src="${song.imageLink}" alt="${song.title}" loading="lazy" onerror="this.src='https://picsum.photos/id/101/400/400'">
-                </div>
-                <div class="song-details">
-                    <div class="song-title">${escapeHtml(song.title)}</div>
-                    <div class="meta-icons">
-                        <div class="meta-item"><i class="fas fa-sliders-h"></i> میکس مستر: ${escapeHtml(song.mixMaster)}</div>
-                        <div class="meta-item"><i class="fas fa-microphone-alt"></i> امور ضبط: ${escapeHtml(song.recordOffice)}</div>
-                        <div class="meta-item"><i class="fas fa-user-astronaut"></i> تک خوان: ${escapeHtml(song.soloSinger)}</div>
-                        <div class="meta-item"><i class="fas fa-users"></i> خوانندگان: ${escapeHtml(song.singers)}</div>
-                    </div>
-                </div>
-                <div class="player-wrapper">
-                    <audio controls preload="metadata" src="${song.audioLink}">
-                        مرورگر شما از پلیر پشتیبانی نمی‌کند.
-                    </audio>
-                    <div class="extra-actions">
-                        <div class="info-badge"><i class="fas fa-headphones"></i> کیفیت عالی</div>
-                        <button class="download-btn" data-audio-url="${song.audioLink}" data-song-name="${song.title}">
-                            <i class="fas fa-download"></i> دانلود
-                        </button>
-                    </div>
-                </div>
-            `;
-            container.appendChild(card);
+    // تابع ساخت پلیر کاستوم برای هر کارت
+    function createCustomPlayer(audioSrc, songTitleForDownload) {
+        const containerDiv = document.createElement('div');
+        containerDiv.className = 'custom-player';
+        
+        // عناصر پلیر
+        const controlsDiv = document.createElement('div');
+        controlsDiv.className = 'player-controls';
+        
+        const playBtn = document.createElement('button');
+        playBtn.className = 'play-pause-btn';
+        playBtn.innerHTML = '<i class="fas fa-play"></i>';
+        
+        const progressArea = document.createElement('div');
+        progressArea.className = 'progress-area';
+        const progressBar = document.createElement('div');
+        progressBar.className = 'progress-bar';
+        const progressFill = document.createElement('div');
+        progressFill.className = 'progress-fill';
+        progressBar.appendChild(progressFill);
+        const timeSpan = document.createElement('span');
+        timeSpan.className = 'time-text';
+        timeSpan.innerText = '00:00 / 00:00';
+        progressArea.appendChild(progressBar);
+        progressArea.appendChild(timeSpan);
+        
+        // ولوم کاستوم
+        const volumeWrap = document.createElement('div');
+        volumeWrap.className = 'volume-wrapper';
+        const volumeIcon = document.createElement('button');
+        volumeIcon.className = 'volume-icon';
+        volumeIcon.innerHTML = '<i class="fas fa-volume-up"></i>';
+        const volumeSliderDiv = document.createElement('div');
+        volumeSliderDiv.className = 'volume-slider';
+        const volumeInput = document.createElement('input');
+        volumeInput.type = 'range';
+        volumeInput.min = 0;
+        volumeInput.max = 1;
+        volumeInput.step = 0.01;
+        volumeInput.value = 0.7;
+        volumeSliderDiv.appendChild(volumeInput);
+        volumeWrap.appendChild(volumeIcon);
+        volumeWrap.appendChild(volumeSliderDiv);
+        
+        controlsDiv.appendChild(playBtn);
+        controlsDiv.appendChild(progressArea);
+        controlsDiv.appendChild(volumeWrap);
+        
+        // ردیف دانلود و برچسب
+        const extraDiv = document.createElement('div');
+        extraDiv.className = 'extra-actions-custom';
+        const qualityBadge = document.createElement('div');
+        qualityBadge.className = 'info-badge';
+        qualityBadge.innerHTML = '<i class="fas fa-headphones"></i> کیفیت عالی';
+        const downloadBtn = document.createElement('button');
+        downloadBtn.className = 'download-btn-custom';
+        downloadBtn.innerHTML = '<i class="fas fa-download"></i> دانلود';
+        downloadBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            downloadAudio(audioSrc, songTitleForDownload);
         });
-
-        document.querySelectorAll(`#${containerId} .download-btn`).forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const url = btn.getAttribute('data-audio-url');
-                const name = btn.getAttribute('data-song-name') || 'track';
-                downloadAudio(url, name);
-            });
+        extraDiv.appendChild(qualityBadge);
+        extraDiv.appendChild(downloadBtn);
+        
+        containerDiv.appendChild(controlsDiv);
+        containerDiv.appendChild(extraDiv);
+        
+        // عنصر صوتی مخفی
+        const audioElem = new Audio(audioSrc);
+        audioElem.preload = 'metadata';
+        audioElem.volume = 0.7;
+        
+        let isPlaying = false;
+        
+        function updatePlayButton() {
+            playBtn.innerHTML = isPlaying ? '<i class="fas fa-pause"></i>' : '<i class="fas fa-play"></i>';
+        }
+        
+        function formatTime(seconds) {
+            if (isNaN(seconds)) return '00:00';
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+        
+        function updateProgress() {
+            if (audioElem.duration) {
+                const percent = (audioElem.currentTime / audioElem.duration) * 100;
+                progressFill.style.width = percent + '%';
+                timeSpan.innerText = `${formatTime(audioElem.currentTime)} / ${formatTime(audioElem.duration)}`;
+            } else {
+                timeSpan.innerText = `00:00 / 00:00`;
+            }
+        }
+        
+        audioElem.addEventListener('timeupdate', updateProgress);
+        audioElem.addEventListener('loadedmetadata', () => {
+            timeSpan.innerText = `${formatTime(0)} / ${formatTime(audioElem.duration)}`;
         });
+        
+        playBtn.addEventListener('click', () => {
+            if (isPlaying) {
+                audioElem.pause();
+            } else {
+                audioElem.play().catch(e => console.log("پخش خودکار مسدود شد"));
+            }
+            isPlaying = !isPlaying;
+            updatePlayButton();
+        });
+        
+        audioElem.addEventListener('ended', () => {
+            isPlaying = false;
+            updatePlayButton();
+            progressFill.style.width = '0%';
+            timeSpan.innerText = `${formatTime(0)} / ${formatTime(audioElem.duration)}`;
+        });
+        
+        // نوار پیشرفت کلیک
+        progressBar.addEventListener('click', (e) => {
+            const rect = progressBar.getBoundingClientRect();
+            const clickX = e.clientX - rect.left;
+            const width = rect.width;
+            const percent = clickX / width;
+            if (audioElem.duration) {
+                audioElem.currentTime = percent * audioElem.duration;
+            }
+        });
+        
+        // ولوم
+        volumeInput.addEventListener('input', (e) => {
+            audioElem.volume = e.target.value;
+            volumeIcon.innerHTML = audioElem.volume === 0 ? '<i class="fas fa-volume-mute"></i>' : '<i class="fas fa-volume-up"></i>';
+        });
+        
+        volumeIcon.addEventListener('click', () => {
+            if (audioElem.volume > 0) {
+                audioElem.volume = 0;
+                volumeInput.value = 0;
+                volumeIcon.innerHTML = '<i class="fas fa-volume-mute"></i>';
+            } else {
+                audioElem.volume = 0.7;
+                volumeInput.value = 0.7;
+                volumeIcon.innerHTML = '<i class="fas fa-volume-up"></i>';
+            }
+        });
+        
+        return containerDiv;
     }
-
+    
     function downloadAudio(url, filename) {
         fetch(url)
             .then(response => {
@@ -547,7 +717,7 @@
                 window.open(url, '_blank');
             });
     }
-
+    
     function escapeHtml(str) {
         if(!str) return '';
         return str.replace(/[&<>]/g, function(m) {
@@ -557,7 +727,35 @@
             return m;
         });
     }
-
+    
+    function renderCards(containerId, songsArray) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+        container.innerHTML = '';
+        songsArray.forEach(song => {
+            const card = document.createElement('div');
+            card.className = 'song-card';
+            card.innerHTML = `
+                <div class="img-square">
+                    <img src="${song.imageLink}" alt="${song.title}" loading="lazy" onerror="this.src='https://picsum.photos/id/101/400/400'">
+                </div>
+                <div class="song-details">
+                    <div class="song-title">${escapeHtml(song.title)}</div>
+                    <div class="meta-icons">
+                        <div class="meta-item"><i class="fas fa-sliders-h"></i> میکس مستر: ${escapeHtml(song.mixMaster)}</div>
+                        <div class="meta-item"><i class="fas fa-microphone-alt"></i> امور ضبط: ${escapeHtml(song.recordOffice)}</div>
+                        <div class="meta-item"><i class="fas fa-user-astronaut"></i> تک خوان: ${escapeHtml(song.soloSinger)}</div>
+                        <div class="meta-item"><i class="fas fa-users"></i> خوانندگان: ${escapeHtml(song.singers)}</div>
+                    </div>
+                </div>
+            `;
+            // اضافه کردن پلیر کاستوم
+            const customPlayer = createCustomPlayer(song.audioLink, song.title);
+            card.appendChild(customPlayer);
+            container.appendChild(card);
+        });
+    }
+    
     function switchPage(pageId) {
         const sections = ['homePage', 'sorudhaPage', 'hamahangiPage', 'groupPage'];
         sections.forEach(sec => {
@@ -583,12 +781,12 @@
             }
         });
     }
-
+    
     function initCards() {
         renderCards('homeCardsGrid', songsData);
         renderCards('sorudhaGrid', songsData);
     }
-
+    
     function bindMenuEvents() {
         const menuLinks = document.querySelectorAll('#mainMenu a');
         menuLinks.forEach(link => {
@@ -603,7 +801,7 @@
             });
         });
     }
-
+    
     window.addEventListener('DOMContentLoaded', () => {
         initCards();
         bindMenuEvents();
@@ -611,4 +809,4 @@
     });
 </script>
 </body>
-    </html>
+</html>
