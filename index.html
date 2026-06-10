@@ -80,36 +80,45 @@
         .img-square img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease; }
         .song-card:hover .img-square img { transform: scale(1.02); }
         .song-details { padding: 1rem 1rem 0.7rem; }
+        
+        /* عنوان بزرگتر */
         .song-title-box {
             width: 100%;
-            padding: 8px 12px;
-            border-radius: 30px;
+            padding: 12px 16px;
+            border-radius: 40px;
             text-align: center;
             background: #1f3f2c;
             border: 1px solid rgba(163, 201, 168, 0.4);
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
-        .song-title { color: #fbf5cf; font-size: 0.9rem; font-weight: 700; }
+        .song-title {
+            color: #fbf5cf;
+            font-size: 1.3rem;
+            font-weight: 800;
+        }
+        
+        /* تگ پرطرفدار */
         .custom-tag {
             width: 100%;
-            padding: 8px 12px;
-            border-radius: 30px;
+            padding: 10px 16px;
+            border-radius: 40px;
             text-align: center;
-            font-size: 0.9rem;
+            font-size: 1rem;
             font-weight: 700;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             background: linear-gradient(135deg, #e6a017, #d45500);
             border: 1px solid #ffcd7e;
             color: #fff7e0;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 10px;
             cursor: pointer;
             transition: transform 0.2s;
         }
         .custom-tag:hover { transform: scale(1.02); }
-        .custom-tag i { font-size: 0.9rem; color: #ffefb0; }
+        .custom-tag i { font-size: 1.1rem; color: #ffefb0; }
+        
         .meta-icons {
             display: flex;
             flex-wrap: wrap;
@@ -132,46 +141,23 @@
         }
         .meta-item i { font-size: 1rem; color: var(--pistachio); }
         
-        /* پلیر مرتب - همه چیز در یک خط */
+        /* پلیر - نوار پیشرفت بزرگ در بالا، دکمه دانلود پایین */
         .player-simple {
             background: #1e3527;
             border-top: 1px solid #517a5e;
             padding: 12px;
         }
-        .player-row {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: nowrap;
-            justify-content: space-between;
-        }
-        .play-btn {
-            background: var(--pistachio);
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #1e3a2a;
-            font-size: 1.2rem;
-            flex-shrink: 0;
-        }
         .progress-wrapper {
-            flex: 4;
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-            min-width: 120px;
+            width: 100%;
+            margin-bottom: 12px;
         }
         .progress-bar {
             width: 100%;
-            height: 5px;
+            height: 6px;
             background: #4f6b58;
             border-radius: 10px;
             cursor: pointer;
+            margin-bottom: 6px;
         }
         .progress-fill {
             width: 0%;
@@ -183,48 +169,55 @@
             font-size: 0.7rem;
             font-family: monospace;
             background: #0f261b;
-            padding: 2px 6px;
+            padding: 2px 8px;
             border-radius: 30px;
             color: #cfe6d4;
             display: inline-block;
-            width: fit-content;
             direction: ltr;
         }
+        .player-controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+        .play-btn {
+            background: var(--pistachio);
+            border: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1e3a2a;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+        .play-btn:hover { background: #e2ffd6; transform: scale(1.05); }
         .download-simple {
             background: var(--pistachio);
             border: none;
-            padding: 6px 14px;
+            padding: 8px 18px;
             border-radius: 50px;
             color: #1e3a2a;
             font-weight: bold;
             font-family: 'Vazirmatn', 'Segoe UI', sans-serif;
-            font-size: 0.75rem;
+            font-size: 0.85rem;
             display: inline-flex;
             align-items: center;
             gap: 8px;
             cursor: pointer;
             flex-shrink: 0;
         }
-        .quality-badge {
-            background: #2d6143;
-            border-radius: 40px;
-            padding: 4px 10px;
-            font-size: 0.65rem;
-            font-weight: 600;
-            color: var(--pistachio-light);
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .extra-line {
-            display: none; /* حذف شد تا همه چیز توی یک خط باشه */
-        }
+        .download-simple:hover { background: #e2ffd6; transform: scale(1.02); }
         
-        /* باکس گروه مفضال ساده */
+        /* گروه مفضال - باکس ساده */
         .group-box {
             background: #2c4a35;
             border-radius: 2rem;
-            padding: 1.8rem;
+            padding: 2rem;
             margin-top: 1rem;
             border: 2px solid var(--pistachio);
             text-align: center;
@@ -235,7 +228,7 @@
             color: #f7f3cf;
             border-bottom: 2px solid var(--pistachio);
             display: inline-block;
-            padding-bottom: 0.3rem;
+            padding-bottom: 0.5rem;
         }
         .group-info {
             display: flex;
@@ -249,12 +242,12 @@
             gap: 12px;
             font-size: 1rem;
             background: #1f3f2c99;
-            padding: 8px 16px;
+            padding: 10px 20px;
             border-radius: 50px;
             flex-wrap: wrap;
         }
         .group-item i {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             color: var(--pistachio);
             width: 2rem;
         }
@@ -262,10 +255,9 @@
         @media (max-width: 700px) {
             .navbar { flex-direction: column; gap: 12px; padding: 1rem; }
             .menu { justify-content: center; }
-            .player-row { flex-wrap: wrap; gap: 8px; }
-            .progress-wrapper { width: 100%; order: 2; }
-            .play-btn { order: 1; }
-            .download-simple { order: 3; }
+            .player-controls { flex-wrap: wrap; justify-content: center; }
+            .group-box h2 { font-size: 1.5rem; }
+            .song-title { font-size: 1.1rem; }
         }
         .hidden-section { display: none; }
         .active-section { display: block; }
@@ -320,17 +312,21 @@
     ];
     function createSimplePlayer(audioSrc, trackTitle) {
         const container = document.createElement('div'); container.className = 'player-simple';
-        const row = document.createElement('div'); row.className = 'player-row';
-        const playBtn = document.createElement('button'); playBtn.className = 'play-btn'; playBtn.innerHTML = '<i class="fas fa-play"></i>';
+        
         const progressWrapper = document.createElement('div'); progressWrapper.className = 'progress-wrapper';
         const progressBar = document.createElement('div'); progressBar.className = 'progress-bar';
         const progressFill = document.createElement('div'); progressFill.className = 'progress-fill';
         progressBar.appendChild(progressFill);
         const timeSpan = document.createElement('div'); timeSpan.className = 'time-info'; timeSpan.innerText = '00:00 / 00:00';
         progressWrapper.appendChild(progressBar); progressWrapper.appendChild(timeSpan);
+        
+        const controlsDiv = document.createElement('div'); controlsDiv.className = 'player-controls';
+        const playBtn = document.createElement('button'); playBtn.className = 'play-btn'; playBtn.innerHTML = '<i class="fas fa-play"></i>';
         const downloadBtn = document.createElement('button'); downloadBtn.className = 'download-simple'; downloadBtn.innerHTML = '<i class="fas fa-download"></i> دانلود';
-        row.appendChild(playBtn); row.appendChild(progressWrapper); row.appendChild(downloadBtn);
-        container.appendChild(row);
+        controlsDiv.appendChild(playBtn); controlsDiv.appendChild(downloadBtn);
+        
+        container.appendChild(progressWrapper); container.appendChild(controlsDiv);
+        
         const audio = new Audio(audioSrc); audio.preload = 'metadata';
         let isPlaying = false;
         function formatTime(sec) { if (isNaN(sec)) return '00:00'; const mins = Math.floor(sec / 60); const s = Math.floor(sec % 60); return `${mins.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`; }
