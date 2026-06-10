@@ -166,15 +166,24 @@
         .song-details {
             padding: 1rem 1rem 0.7rem;
         }
+        
+        /* باکس اختصاصی عنوان سرود (مثل باکس توضیحات) */
+        .song-title-box {
+            background: #1f3f2c;
+            padding: 0.6rem 0.6rem;
+            border-radius: 40px;
+            margin-bottom: 0.75rem;
+            text-align: center;
+            border: 1px solid rgba(163, 201, 168, 0.3);
+        }
         .song-title {
             font-size: 1.5rem;
             font-weight: 800;
-            margin-bottom: 0.5rem;
             color: #fbf5cf;
-            text-align: center;
             letter-spacing: 1px;
         }
-        /* تگ پرطرفدار وسط قرار گرفت */
+        
+        /* تگ پرطرفدار وسط */
         .custom-tag {
             display: flex;
             align-items: center;
@@ -195,6 +204,7 @@
             font-size: 1rem;
             color: #ffefb0;
         }
+        
         .meta-icons {
             display: flex;
             flex-wrap: wrap;
@@ -323,11 +333,11 @@
             margin-top: 10px;
         }
 
-        /* استایل دقیق و مرتب برای گروه مفضال */
+        /* استایل گروه مفضال (متن‌ها بیرون از باکس) */
         .big-box {
             background: #2c4a35;
             border-radius: 2rem;
-            padding: 2.5rem 2rem;
+            padding: 2rem;
             margin-top: 1.5rem;
             border: 2px solid var(--pistachio);
             box-shadow: 0 20px 30px -15px rgba(0,0,0,0.4);
@@ -337,9 +347,14 @@
             font-size: 2.3rem;
             border-bottom: 3px solid var(--pistachio);
             display: inline-block;
-            margin-bottom: 2rem;
-            padding-bottom: 0.8rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
             color: #f7f3cf;
+        }
+        /* استایل اطلاعات بیرون از باکس (مثل هماهنگی) */
+        .group-info-list {
+            margin: 2rem auto;
+            max-width: 700px;
         }
         .info-row {
             display: flex;
@@ -370,7 +385,7 @@
             display: inline-block;
         }
         .group-footnote {
-            margin-top: 2rem;
+            margin-top: 1rem;
             text-align: center;
             font-size: 1rem;
             background: #1a3a2a90;
@@ -474,8 +489,12 @@
             <h2>درباره گروه حرفه‌ای مفضال</h2>
             <p>پیشرو در تولید سرودهای فاخر و هماهنگی بی‌نظیر</p>
         </div>
+        <!-- باکس فقط برای عنوان گروه مفضال -->
         <div class="big-box">
             <h2><i class="fas fa-users"></i> گروه مفضال</h2>
+        </div>
+        <!-- اطلاعات بیرون از باکس (مثل تب هماهنگی) -->
+        <div class="group-info-list">
             <div class="info-row"><i class="fas fa-user-tie"></i><strong>مدیر مجموعه:</strong> ابوالفضل حیدری</div>
             <div class="info-row"><i class="fas fa-microphone-alt"></i><strong>امور ضبط و آموزگار سرود:</strong> مهدی اکبری | حمیدرضا نخعی</div>
             <div class="info-row"><i class="fas fa-laptop-code"></i><strong>سازنده سایت:</strong> محمد حسین صنعتی</div>
@@ -648,7 +667,9 @@
                     <img src="${song.imageLink}" alt="${song.title}" loading="lazy" onerror="this.src='https://picsum.photos/id/101/400/400'">
                 </div>
                 <div class="song-details">
-                    <div class="song-title">${escapeHtml(song.title)}</div>
+                    <div class="song-title-box">
+                        <div class="song-title">${escapeHtml(song.title)}</div>
+                    </div>
                     ${tagHtml}
                     <div class="meta-icons">
                         <div class="meta-item"><i class="fas fa-sliders-h"></i> میکس مستر: ${escapeHtml(song.mixMaster)}</div>
@@ -716,4 +737,4 @@
     });
 </script>
 </body>
-</html>
+    </html>
