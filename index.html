@@ -456,7 +456,7 @@
             <div class="info-row"><i class="fas fa-laptop-code"></i><strong>سازنده سایت:</strong> محمد حسین صنعتی</div>
             <div class="info-row"><i class="fas fa-phone-square-alt"></i><strong>شماره جهت هماهنگی:</strong><span class="phone-number">09965955856</span></div>
         </div>
-        <div class="group-footnote"><i class="fas fa-star-of-life" style="color: var(--pistachio);"></i> تک خوان‌های گروه مفضال: سید علی موسوی ، علیرضا حیدری و حسن طاهری</div>
+        <div class="group-footnote"><i class="fas fa-star-of-life" style="color: var(--pistachio);"></i> همکاری با بهترین اساتید سرود کشور</div>
     </div>
 </main>
 <footer>
@@ -465,46 +465,17 @@
 </footer>
 
 <script>
+    // فقط یک سرود جدید: قصه ایران - سرودهای قدیمی حذف شدن
     const songsData = [
         {
             id: 1,
-            title: "سرود افتخار وحدت",
-            imageLink: "https://picsum.photos/id/104/400/400",
-            audioLink: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-            mixMaster: "مهدی رضوی",
-            recordOffice: "استودیو پژواک",
-            soloSinger: "علیرضا حیدری",
-            singers: "گروه مفضال + همخوانان"
-        },
-        {
-            id: 2,
-            title: "سرود یا مهدی ادرکنی",
-            imageLink: "https://picsum.photos/id/106/400/400",
-            audioLink: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
-            mixMaster: "سعید نوروزی",
-            recordOffice: "استودیو آوای رضوان",
-            soloSinger: "سید علی موسوی",
+            title: "قصه ایران",
+            imageLink: "https://cdn.imgurl.ir/uploads/k79772_IMG__.jpg",
+            audioLink: "https://cdn.imgurl.ir/uploads/l2257_GHSEH_IRAN__MEFZAL.IR.mp3",
+            mixMaster: "احمد غدیریان",
+            recordOffice: "مهدی اکبری",
+            // singers به شکل جدید و با آیکون کاستوم (گروه سرود مفضال)
             singers: "گروه سرود مفضال"
-        },
-        {
-            id: 3,
-            title: "خونین شهر (دفاع مقدس)",
-            imageLink: "https://picsum.photos/id/107/400/400",
-            audioLink: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
-            mixMaster: "کامران پوراحمد",
-            recordOffice: "مرکز ضبط سروش",
-            soloSinger: "حسن طاهری",
-            singers: "همخوانان دفاع مقدس"
-        },
-        {
-            id: 4,
-            title: "ای ایران ای سرای امید",
-            imageLink: "https://picsum.photos/id/108/400/400",
-            audioLink: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
-            mixMaster: "پیمان صالحی",
-            recordOffice: "مسترینگ مفضال",
-            soloSinger: "فرزاد مومنی",
-            singers: "گروه ملی مفضال"
         }
     ];
 
@@ -653,8 +624,7 @@
                     <div class="meta-icons">
                         <div class="meta-item"><i class="fas fa-sliders-h"></i> میکس مستر: ${escapeHtml(song.mixMaster)}</div>
                         <div class="meta-item"><i class="fas fa-microphone-alt"></i> امور ضبط: ${escapeHtml(song.recordOffice)}</div>
-                        <div class="meta-item"><i class="fas fa-user-astronaut"></i> تک خوان: ${escapeHtml(song.soloSinger)}</div>
-                        <div class="meta-item"><i class="fas fa-users"></i> خوانندگان: ${escapeHtml(song.singers)}</div>
+                        <div class="meta-item"><i class="fas fa-users"></i> گروه سرود: ${escapeHtml(song.singers)}</div>
                     </div>
                 </div>
             `;
