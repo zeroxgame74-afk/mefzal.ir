@@ -167,18 +167,15 @@
             padding: 1rem 1rem 0.7rem;
         }
         
-        /* باکس عنوان سرود و تگ هم اندازه */
+        /* باکس عنوان سرود و تگ - عرض مثل باکس میکس مستر */
         .song-title-box, .custom-tag {
             width: 100%;
-            max-width: 260px;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 8px 12px;
-            border-radius: 40px;
+            padding: 6px 10px;
+            border-radius: 30px;
             text-align: center;
-            font-size: 1rem;
-            font-weight: 700;
-            margin-bottom: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 10px;
         }
         .song-title-box {
             background: #1f3f2c;
@@ -186,8 +183,8 @@
         }
         .song-title {
             color: #fbf5cf;
-            font-size: 1rem;
-            font-weight: 700;
+            font-size: 0.85rem;
+            font-weight: 600;
         }
         .custom-tag {
             background: linear-gradient(135deg, #e6a017, #d45500);
@@ -196,7 +193,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 6px;
             cursor: pointer;
             transition: transform 0.2s, box-shadow 0.2s;
         }
@@ -205,52 +202,52 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
         .custom-tag i {
-            font-size: 1rem;
+            font-size: 0.85rem;
             color: #ffefb0;
         }
         
         .meta-icons {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.6rem;
+            gap: 0.5rem;
             margin: 0.75rem 0;
-            font-size: 0.78rem;
+            font-size: 0.7rem;
             background: #1f3f2c;
-            padding: 0.6rem 0.6rem;
+            padding: 0.5rem 0.5rem;
             border-radius: 40px;
             justify-content: center;
         }
         .meta-item {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
             background: #2a5a3e60;
-            padding: 4px 10px;
+            padding: 3px 8px;
             border-radius: 30px;
             font-weight: 500;
         }
         .meta-item i {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             color: var(--pistachio);
         }
 
         .player-simple {
             background: #1e3527;
             border-top: 1px solid #517a5e;
-            padding: 0.8rem 1rem 1rem;
+            padding: 0.7rem 0.8rem 0.9rem;
         }
         .player-row {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             flex-wrap: wrap;
             justify-content: space-between;
         }
         .play-btn {
             background: var(--pistachio);
             border: none;
-            width: 44px;
-            height: 44px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
             cursor: pointer;
             display: flex;
@@ -258,7 +255,7 @@
             justify-content: center;
             transition: 0.2s;
             color: #1e3a2a;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             flex-shrink: 0;
         }
         .play-btn:hover {
@@ -269,12 +266,12 @@
             flex: 3;
             display: flex;
             flex-direction: column;
-            gap: 5px;
-            min-width: 140px;
+            gap: 4px;
+            min-width: 130px;
         }
         .progress-bar {
             width: 100%;
-            height: 6px;
+            height: 5px;
             background: #4f6b58;
             border-radius: 10px;
             cursor: pointer;
@@ -287,10 +284,10 @@
             border-radius: 10px;
         }
         .time-info {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             font-family: monospace;
             background: #0f261b;
-            padding: 2px 8px;
+            padding: 2px 6px;
             border-radius: 30px;
             color: #cfe6d4;
             display: inline-block;
@@ -300,14 +297,15 @@
         .download-simple {
             background: var(--pistachio);
             border: none;
-            padding: 8px 16px;
+            padding: 6px 12px;
             border-radius: 50px;
             color: #1e3a2a;
             font-weight: bold;
-            font-size: 0.75rem;
+            font-family: 'Vazirmatn', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 0.7rem;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             cursor: pointer;
             flex-shrink: 0;
         }
@@ -318,19 +316,19 @@
         .quality-badge {
             background: #2d6143;
             border-radius: 40px;
-            padding: 4px 10px;
-            font-size: 0.65rem;
+            padding: 3px 8px;
+            font-size: 0.6rem;
             font-weight: 600;
             color: var(--pistachio-light);
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
         }
         .extra-line {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 10px;
+            margin-top: 8px;
         }
 
         /* گروه مفضال */
@@ -672,13 +670,10 @@
             container.appendChild(card);
         });
         
-        // اضافه کردن رویداد کلیک به تگ‌های پرطرفدار
         document.querySelectorAll(`#${containerId} .custom-tag`).forEach(tag => {
             tag.addEventListener('click', (e) => {
                 e.stopPropagation();
-                // رفتن به صفحه پرطرفدارها
                 switchPage('popularPage');
-                // اسکرول به بالای صفحه
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         });
@@ -717,7 +712,6 @@
             container.appendChild(card);
         });
         
-        // رویداد کلیک برای تگ‌های داخل صفحه پرطرفدار
         document.querySelectorAll('#popularGrid .custom-tag').forEach(tag => {
             tag.addEventListener('click', (e) => {
                 e.stopPropagation();
@@ -783,4 +777,4 @@
     });
 </script>
 </body>
-            </html>
+</html>
