@@ -166,8 +166,8 @@
         .song-details {
             padding: 1rem 1rem 0.7rem;
         }
-        
-        /* باکس عنوان سرود و تگ - عرض مثل باکس میکس مستر */
+
+        /* باکس عنوان سرود و تگ - هم اندازه */
         .song-title-box, .custom-tag {
             width: 100%;
             padding: 6px 10px;
@@ -205,49 +205,50 @@
             font-size: 0.85rem;
             color: #ffefb0;
         }
-        
+
+        /* باکس میکس مستر، امور ضبط و گروه سرود - بزرگتر شدن */
         .meta-icons {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 0.7rem;
             margin: 0.75rem 0;
-            font-size: 0.7rem;
+            font-size: 0.9rem;
             background: #1f3f2c;
-            padding: 0.5rem 0.5rem;
+            padding: 0.6rem 0.6rem;
             border-radius: 40px;
             justify-content: center;
         }
         .meta-item {
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
             background: #2a5a3e60;
-            padding: 3px 8px;
+            padding: 5px 12px;
             border-radius: 30px;
             font-weight: 500;
         }
         .meta-item i {
-            font-size: 0.8rem;
+            font-size: 1rem;
             color: var(--pistachio);
         }
 
         .player-simple {
             background: #1e3527;
             border-top: 1px solid #517a5e;
-            padding: 0.7rem 0.8rem 0.9rem;
+            padding: 0.8rem 1rem 1rem;
         }
         .player-row {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             flex-wrap: wrap;
             justify-content: space-between;
         }
         .play-btn {
             background: var(--pistachio);
             border: none;
-            width: 38px;
-            height: 38px;
+            width: 42px;
+            height: 42px;
             border-radius: 50%;
             cursor: pointer;
             display: flex;
@@ -255,7 +256,7 @@
             justify-content: center;
             transition: 0.2s;
             color: #1e3a2a;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             flex-shrink: 0;
         }
         .play-btn:hover {
@@ -266,8 +267,8 @@
             flex: 3;
             display: flex;
             flex-direction: column;
-            gap: 4px;
-            min-width: 130px;
+            gap: 5px;
+            min-width: 140px;
         }
         .progress-bar {
             width: 100%;
@@ -284,10 +285,10 @@
             border-radius: 10px;
         }
         .time-info {
-            font-size: 0.65rem;
+            font-size: 0.7rem;
             font-family: monospace;
             background: #0f261b;
-            padding: 2px 6px;
+            padding: 2px 8px;
             border-radius: 30px;
             color: #cfe6d4;
             display: inline-block;
@@ -297,15 +298,15 @@
         .download-simple {
             background: var(--pistachio);
             border: none;
-            padding: 6px 12px;
+            padding: 7px 14px;
             border-radius: 50px;
             color: #1e3a2a;
             font-weight: bold;
             font-family: 'Vazirmatn', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
             cursor: pointer;
             flex-shrink: 0;
         }
@@ -316,58 +317,54 @@
         .quality-badge {
             background: #2d6143;
             border-radius: 40px;
-            padding: 3px 8px;
-            font-size: 0.6rem;
+            padding: 4px 10px;
+            font-size: 0.65rem;
             font-weight: 600;
             color: var(--pistachio-light);
             display: inline-flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
         }
         .extra-line {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 8px;
+            margin-top: 10px;
         }
 
-        /* گروه مفضال */
-        .group-header {
+        /* گروه مفضال - کاملاً مثل صفحه هماهنگی */
+        .group-main-title {
             text-align: center;
-            margin-bottom: 2rem;
+            margin: 2rem 0 1.5rem;
         }
-        .group-header h2 {
+        .group-main-title h2 {
             font-size: 2rem;
             background: #2c4a35;
             display: inline-block;
-            padding: 0.6rem 1.8rem;
+            padding: 0.5rem 1.5rem;
             border-radius: 60px;
             border: 2px solid var(--pistachio);
-        }
-        .group-info-list {
-            margin: 0 auto;
-            max-width: 700px;
         }
         .info-row {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 1rem;
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
             background: #1f3f2c99;
-            padding: 0.8rem 1.5rem;
+            padding: 0.7rem 1.2rem;
             border-radius: 70px;
             flex-wrap: wrap;
         }
         .info-row i {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             width: 2rem;
             color: var(--pistachio);
         }
         .phone-number {
             direction: ltr;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: bold;
             background: #1b2f23;
             padding: 0.2rem 1rem;
@@ -375,12 +372,12 @@
             display: inline-block;
         }
         .group-footnote {
-            margin-top: 2rem;
+            margin-top: 1.5rem;
             text-align: center;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             background: #1a3a2a90;
             border-radius: 2rem;
-            padding: 0.8rem;
+            padding: 0.6rem;
         }
 
         footer {
@@ -410,7 +407,7 @@
             .download-simple {
                 justify-content: center;
             }
-            .group-header h2 {
+            .group-main-title h2 {
                 font-size: 1.5rem;
             }
         }
@@ -481,15 +478,13 @@
             <h2>درباره گروه حرفه‌ای مفضال</h2>
             <p>پیشرو در تولید سرودهای فاخر و هماهنگی بی‌نظیر</p>
         </div>
-        <div class="group-header">
+        <div class="group-main-title">
             <h2><i class="fas fa-users"></i> گروه مفضال</h2>
         </div>
-        <div class="group-info-list">
-            <div class="info-row"><i class="fas fa-user-tie"></i><strong>مدیر مجموعه:</strong> ابوالفضل حیدری</div>
-            <div class="info-row"><i class="fas fa-microphone-alt"></i><strong>امور ضبط و آموزگار سرود:</strong> مهدی اکبری | حمیدرضا نخعی</div>
-            <div class="info-row"><i class="fas fa-laptop-code"></i><strong>سازنده سایت:</strong> محمد حسین صنعتی</div>
-            <div class="info-row"><i class="fas fa-phone-square-alt"></i><strong>شماره جهت هماهنگی:</strong><span class="phone-number">09965955856</span></div>
-        </div>
+        <div class="info-row"><i class="fas fa-user-tie"></i><strong>مدیر مجموعه:</strong> ابوالفضل حیدری</div>
+        <div class="info-row"><i class="fas fa-microphone-alt"></i><strong>امور ضبط و آموزگار سرود:</strong> مهدی اکبری | حمیدرضا نخعی</div>
+        <div class="info-row"><i class="fas fa-laptop-code"></i><strong>سازنده سایت:</strong> محمد حسین صنعتی</div>
+        <div class="info-row"><i class="fas fa-phone-square-alt"></i><strong>شماره جهت هماهنگی:</strong><span class="phone-number">09965955856</span></div>
         <div class="group-footnote"><i class="fas fa-star-of-life" style="color: var(--pistachio);"></i> همکاری با بهترین اساتید سرود کشور</div>
     </div>
 </main>
