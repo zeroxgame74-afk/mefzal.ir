@@ -91,7 +91,7 @@
         }
         .song-title { color: #fbf5cf; font-size: 1.3rem; font-weight: 800; }
         
-        /* پرطرفدار زیر عنوان و قبل از اطلاعات */
+        /* پرطرفدار زیر عنوان */
         .popular-badge {
             background: linear-gradient(135deg, #e6a017, #d45500);
             border: 1px solid #ffcd7e;
@@ -137,7 +137,7 @@
             border-radius: 30px;
             font-size: 0.8rem;
             font-weight: 500;
-            display: inline-flex;
+            display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
@@ -265,29 +265,37 @@
 
     function escapeHtml(str) { if(!str) return ''; return str.replace(/[&<>]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;'})[m]); }
 
-    function renderCards(containerId, songsArray, isHome = true) {
+    // تابع کمکی برای ساخت کارت (با تگ میهن در وسط)
+    function buildSongCard(song, showTag = true) {
+        const card = document.createElement('div'); card.className = 'song-card';
+        let tagHtml = ''; 
+        if (showTag && song.tag) tagHtml = `<div class="popular-badge" data-tag="${escapeHtml(song.tag)}"><i class="fas fa-fire"></i> ${escapeHtml(song.tag)}</div>`;
+        let categoryHtml = (song.category) ? `<div class="category-tag"><i class="fas fa-flag-checkered"></i> ${escapeHtml(song.category)}</div>` : '';
+        card.innerHTML = `
+            <div class="img-square"><img src="${song.imageLink}" alt="${song.title}" loading="lazy" onerror="this.src='https://picsum.photos/id/101/400/400'"></div>
+            <div class="song-details">
+                <div class="song-title-box"><div class="song-title">${escapeHtml(song.title)}</div></div>
+                ${tagHtml}
+                <div class="meta-icons">
+                    <div class="meta-item"><i class="fas fa-sliders-h"></i> میکس مستر: ${escapeHtml(song.mixMaster)}</div>
+                    <div class="meta-item"><i class="fas fa-microphone-alt"></i> امور ضبط: ${escapeHtml(song.recordOffice)}</div>
+                    <div class="meta-item"><i class="fas fa-users"></i> گروه سرود: ${escapeHtml(song.singers)}</div>
+                </div>
+                ${categoryHtml}
+            </div>
+        `;
+        const player = createSimplePlayer(song.audioLink, song.title); card.appendChild(player); 
+        return card;
+    }
+
+    function renderCards(containerId, songsArray, showTag = true) {
         const container = document.getElementById(containerId); if (!container) return;
         container.innerHTML = '';
         songsArray.forEach(song => {
-            const card = document.createElement('div'); card.className = 'song-card';
-            let tagHtml = ''; if (song.tag) tagHtml = `<div class="popular-badge" data-tag="${escapeHtml(song.tag)}"><i class="fas fa-fire"></i> ${escapeHtml(song.tag)}</div>`;
-            let categoryHtml = (song.category) ? `<div class="category-tag"><i class="fas fa-flag-checkered"></i> ${escapeHtml(song.category)}</div>` : '';
-            card.innerHTML = `
-                <div class="img-square"><img src="${song.imageLink}" alt="${song.title}" loading="lazy" onerror="this.src='https://picsum.photos/id/101/400/400'"></div>
-                <div class="song-details">
-                    <div class="song-title-box"><div class="song-title">${escapeHtml(song.title)}</div></div>
-                    ${tagHtml}
-                    <div class="meta-icons">
-                        <div class="meta-item"><i class="fas fa-sliders-h"></i> میکس مستر: ${escapeHtml(song.mixMaster)}</div>
-                        <div class="meta-item"><i class="fas fa-microphone-alt"></i> امور ضبط: ${escapeHtml(song.recordOffice)}</div>
-                        <div class="meta-item"><i class="fas fa-users"></i> گروه سرود: ${escapeHtml(song.singers)}</div>
-                    </div>
-                    ${categoryHtml}
-                </div>
-            `;
-            const player = createSimplePlayer(song.audioLink, song.title); card.appendChild(player); container.appendChild(card);
+            const card = buildSongCard(song, showTag);
+            container.appendChild(card);
         });
-        if(isHome){
+        if(showTag){
             document.querySelectorAll(`#${containerId} .popular-badge`).forEach(tag => {
                 tag.addEventListener('click', (e) => { e.stopPropagation(); switchPage('popularPage'); window.scrollTo({ top: 0, behavior: 'smooth' }); });
             });
@@ -299,23 +307,8 @@
         const container = document.getElementById('popularHomeGrid'); if (!container) return;
         container.innerHTML = '';
         popularSongs.forEach(song => {
-            const card = document.createElement('div'); card.className = 'song-card';
-            let tagHtml = `<div class="popular-badge"><i class="fas fa-fire"></i> ${escapeHtml(song.tag)}</div>`;
-            let categoryHtml = (song.category) ? `<div class="category-tag"><i class="fas fa-flag-checkered"></i> ${escapeHtml(song.category)}</div>` : '';
-            card.innerHTML = `
-                <div class="img-square"><img src="${song.imageLink}" alt="${song.title}" loading="lazy" onerror="this.src='https://picsum.photos/id/101/400/400'"></div>
-                <div class="song-details">
-                    <div class="song-title-box"><div class="song-title">${escapeHtml(song.title)}</div></div>
-                    ${tagHtml}
-                    <div class="meta-icons">
-                        <div class="meta-item"><i class="fas fa-sliders-h"></i> میکس مستر: ${escapeHtml(song.mixMaster)}</div>
-                        <div class="meta-item"><i class="fas fa-microphone-alt"></i> امور ضبط: ${escapeHtml(song.recordOffice)}</div>
-                        <div class="meta-item"><i class="fas fa-users"></i> گروه سرود: ${escapeHtml(song.singers)}</div>
-                    </div>
-                    ${categoryHtml}
-                </div>
-            `;
-            const player = createSimplePlayer(song.audioLink, song.title); card.appendChild(player); container.appendChild(card);
+            const card = buildSongCard(song, true);
+            container.appendChild(card);
         });
     }
 
@@ -323,23 +316,8 @@
         const popularSongs = songsData.filter(song => song.tag === "پرطرفدار");
         const container = document.getElementById('popularGrid'); if (!container) return; container.innerHTML = '';
         popularSongs.forEach(song => {
-            const card = document.createElement('div'); card.className = 'song-card';
-            let tagHtml = `<div class="popular-badge"><i class="fas fa-fire"></i> ${escapeHtml(song.tag)}</div>`;
-            let categoryHtml = (song.category) ? `<div class="category-tag"><i class="fas fa-flag-checkered"></i> ${escapeHtml(song.category)}</div>` : '';
-            card.innerHTML = `
-                <div class="img-square"><img src="${song.imageLink}" alt="${song.title}" loading="lazy" onerror="this.src='https://picsum.photos/id/101/400/400'"></div>
-                <div class="song-details">
-                    <div class="song-title-box"><div class="song-title">${escapeHtml(song.title)}</div></div>
-                    ${tagHtml}
-                    <div class="meta-icons">
-                        <div class="meta-item"><i class="fas fa-sliders-h"></i> میکس مستر: ${escapeHtml(song.mixMaster)}</div>
-                        <div class="meta-item"><i class="fas fa-microphone-alt"></i> امور ضبط: ${escapeHtml(song.recordOffice)}</div>
-                        <div class="meta-item"><i class="fas fa-users"></i> گروه سرود: ${escapeHtml(song.singers)}</div>
-                    </div>
-                    ${categoryHtml}
-                </div>
-            `;
-            const player = createSimplePlayer(song.audioLink, song.title); card.appendChild(player); container.appendChild(card);
+            const card = buildSongCard(song, true);
+            container.appendChild(card);
         });
     }
 
@@ -349,23 +327,8 @@
         const container = document.getElementById(containerId); if (!container) return;
         container.innerHTML = '';
         filteredSongs.forEach(song => {
-            const card = document.createElement('div'); card.className = 'song-card';
-            let tagHtml = ''; if (song.tag) tagHtml = `<div class="popular-badge"><i class="fas fa-fire"></i> ${escapeHtml(song.tag)}</div>`;
-            let categoryHtml = (song.category) ? `<div class="category-tag"><i class="fas fa-flag-checkered"></i> ${escapeHtml(song.category)}</div>` : '';
-            card.innerHTML = `
-                <div class="img-square"><img src="${song.imageLink}" alt="${song.title}" loading="lazy" onerror="this.src='https://picsum.photos/id/101/400/400'"></div>
-                <div class="song-details">
-                    <div class="song-title-box"><div class="song-title">${escapeHtml(song.title)}</div></div>
-                    ${tagHtml}
-                    <div class="meta-icons">
-                        <div class="meta-item"><i class="fas fa-sliders-h"></i> میکس مستر: ${escapeHtml(song.mixMaster)}</div>
-                        <div class="meta-item"><i class="fas fa-microphone-alt"></i> امور ضبط: ${escapeHtml(song.recordOffice)}</div>
-                        <div class="meta-item"><i class="fas fa-users"></i> گروه سرود: ${escapeHtml(song.singers)}</div>
-                    </div>
-                    ${categoryHtml}
-                </div>
-            `;
-            const player = createSimplePlayer(song.audioLink, song.title); card.appendChild(player); container.appendChild(card);
+            const card = buildSongCard(song, true);
+            container.appendChild(card);
         });
     }
 
