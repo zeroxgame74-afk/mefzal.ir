@@ -91,7 +91,7 @@
         }
         .song-title { color: #fbf5cf; font-size: 1.3rem; font-weight: 800; }
         
-        /* پرطرفدار زیر عنوان */
+        /* پرطرفدار وسط */
         .popular-badge {
             background: linear-gradient(135deg, #e6a017, #d45500);
             border: 1px solid #ffcd7e;
@@ -105,51 +105,52 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            margin-bottom: 15px;
+            width: fit-content;
+            margin: 0 auto 15px auto;
             cursor: pointer;
         }
         
-        /* اطلاعات جدید */
+        /* اطلاعات فشرده */
         .meta-grid {
             display: flex;
             flex-direction: column;
-            gap: 0.8rem;
-            margin: 0.75rem 0;
+            gap: 0.5rem;
+            margin: 0.5rem 0;
             background: #1f3f2c;
-            padding: 0.8rem;
-            border-radius: 40px;
+            padding: 0.6rem;
+            border-radius: 30px;
         }
         .meta-row {
             display: flex;
             flex-wrap: wrap;
             align-items: baseline;
             justify-content: space-between;
-            gap: 0.5rem;
+            gap: 0.3rem;
             background: #2a5a3e60;
-            padding: 6px 12px;
-            border-radius: 30px;
+            padding: 4px 10px;
+            border-radius: 25px;
         }
         .meta-label {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--pistachio-light);
             display: inline-flex;
             align-items: center;
-            gap: 5px;
+            gap: 4px;
             font-weight: 500;
         }
         .meta-value {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 600;
-            direction: ltr;
             text-align: left;
             flex: 1;
         }
         
+        /* تگ ژانر وسط */
         .category-tag {
             background: #2a5a3e;
-            padding: 6px 14px;
+            padding: 5px 12px;
             border-radius: 30px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 500;
             display: inline-flex;
             align-items: center;
@@ -159,14 +160,15 @@
             margin: 5px auto 0 auto;
         }
         
-        /* توضیحات بیشتر */
+        /* توضیحات بیشتر با فونت بولد */
         .more-details-btn {
             background: none;
             border: 1px solid var(--pistachio);
             color: var(--pistachio-light);
             padding: 5px 12px;
             border-radius: 30px;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
+            font-weight: bold;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
@@ -181,27 +183,27 @@
         .more-details-content {
             display: none;
             background: #1f3f2c;
-            padding: 12px;
+            padding: 10px;
             border-radius: 20px;
-            margin-top: 10px;
-            font-size: 0.8rem;
-            line-height: 1.6;
+            margin-top: 8px;
+            font-size: 0.75rem;
+            line-height: 1.5;
             text-align: justify;
         }
         
         .player-simple {
             background: #1e3527;
             border-top: 1px solid #517a5e;
-            padding: 12px;
+            padding: 10px;
         }
-        .progress-wrapper { width: 100%; margin-bottom: 12px; }
-        .progress-bar { width: 100%; height: 6px; background: #4f6b58; border-radius: 10px; cursor: pointer; margin-bottom: 6px; }
+        .progress-wrapper { width: 100%; margin-bottom: 8px; }
+        .progress-bar { width: 100%; height: 5px; background: #4f6b58; border-radius: 10px; cursor: pointer; margin-bottom: 4px; }
         .progress-fill { width: 0%; height: 100%; background: var(--pistachio); border-radius: 10px; }
-        .time-info { font-size: 0.7rem; font-family: monospace; background: #0f261b; padding: 2px 8px; border-radius: 30px; color: #cfe6d4; display: inline-block; direction: ltr; }
-        .player-controls { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-        .play-btn { background: var(--pistachio); border: none; width: 44px; height: 44px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #1e3a2a; font-size: 1.3rem; flex-shrink: 0; }
+        .time-info { font-size: 0.65rem; font-family: monospace; background: #0f261b; padding: 2px 6px; border-radius: 30px; color: #cfe6d4; display: inline-block; direction: ltr; }
+        .player-controls { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+        .play-btn { background: var(--pistachio); border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #1e3a2a; font-size: 1.2rem; flex-shrink: 0; }
         .play-btn:hover { background: #e2ffd6; transform: scale(1.05); }
-        .download-simple { background: var(--pistachio); border: none; padding: 8px 18px; border-radius: 50px; color: #1e3a2a; font-weight: bold; font-family: 'Vazirmatn', 'Segoe UI', sans-serif; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; flex-shrink: 0; }
+        .download-simple { background: var(--pistachio); border: none; padding: 6px 14px; border-radius: 50px; color: #1e3a2a; font-weight: bold; font-family: 'Vazirmatn', 'Segoe UI', sans-serif; font-size: 0.75rem; display: inline-flex; align-items: center; gap: 6px; cursor: pointer; flex-shrink: 0; }
         .download-simple:hover { background: #e2ffd6; transform: scale(1.02); }
         .group-box { background: #2c4a35; border-radius: 2rem; padding: 2rem; margin-top: 1rem; border: 2px solid var(--pistachio); text-align: center; }
         .group-box h2 { font-size: 2rem; margin-bottom: 1.5rem; color: #f7f3cf; border-bottom: 2px solid var(--pistachio); display: inline-block; padding-bottom: 0.5rem; }
@@ -213,8 +215,8 @@
         .popular-title i { font-size: 1.6rem; color: #ffefb0; }
         .popular-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
         .filter-section { background: rgba(30, 55, 40, 0.5); border-radius: 3rem; padding: 1rem; margin-bottom: 2rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8rem; }
-        .filter-btn { background: #1f3f2c; border: none; padding: 0.6rem 1.2rem; border-radius: 50px; color: #e0f2e5; font-family: 'Vazirmatn', sans-serif; font-size: 0.9rem; font-weight: 500; cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px; }
-        .filter-btn i { font-size: 1rem; color: var(--pistachio); }
+        .filter-btn { background: #1f3f2c; border: none; padding: 0.5rem 1rem; border-radius: 50px; color: #e0f2e5; font-family: 'Vazirmatn', sans-serif; font-size: 0.85rem; font-weight: 500; cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; gap: 6px; }
+        .filter-btn i { font-size: 0.9rem; color: var(--pistachio); }
         .filter-btn.active, .filter-btn:hover { background: var(--pistachio); color: #1a3a2a; }
         .filter-btn.active i, .filter-btn:hover i { color: #1a3a2a; }
         footer { margin-top: 4rem; background: #14281e; padding: 1.5rem; text-align: center; border-top: 1px solid var(--pistachio); font-size: 0.85rem; }
@@ -225,7 +227,7 @@
             .group-box h2 { font-size: 1.5rem; }
             .song-title { font-size: 1.1rem; }
             .filter-section { gap: 0.5rem; }
-            .filter-btn { padding: 0.4rem 0.8rem; font-size: 0.8rem; }
+            .filter-btn { padding: 0.4rem 0.8rem; font-size: 0.75rem; }
             .meta-row { flex-direction: column; align-items: flex-start; }
             .meta-value { text-align: right; }
         }
@@ -236,9 +238,7 @@
 <body>
 <header>
     <div class="navbar">
-        <div class="logo-area">
-            <span class="site-name">mefzal.ir <small>| سرود‌نماهنگ</small></span>
-        </div>
+        <div class="logo-area"><span class="site-name">mefzal.ir <small>| سرود‌نماهنگ</small></span></div>
         <div class="menu" id="mainMenu">
             <a href="#" data-page="home" class="active"><i class="fas fa-home"></i> خانه</a>
             <a href="#" data-page="sorudha"><i class="fas fa-music"></i> سرودها</a>
@@ -255,11 +255,14 @@
         <div class="cards-grid" id="homeCardsGrid"></div>
     </div>
     <div id="sorudhaPage" class="page-section hidden-section">
-        <div class="hero"><h2>سرودهای اختصاصی مفضال</h2><p>فیلتر بر اساس ژانر: حماسی، احساسی</p></div>
+        <div class="hero"><h2>سرودهای اختصاصی مفضال</h2><p>فیلتر بر اساس ژانر: شهادتی، ولادتی، حماسی، احساسی، مناسبتی</p></div>
         <div class="filter-section">
             <button class="filter-btn" data-filter="all"><i class="fas fa-list"></i> همه</button>
-            <button class="filter-btn" data-filter="حماسی"><i class="fas fa-dragon"></i> حماسی</button>
+            <button class="filter-btn" data-filter="شهادتی"><i class="fas fa-star-of-life"></i> شهادتی</button>
+            <button class="filter-btn" data-filter="ولادتی"><i class="fas fa-birthday-cake"></i> ولادتی</button>
+            <button class="filter-btn" data-filter="حماسی"><i class="fas fa-shield-alt"></i> حماسی</button>
             <button class="filter-btn" data-filter="احساسی"><i class="fas fa-heart"></i> احساسی</button>
+            <button class="filter-btn" data-filter="مناسبتی"><i class="fas fa-calendar-alt"></i> مناسبتی</button>
         </div>
         <div class="cards-grid" id="sorudhaGrid"></div>
     </div>
@@ -276,14 +279,16 @@
             title: "قــصــه ایــران!",
             imageLink: "https://cdn.imgurl.ir/uploads/k79772_IMG__.jpg",
             audioLink: "https://cdn.imgurl.ir/uploads/l2257_GHSEH_IRAN__MEFZAL.IR.mp3",
-            // اطلاعات جدید
             performance: "گروه سرود مفضال",
-            poetry: "استاد رضا موحد",
+            poetry: "مهدی استخر | احمد غدیریان",
             recording: "مهدی اکبری",
             arrangement: "احمد غدیریان",
             mixMastering: "احمد غدیریان",
             tag: "پرطرفدار",
-            category: "حماسی"  // ژانر حماسی
+            category: "حماسی",
+            moreText: `<div style="direction:rtl; text-align:center;">با تشکر از:<br>
+            سازمان فرهنگی، ورزشی، اجتماعی شهرداری بیرجند<br>
+            ناحیه مقاومت بسیج دانشجویی استان خراسان جنوبی</div>`
         }
     ];
 
@@ -315,31 +320,34 @@
 
     function escapeHtml(str) { if(!str) return ''; return str.replace(/[&<>]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;'})[m]); }
 
-    // ساخت کارت با اطلاعات جدید
     function buildSongCard(song, showTag = true) {
         const card = document.createElement('div'); card.className = 'song-card';
         let tagHtml = ''; 
         if (showTag && song.tag) tagHtml = `<div class="popular-badge" data-tag="${escapeHtml(song.tag)}"><i class="fas fa-fire"></i> ${escapeHtml(song.tag)}</div>`;
-        let categoryHtml = (song.category) ? `<div class="category-tag"><i class="fas ${song.category === 'حماسی' ? 'fa-dragon' : 'fa-heart'}"></i> ${escapeHtml(song.category)}</div>` : '';
         
-        // اطلاعات جدید در قالب گرید
+        let categoryIcon = 'fa-tag';
+        if (song.category === 'شهادتی') categoryIcon = 'fa-star-of-life';
+        else if (song.category === 'ولادتی') categoryIcon = 'fa-birthday-cake';
+        else if (song.category === 'حماسی') categoryIcon = 'fa-shield-alt';
+        else if (song.category === 'احساسی') categoryIcon = 'fa-heart';
+        else if (song.category === 'مناسبتی') categoryIcon = 'fa-calendar-alt';
+        
+        let categoryHtml = (song.category) ? `<div class="category-tag"><i class="fas ${categoryIcon}"></i> ${escapeHtml(song.category)}</div>` : '';
+        
         let metaGridHtml = `
             <div class="meta-grid">
                 <div class="meta-row"><span class="meta-label"><i class="fas fa-microphone-alt"></i> اجرا:</span><span class="meta-value">${escapeHtml(song.performance) || '-'}</span></div>
                 <div class="meta-row"><span class="meta-label"><i class="fas fa-feather-alt"></i> شعر و ملودی:</span><span class="meta-value">${escapeHtml(song.poetry) || '-'}</span></div>
-                <div class="meta-row"><span class="meta-label"><i class="fas fa-tape"></i> ظبط:</span><span class="meta-value">${escapeHtml(song.recording) || '-'}</span></div>
-                <div class="meta-row"><span class="meta-label"><i class="fas fa-music"></i> آهنگ سازی و تنظیم:</span><span class="meta-value">${escapeHtml(song.arrangement) || '-'}</span></div>
+                <div class="meta-row"><span class="meta-label"><i class="fas fa-music"></i> آهنگ سازی:</span><span class="meta-value">${escapeHtml(song.arrangement) || '-'}</span></div>
                 <div class="meta-row"><span class="meta-label"><i class="fas fa-sliders-h"></i> میکس مسترینگ:</span><span class="meta-value">${escapeHtml(song.mixMastering) || '-'}</span></div>
             </div>
         `;
         
-        // دکمه توضیحات بیشتر
         let moreDetailsHtml = `
             <div style="text-align: center;">
                 <button class="more-details-btn" data-id="${song.id}"><i class="fas fa-ellipsis-h"></i> توضیحات بیشتر</button>
                 <div id="more-details-${song.id}" class="more-details-content">
-                    اینجا می‌توانید توضیحات تکمیلی درباره این سرود بنویسید.<br>
-                    مثلاً: داستان شکل‌گیری اثر، افتخارات، همکاری‌ها و ...
+                    ${song.moreText || 'توضیحاتی برای این سرود ثبت نشده است.'}
                 </div>
             </div>
         `;
@@ -356,7 +364,6 @@
         `;
         const player = createSimplePlayer(song.audioLink, song.title); card.appendChild(player); 
         
-        // رویداد کلیک برای توضیحات بیشتر
         setTimeout(() => {
             const btn = card.querySelector('.more-details-btn');
             const content = card.querySelector(`#more-details-${song.id}`);
@@ -370,7 +377,7 @@
                         btn.innerHTML = '<i class="fas fa-ellipsis-h"></i> توضیحات بیشتر';
                     }
                 });
-                content.style.display = 'none'; // بسته باشد اول کار
+                content.style.display = 'none';
             }
         }, 0);
         
