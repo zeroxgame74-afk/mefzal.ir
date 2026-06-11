@@ -73,7 +73,7 @@
         }
         .hero h2 { font-weight: 700; font-size: 1.6rem; color: #f4fded; }
         .hero p { color: #cbdfcf; }
-        .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 2rem; margin-top: 1rem; }
+        .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 2rem; margin-top: 1rem; }
         .song-card { background: var(--bg-card); border-radius: 28px; overflow: hidden; box-shadow: var(--shadow); transition: all 0.25s ease-in-out; border: 1px solid rgba(163, 201, 168, 0.3); }
         .song-card:hover { transform: translateY(-8px); border-color: var(--pistachio); }
         .img-square { aspect-ratio: 1 / 1; width: 100%; background: #1c2f24; overflow: hidden; }
@@ -108,42 +108,87 @@
             margin-bottom: 15px;
             cursor: pointer;
         }
-        .meta-icons {
+        
+        /* اطلاعات جدید */
+        .meta-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin: 0.75rem 0;
+            background: #1f3f2c;
+            padding: 0.8rem;
+            border-radius: 40px;
+        }
+        .meta-row {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.7rem;
-            margin: 0.75rem 0;
-            font-size: 0.9rem;
-            background: #1f3f2c;
-            padding: 0.6rem;
-            border-radius: 40px;
-            justify-content: center;
-        }
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 6px;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 0.5rem;
             background: #2a5a3e60;
-            padding: 5px 12px;
+            padding: 6px 12px;
             border-radius: 30px;
+        }
+        .meta-label {
+            font-size: 0.75rem;
+            color: var(--pistachio-light);
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
             font-weight: 500;
         }
-        .meta-item i { font-size: 1rem; color: var(--pistachio); }
+        .meta-value {
+            font-size: 0.85rem;
+            font-weight: 600;
+            direction: ltr;
+            text-align: left;
+            flex: 1;
+        }
         
-        /* تگ میهن - وسط و پایین باکس اطلاعات */
         .category-tag {
             background: #2a5a3e;
             padding: 6px 14px;
             border-radius: 30px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 500;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 6px;
             width: fit-content;
-            margin: 10px auto 0 auto;
+            margin: 5px auto 0 auto;
         }
+        
+        /* توضیحات بیشتر */
+        .more-details-btn {
+            background: none;
+            border: 1px solid var(--pistachio);
+            color: var(--pistachio-light);
+            padding: 5px 12px;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: 0.2s;
+            margin-top: 8px;
+        }
+        .more-details-btn:hover {
+            background: var(--pistachio);
+            color: #1a3a2a;
+        }
+        .more-details-content {
+            display: none;
+            background: #1f3f2c;
+            padding: 12px;
+            border-radius: 20px;
+            margin-top: 10px;
+            font-size: 0.8rem;
+            line-height: 1.6;
+            text-align: justify;
+        }
+        
         .player-simple {
             background: #1e3527;
             border-top: 1px solid #517a5e;
@@ -181,6 +226,8 @@
             .song-title { font-size: 1.1rem; }
             .filter-section { gap: 0.5rem; }
             .filter-btn { padding: 0.4rem 0.8rem; font-size: 0.8rem; }
+            .meta-row { flex-direction: column; align-items: flex-start; }
+            .meta-value { text-align: right; }
         }
         .hidden-section { display: none; }
         .active-section { display: block; }
@@ -189,7 +236,9 @@
 <body>
 <header>
     <div class="navbar">
-        <div class="logo-area"><span class="site-name">mefzal.ir <small>| سرود و هماهنگی</small></span></div>
+        <div class="logo-area">
+            <span class="site-name">mefzal.ir <small>| سرود‌نماهنگ</small></span>
+        </div>
         <div class="menu" id="mainMenu">
             <a href="#" data-page="home" class="active"><i class="fas fa-home"></i> خانه</a>
             <a href="#" data-page="sorudha"><i class="fas fa-music"></i> سرودها</a>
@@ -206,13 +255,11 @@
         <div class="cards-grid" id="homeCardsGrid"></div>
     </div>
     <div id="sorudhaPage" class="page-section hidden-section">
-        <div class="hero"><h2>سرودهای اختصاصی مفضال</h2><p>فیلتر بر اساس دسته‌بندی: شهادتی، ولادتی، میهن، مناسبتی</p></div>
+        <div class="hero"><h2>سرودهای اختصاصی مفضال</h2><p>فیلتر بر اساس ژانر: حماسی، احساسی</p></div>
         <div class="filter-section">
             <button class="filter-btn" data-filter="all"><i class="fas fa-list"></i> همه</button>
-            <button class="filter-btn" data-filter="شهادتی"><i class="fas fa-star-of-life"></i> شهادتی</button>
-            <button class="filter-btn" data-filter="ولادتی"><i class="fas fa-birthday-cake"></i> ولادتی</button>
-            <button class="filter-btn" data-filter="میهن"><i class="fas fa-flag-checkered"></i> میهن</button>
-            <button class="filter-btn" data-filter="مناسبتی"><i class="fas fa-calendar-alt"></i> مناسبتی</button>
+            <button class="filter-btn" data-filter="حماسی"><i class="fas fa-dragon"></i> حماسی</button>
+            <button class="filter-btn" data-filter="احساسی"><i class="fas fa-heart"></i> احساسی</button>
         </div>
         <div class="cards-grid" id="sorudhaGrid"></div>
     </div>
@@ -229,11 +276,14 @@
             title: "قــصــه ایــران!",
             imageLink: "https://cdn.imgurl.ir/uploads/k79772_IMG__.jpg",
             audioLink: "https://cdn.imgurl.ir/uploads/l2257_GHSEH_IRAN__MEFZAL.IR.mp3",
-            mixMaster: "احمد غدیریان",
-            recordOffice: "مهدی اکبری",
-            singers: "گروه سرود مفضال",
+            // اطلاعات جدید
+            performance: "گروه سرود مفضال",
+            poetry: "استاد رضا موحد",
+            recording: "مهدی اکبری",
+            arrangement: "احمد غدیریان",
+            mixMastering: "احمد غدیریان",
             tag: "پرطرفدار",
-            category: "میهن"
+            category: "حماسی"  // ژانر حماسی
         }
     ];
 
@@ -265,26 +315,65 @@
 
     function escapeHtml(str) { if(!str) return ''; return str.replace(/[&<>]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;'})[m]); }
 
-    // تابع کمکی برای ساخت کارت (با تگ میهن در وسط)
+    // ساخت کارت با اطلاعات جدید
     function buildSongCard(song, showTag = true) {
         const card = document.createElement('div'); card.className = 'song-card';
         let tagHtml = ''; 
         if (showTag && song.tag) tagHtml = `<div class="popular-badge" data-tag="${escapeHtml(song.tag)}"><i class="fas fa-fire"></i> ${escapeHtml(song.tag)}</div>`;
-        let categoryHtml = (song.category) ? `<div class="category-tag"><i class="fas fa-flag-checkered"></i> ${escapeHtml(song.category)}</div>` : '';
+        let categoryHtml = (song.category) ? `<div class="category-tag"><i class="fas ${song.category === 'حماسی' ? 'fa-dragon' : 'fa-heart'}"></i> ${escapeHtml(song.category)}</div>` : '';
+        
+        // اطلاعات جدید در قالب گرید
+        let metaGridHtml = `
+            <div class="meta-grid">
+                <div class="meta-row"><span class="meta-label"><i class="fas fa-microphone-alt"></i> اجرا:</span><span class="meta-value">${escapeHtml(song.performance) || '-'}</span></div>
+                <div class="meta-row"><span class="meta-label"><i class="fas fa-feather-alt"></i> شعر و ملودی:</span><span class="meta-value">${escapeHtml(song.poetry) || '-'}</span></div>
+                <div class="meta-row"><span class="meta-label"><i class="fas fa-tape"></i> ظبط:</span><span class="meta-value">${escapeHtml(song.recording) || '-'}</span></div>
+                <div class="meta-row"><span class="meta-label"><i class="fas fa-music"></i> آهنگ سازی و تنظیم:</span><span class="meta-value">${escapeHtml(song.arrangement) || '-'}</span></div>
+                <div class="meta-row"><span class="meta-label"><i class="fas fa-sliders-h"></i> میکس مسترینگ:</span><span class="meta-value">${escapeHtml(song.mixMastering) || '-'}</span></div>
+            </div>
+        `;
+        
+        // دکمه توضیحات بیشتر
+        let moreDetailsHtml = `
+            <div style="text-align: center;">
+                <button class="more-details-btn" data-id="${song.id}"><i class="fas fa-ellipsis-h"></i> توضیحات بیشتر</button>
+                <div id="more-details-${song.id}" class="more-details-content">
+                    اینجا می‌توانید توضیحات تکمیلی درباره این سرود بنویسید.<br>
+                    مثلاً: داستان شکل‌گیری اثر، افتخارات، همکاری‌ها و ...
+                </div>
+            </div>
+        `;
+        
         card.innerHTML = `
             <div class="img-square"><img src="${song.imageLink}" alt="${song.title}" loading="lazy" onerror="this.src='https://picsum.photos/id/101/400/400'"></div>
             <div class="song-details">
                 <div class="song-title-box"><div class="song-title">${escapeHtml(song.title)}</div></div>
                 ${tagHtml}
-                <div class="meta-icons">
-                    <div class="meta-item"><i class="fas fa-sliders-h"></i> میکس مستر: ${escapeHtml(song.mixMaster)}</div>
-                    <div class="meta-item"><i class="fas fa-microphone-alt"></i> امور ضبط: ${escapeHtml(song.recordOffice)}</div>
-                    <div class="meta-item"><i class="fas fa-users"></i> گروه سرود: ${escapeHtml(song.singers)}</div>
-                </div>
+                ${metaGridHtml}
                 ${categoryHtml}
+                ${moreDetailsHtml}
             </div>
         `;
         const player = createSimplePlayer(song.audioLink, song.title); card.appendChild(player); 
+        
+        // رویداد کلیک برای توضیحات بیشتر
+        setTimeout(() => {
+            const btn = card.querySelector('.more-details-btn');
+            const content = card.querySelector(`#more-details-${song.id}`);
+            if(btn && content) {
+                btn.addEventListener('click', () => {
+                    if(content.style.display === 'none' || !content.style.display) {
+                        content.style.display = 'block';
+                        btn.innerHTML = '<i class="fas fa-chevron-up"></i> بستن';
+                    } else {
+                        content.style.display = 'none';
+                        btn.innerHTML = '<i class="fas fa-ellipsis-h"></i> توضیحات بیشتر';
+                    }
+                });
+                content.style.display = 'none'; // بسته باشد اول کار
+            }
+        }, 0);
+        
         return card;
     }
 
