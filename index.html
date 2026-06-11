@@ -90,26 +90,22 @@
             margin-bottom: 15px;
         }
         .song-title { color: #fbf5cf; font-size: 1.3rem; font-weight: 800; }
-        .custom-tag {
-            width: 100%;
-            padding: 10px 16px;
-            border-radius: 40px;
-            text-align: center;
-            font-size: 1rem;
-            font-weight: 700;
-            margin-bottom: 15px;
+        .popular-badge {
             background: linear-gradient(135deg, #e6a017, #d45500);
             border: 1px solid #ffcd7e;
             color: #fff7e0;
+            padding: 8px 16px;
+            border-radius: 40px;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: 700;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
+            margin-bottom: 15px;
             cursor: pointer;
-            transition: transform 0.2s;
         }
-        .custom-tag:hover { transform: scale(1.02); }
-        .custom-tag i { font-size: 1.1rem; color: #ffefb0; }
         .meta-icons {
             display: flex;
             flex-wrap: wrap;
@@ -131,171 +127,47 @@
             font-weight: 500;
         }
         .meta-item i { font-size: 1rem; color: var(--pistachio); }
-        
-        /* تگ دسته‌بندی (میهن و ...) پایین اطلاعات */
         .category-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
             background: #2a5a3e;
-            padding: 4px 12px;
+            padding: 5px 12px;
             border-radius: 30px;
             font-size: 0.75rem;
             font-weight: 500;
-            margin-top: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
             width: fit-content;
+            margin-top: 5px;
+            margin-bottom: 0;
         }
-        .category-tag i {
-            font-size: 0.8rem;
-            color: var(--pistachio);
-        }
-        
         .player-simple {
             background: #1e3527;
             border-top: 1px solid #517a5e;
             padding: 12px;
         }
-        .progress-wrapper {
-            width: 100%;
-            margin-bottom: 12px;
-        }
-        .progress-bar {
-            width: 100%;
-            height: 6px;
-            background: #4f6b58;
-            border-radius: 10px;
-            cursor: pointer;
-            margin-bottom: 6px;
-        }
-        .progress-fill {
-            width: 0%;
-            height: 100%;
-            background: var(--pistachio);
-            border-radius: 10px;
-        }
-        .time-info {
-            font-size: 0.7rem;
-            font-family: monospace;
-            background: #0f261b;
-            padding: 2px 8px;
-            border-radius: 30px;
-            color: #cfe6d4;
-            display: inline-block;
-            direction: ltr;
-        }
-        .player-controls {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-        }
-        .play-btn {
-            background: var(--pistachio);
-            border: none;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #1e3a2a;
-            font-size: 1.3rem;
-            flex-shrink: 0;
-        }
+        .progress-wrapper { width: 100%; margin-bottom: 12px; }
+        .progress-bar { width: 100%; height: 6px; background: #4f6b58; border-radius: 10px; cursor: pointer; margin-bottom: 6px; }
+        .progress-fill { width: 0%; height: 100%; background: var(--pistachio); border-radius: 10px; }
+        .time-info { font-size: 0.7rem; font-family: monospace; background: #0f261b; padding: 2px 8px; border-radius: 30px; color: #cfe6d4; display: inline-block; direction: ltr; }
+        .player-controls { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+        .play-btn { background: var(--pistachio); border: none; width: 44px; height: 44px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #1e3a2a; font-size: 1.3rem; flex-shrink: 0; }
         .play-btn:hover { background: #e2ffd6; transform: scale(1.05); }
-        .download-simple {
-            background: var(--pistachio);
-            border: none;
-            padding: 8px 18px;
-            border-radius: 50px;
-            color: #1e3a2a;
-            font-weight: bold;
-            font-family: 'Vazirmatn', 'Segoe UI', sans-serif;
-            font-size: 0.85rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            cursor: pointer;
-            flex-shrink: 0;
-        }
+        .download-simple { background: var(--pistachio); border: none; padding: 8px 18px; border-radius: 50px; color: #1e3a2a; font-weight: bold; font-family: 'Vazirmatn', 'Segoe UI', sans-serif; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; flex-shrink: 0; }
         .download-simple:hover { background: #e2ffd6; transform: scale(1.02); }
-        
-        /* بخش پرطرفدار در خانه */
-        .popular-section {
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 2rem;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            text-align: center;
-            border: 1px solid var(--pistachio);
-        }
-        .popular-title {
-            font-size: 1.6rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: linear-gradient(135deg, #e6a017, #d45500);
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            color: #fff7e0;
-        }
+        .group-box { background: #2c4a35; border-radius: 2rem; padding: 2rem; margin-top: 1rem; border: 2px solid var(--pistachio); text-align: center; }
+        .group-box h2 { font-size: 2rem; margin-bottom: 1.5rem; color: #f7f3cf; border-bottom: 2px solid var(--pistachio); display: inline-block; padding-bottom: 0.5rem; }
+        .group-info { display: flex; flex-direction: column; gap: 1rem; }
+        .group-item { display: flex; align-items: center; justify-content: center; gap: 12px; font-size: 1rem; background: #1f3f2c99; padding: 10px 20px; border-radius: 50px; flex-wrap: wrap; }
+        .group-item i { font-size: 1.5rem; color: var(--pistachio); width: 2rem; }
+        .popular-section { background: rgba(0, 0, 0, 0.2); border-radius: 2rem; padding: 1.5rem; margin-bottom: 2rem; text-align: center; border: 1px solid var(--pistachio); }
+        .popular-title { font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, #e6a017, #d45500); padding: 0.5rem 1.5rem; border-radius: 50px; color: #fff7e0; }
         .popular-title i { font-size: 1.6rem; color: #ffefb0; }
         .popular-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
-        
-        /* فیلتر */
-        .filter-section {
-            background: rgba(30, 55, 40, 0.5);
-            border-radius: 3rem;
-            padding: 1rem;
-            margin-bottom: 2rem;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 0.8rem;
-        }
-        .filter-btn {
-            background: #1f3f2c;
-            border: none;
-            padding: 0.6rem 1.2rem;
-            border-radius: 50px;
-            color: #e0f2e5;
-            font-family: 'Vazirmatn', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 500;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
+        .filter-section { background: rgba(30, 55, 40, 0.5); border-radius: 3rem; padding: 1rem; margin-bottom: 2rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8rem; }
+        .filter-btn { background: #1f3f2c; border: none; padding: 0.6rem 1.2rem; border-radius: 50px; color: #e0f2e5; font-family: 'Vazirmatn', sans-serif; font-size: 0.9rem; font-weight: 500; cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px; }
         .filter-btn i { font-size: 1rem; color: var(--pistachio); }
         .filter-btn.active, .filter-btn:hover { background: var(--pistachio); color: #1a3a2a; }
         .filter-btn.active i, .filter-btn:hover i { color: #1a3a2a; }
-        
-        .group-box {
-            background: #2c4a35;
-            border-radius: 2rem;
-            padding: 2rem;
-            margin-top: 1rem;
-            border: 2px solid var(--pistachio);
-            text-align: center;
-        }
-        .group-box h2 { font-size: 2rem; margin-bottom: 1.5rem; color: #f7f3cf; border-bottom: 2px solid var(--pistachio); display: inline-block; padding-bottom: 0.5rem; }
-        .group-info { display: flex; flex-direction: column; gap: 1rem; }
-        .group-item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            font-size: 1rem;
-            background: #1f3f2c99;
-            padding: 10px 20px;
-            border-radius: 50px;
-            flex-wrap: wrap;
-        }
-        .group-item i { font-size: 1.5rem; color: var(--pistachio); width: 2rem; }
         footer { margin-top: 4rem; background: #14281e; padding: 1.5rem; text-align: center; border-top: 1px solid var(--pistachio); font-size: 0.85rem; }
         @media (max-width: 700px) {
             .navbar { flex-direction: column; gap: 12px; padding: 1rem; }
@@ -326,10 +198,7 @@
 <main class="container" id="mainContent">
     <div id="homePage" class="page-section">
         <div class="hero"><h2>به پخش‌کننده رسمی mefzal.ir خوش آمدید</h2><p>زیباترین سرودهای ملی، مذهبی و گروهی | پلیر ساده و حرفه‌ای</p></div>
-        <div class="popular-section">
-            <div class="popular-title"><i class="fas fa-fire"></i> <i class="fas fa-crown"></i> پرطرفدارترین سرود مفضال</div>
-            <div class="popular-grid" id="popularHomeGrid"></div>
-        </div>
+        <div class="popular-section"><div class="popular-title"><i class="fas fa-fire"></i> <i class="fas fa-crown"></i> پرطرفدارترین سرود مفضال</div><div class="popular-grid" id="popularHomeGrid"></div></div>
         <div class="cards-grid" id="homeCardsGrid"></div>
     </div>
     <div id="sorudhaPage" class="page-section hidden-section">
@@ -343,18 +212,9 @@
         </div>
         <div class="cards-grid" id="sorudhaGrid"></div>
     </div>
-    <div id="popularPage" class="page-section hidden-section">
-        <div class="hero"><h2><i class="fas fa-fire"></i> پرطرفدارترین سرودها</h2><p>محبوب‌ترین و پربازدیدترین سرودهای گروه مفضال</p></div>
-        <div class="cards-grid" id="popularGrid"></div>
-    </div>
-    <div id="hamahangiPage" class="page-section hidden-section">
-        <div class="hero"><h2>هماهنگی و ارتباط با ما</h2><p>برای برگزاری مراسم، هماهنگی گروهی و درخواست سرود سفارشی با ما در تماس باشید</p></div>
-        <div style="background:#2c4a35; border-radius:2rem; padding:2rem; text-align:center;"><i class="fas fa-phone-alt" style="font-size:3rem; color:var(--pistachio);"></i><h3 style="margin:1rem 0;">شماره تماس هماهنگی:</h3><p style="font-size:1.7rem; direction:ltr; font-weight:bold;">۰۹۹۶۵۹۵۵۸۵۶</p><p>ایمیل: hamahangi@mefzal.ir</p><div style="display:flex; justify-content:center; gap:1rem; margin-top:1rem;"><i class="fab fa-instagram"></i> <span>mefzal_group_official</span></div></div>
-    </div>
-    <div id="groupPage" class="page-section hidden-section">
-        <div class="hero"><h2>درباره گروه حرفه‌ای مفضال</h2><p>پیشرو در تولید سرودهای فاخر و هماهنگی بی‌نظیر</p></div>
-        <div class="group-box"><h2><i class="fas fa-users"></i> گروه مفضال</h2><div class="group-info"><div class="group-item"><i class="fas fa-user-tie"></i> <strong>مدیر مجموعه:</strong> ابوالفضل حیدری</div><div class="group-item"><i class="fas fa-microphone-alt"></i> <strong>امور ضبط و آموزگار سرود:</strong> مهدی اکبری | حمیدرضا نخعی</div><div class="group-item"><i class="fas fa-laptop-code"></i> <strong>سازنده سایت:</strong> محمد حسین صنعتی</div><div class="group-item"><i class="fas fa-phone-square-alt"></i> <strong>شماره جهت هماهنگی:</strong> <span style="direction:ltr; background:#1b2f23; padding:0.2rem 0.8rem; border-radius:50px;">09965955856</span></div></div></div>
-    </div>
+    <div id="popularPage" class="page-section hidden-section"><div class="hero"><h2><i class="fas fa-fire"></i> پرطرفدارترین سرودها</h2><p>محبوب‌ترین و پربازدیدترین سرودهای گروه مفضال</p></div><div class="cards-grid" id="popularGrid"></div></div>
+    <div id="hamahangiPage" class="page-section hidden-section"><div class="hero"><h2>هماهنگی و ارتباط با ما</h2><p>برای برگزاری مراسم، هماهنگی گروهی و درخواست سرود سفارشی با ما در تماس باشید</p></div><div style="background:#2c4a35; border-radius:2rem; padding:2rem; text-align:center;"><i class="fas fa-phone-alt" style="font-size:3rem; color:var(--pistachio);"></i><h3 style="margin:1rem 0;">شماره تماس هماهنگی:</h3><p style="font-size:1.7rem; direction:ltr; font-weight:bold;">۰۹۹۶۵۹۵۵۸۵۶</p><p>ایمیل: hamahangi@mefzal.ir</p><div style="display:flex; justify-content:center; gap:1rem; margin-top:1rem;"><i class="fab fa-instagram"></i> <span>mefzal_group_official</span></div></div></div>
+    <div id="groupPage" class="page-section hidden-section"><div class="hero"><h2>درباره گروه حرفه‌ای مفضال</h2><p>پیشرو در تولید سرودهای فاخر و هماهنگی بی‌نظیر</p></div><div class="group-box"><h2><i class="fas fa-users"></i> گروه مفضال</h2><div class="group-info"><div class="group-item"><i class="fas fa-user-tie"></i> <strong>مدیر مجموعه:</strong> ابوالفضل حیدری</div><div class="group-item"><i class="fas fa-microphone-alt"></i> <strong>امور ضبط و آموزگار سرود:</strong> مهدی اکبری | حمیدرضا نخعی</div><div class="group-item"><i class="fas fa-laptop-code"></i> <strong>سازنده سایت:</strong> محمد حسین صنعتی</div><div class="group-item"><i class="fas fa-phone-square-alt"></i> <strong>شماره جهت هماهنگی:</strong> <span style="direction:ltr; background:#1b2f23; padding:0.2rem 0.8rem; border-radius:50px;">09965955856</span></div></div></div></div>
 </main>
 <footer><div>© ۱۴۰۳ - تمامی حقوق برای mefzal.ir محفوظ است</div><div style="margin-top: 6px; font-size: 0.7rem;">هماهنگی و پشتیبانی: 09965955856</div></footer>
 
@@ -401,55 +261,54 @@
 
     function escapeHtml(str) { if(!str) return ''; return str.replace(/[&<>]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;'})[m]); }
 
-    function renderCards(containerId, songsArray) {
+    function renderCards(containerId, songsArray, isHome = true) {
         const container = document.getElementById(containerId); if (!container) return;
         container.innerHTML = '';
         songsArray.forEach(song => {
             const card = document.createElement('div'); card.className = 'song-card';
-            let tagHtml = ''; 
-            if (song.tag) tagHtml = `<div class="custom-tag"><i class="fas fa-fire"></i> ${escapeHtml(song.tag)}</div>`;
-            let categoryHtml = '';
-            if (song.category) {
-                categoryHtml = `<div class="category-tag"><i class="fas fa-flag-checkered"></i> 🔖 ${escapeHtml(song.category)}</div>`;
-            }
+            let tagHtml = ''; if (song.tag) tagHtml = `<div class="popular-badge" data-tag="${escapeHtml(song.tag)}"><i class="fas fa-fire"></i> ${escapeHtml(song.tag)}</div>`;
+            let categoryHtml = (song.category) ? `<div class="category-tag"><i class="fas fa-tag"></i> ${escapeHtml(song.category)}</div>` : '';
             card.innerHTML = `
                 <div class="img-square"><img src="${song.imageLink}" alt="${song.title}" loading="lazy" onerror="this.src='https://picsum.photos/id/101/400/400'"></div>
                 <div class="song-details">
                     <div class="song-title-box"><div class="song-title">${escapeHtml(song.title)}</div></div>
-                    ${tagHtml}
                     <div class="meta-icons">
                         <div class="meta-item"><i class="fas fa-sliders-h"></i> میکس مستر: ${escapeHtml(song.mixMaster)}</div>
                         <div class="meta-item"><i class="fas fa-microphone-alt"></i> امور ضبط: ${escapeHtml(song.recordOffice)}</div>
                         <div class="meta-item"><i class="fas fa-users"></i> گروه سرود: ${escapeHtml(song.singers)}</div>
                     </div>
-                    ${categoryHtml}
+                    <div style="display: flex; justify-content: flex-end; margin-top: 5px;">${categoryHtml}</div>
+                    ${tagHtml}
                 </div>
             `;
             const player = createSimplePlayer(song.audioLink, song.title); card.appendChild(player); container.appendChild(card);
         });
-        document.querySelectorAll(`#${containerId} .custom-tag`).forEach(tag => {
-            tag.addEventListener('click', (e) => { e.stopPropagation(); switchPage('popularPage'); window.scrollTo({ top: 0, behavior: 'smooth' }); });
-        });
+        if(isHome){
+            document.querySelectorAll(`#${containerId} .popular-badge`).forEach(tag => {
+                tag.addEventListener('click', (e) => { e.stopPropagation(); switchPage('popularPage'); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+            });
+        }
     }
 
     function renderPopularHome() {
         const popularSongs = songsData.filter(song => song.tag === "پرطرفدار");
-        const container = document.getElementById('popularHomeGrid'); if (!container) return; container.innerHTML = '';
+        const container = document.getElementById('popularHomeGrid'); if (!container) return;
+        container.innerHTML = '';
         popularSongs.forEach(song => {
             const card = document.createElement('div'); card.className = 'song-card';
-            let tagHtml = `<div class="custom-tag"><i class="fas fa-fire"></i> ${escapeHtml(song.tag)}</div>`;
-            let categoryHtml = (song.category) ? `<div class="category-tag"><i class="fas fa-flag-checkered"></i> 🔖 ${escapeHtml(song.category)}</div>` : '';
+            let tagHtml = `<div class="popular-badge"><i class="fas fa-fire"></i> ${escapeHtml(song.tag)}</div>`;
+            let categoryHtml = (song.category) ? `<div class="category-tag"><i class="fas fa-tag"></i> ${escapeHtml(song.category)}</div>` : '';
             card.innerHTML = `
                 <div class="img-square"><img src="${song.imageLink}" alt="${song.title}" loading="lazy" onerror="this.src='https://picsum.photos/id/101/400/400'"></div>
                 <div class="song-details">
                     <div class="song-title-box"><div class="song-title">${escapeHtml(song.title)}</div></div>
-                    ${tagHtml}
                     <div class="meta-icons">
                         <div class="meta-item"><i class="fas fa-sliders-h"></i> میکس مستر: ${escapeHtml(song.mixMaster)}</div>
                         <div class="meta-item"><i class="fas fa-microphone-alt"></i> امور ضبط: ${escapeHtml(song.recordOffice)}</div>
                         <div class="meta-item"><i class="fas fa-users"></i> گروه سرود: ${escapeHtml(song.singers)}</div>
                     </div>
-                    ${categoryHtml}
+                    <div style="display: flex; justify-content: flex-end; margin-top: 5px;">${categoryHtml}</div>
+                    ${tagHtml}
                 </div>
             `;
             const player = createSimplePlayer(song.audioLink, song.title); card.appendChild(player); container.appendChild(card);
@@ -461,19 +320,19 @@
         const container = document.getElementById('popularGrid'); if (!container) return; container.innerHTML = '';
         popularSongs.forEach(song => {
             const card = document.createElement('div'); card.className = 'song-card';
-            let tagHtml = `<div class="custom-tag"><i class="fas fa-fire"></i> ${escapeHtml(song.tag)}</div>`;
-            let categoryHtml = (song.category) ? `<div class="category-tag"><i class="fas fa-flag-checkered"></i> 🔖 ${escapeHtml(song.category)}</div>` : '';
+            let tagHtml = `<div class="popular-badge"><i class="fas fa-fire"></i> ${escapeHtml(song.tag)}</div>`;
+            let categoryHtml = (song.category) ? `<div class="category-tag"><i class="fas fa-tag"></i> ${escapeHtml(song.category)}</div>` : '';
             card.innerHTML = `
                 <div class="img-square"><img src="${song.imageLink}" alt="${song.title}" loading="lazy" onerror="this.src='https://picsum.photos/id/101/400/400'"></div>
                 <div class="song-details">
                     <div class="song-title-box"><div class="song-title">${escapeHtml(song.title)}</div></div>
-                    ${tagHtml}
                     <div class="meta-icons">
                         <div class="meta-item"><i class="fas fa-sliders-h"></i> میکس مستر: ${escapeHtml(song.mixMaster)}</div>
                         <div class="meta-item"><i class="fas fa-microphone-alt"></i> امور ضبط: ${escapeHtml(song.recordOffice)}</div>
                         <div class="meta-item"><i class="fas fa-users"></i> گروه سرود: ${escapeHtml(song.singers)}</div>
                     </div>
-                    ${categoryHtml}
+                    <div style="display: flex; justify-content: flex-end; margin-top: 5px;">${categoryHtml}</div>
+                    ${tagHtml}
                 </div>
             `;
             const player = createSimplePlayer(song.audioLink, song.title); card.appendChild(player); container.appendChild(card);
@@ -481,23 +340,25 @@
     }
 
     function renderFilteredCards(containerId, filterCategory) {
-        let filteredSongs = (filterCategory === 'all') ? songsData : songsData.filter(song => song.category === filterCategory);
-        const container = document.getElementById(containerId); if (!container) return; container.innerHTML = '';
+        let filteredSongs = songsData;
+        if (filterCategory !== 'all') filteredSongs = songsData.filter(song => song.category === filterCategory);
+        const container = document.getElementById(containerId); if (!container) return;
+        container.innerHTML = '';
         filteredSongs.forEach(song => {
             const card = document.createElement('div'); card.className = 'song-card';
-            let tagHtml = (song.tag) ? `<div class="custom-tag"><i class="fas fa-fire"></i> ${escapeHtml(song.tag)}</div>` : '';
-            let categoryHtml = (song.category) ? `<div class="category-tag"><i class="fas fa-flag-checkered"></i> 🔖 ${escapeHtml(song.category)}</div>` : '';
+            let tagHtml = ''; if (song.tag) tagHtml = `<div class="popular-badge"><i class="fas fa-fire"></i> ${escapeHtml(song.tag)}</div>`;
+            let categoryHtml = (song.category) ? `<div class="category-tag"><i class="fas fa-tag"></i> ${escapeHtml(song.category)}</div>` : '';
             card.innerHTML = `
                 <div class="img-square"><img src="${song.imageLink}" alt="${song.title}" loading="lazy" onerror="this.src='https://picsum.photos/id/101/400/400'"></div>
                 <div class="song-details">
                     <div class="song-title-box"><div class="song-title">${escapeHtml(song.title)}</div></div>
-                    ${tagHtml}
                     <div class="meta-icons">
                         <div class="meta-item"><i class="fas fa-sliders-h"></i> میکس مستر: ${escapeHtml(song.mixMaster)}</div>
                         <div class="meta-item"><i class="fas fa-microphone-alt"></i> امور ضبط: ${escapeHtml(song.recordOffice)}</div>
                         <div class="meta-item"><i class="fas fa-users"></i> گروه سرود: ${escapeHtml(song.singers)}</div>
                     </div>
-                    ${categoryHtml}
+                    <div style="display: flex; justify-content: flex-end; margin-top: 5px;">${categoryHtml}</div>
+                    ${tagHtml}
                 </div>
             `;
             const player = createSimplePlayer(song.audioLink, song.title); card.appendChild(player); container.appendChild(card);
@@ -507,14 +368,12 @@
     let currentFilter = 'all';
     function setupFilters() {
         const filterBtns = document.querySelectorAll('.filter-btn');
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                currentFilter = btn.getAttribute('data-filter');
-                renderFilteredCards('sorudhaGrid', currentFilter);
-            });
-        });
+        filterBtns.forEach(btn => btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentFilter = btn.getAttribute('data-filter');
+            renderFilteredCards('sorudhaGrid', currentFilter);
+        }));
         document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
     }
 
@@ -524,35 +383,15 @@
         document.querySelectorAll('#mainMenu a').forEach(link => {
             link.classList.remove('active');
             const pageAttr = link.getAttribute('data-page');
-            if ((pageAttr === 'home' && pageId === 'homePage') ||
-                (pageAttr === 'sorudha' && pageId === 'sorudhaPage') ||
-                (pageAttr === 'popular' && pageId === 'popularPage') ||
-                (pageAttr === 'hamahangi' && pageId === 'hamahangiPage') ||
-                (pageAttr === 'group' && pageId === 'groupPage')) link.classList.add('active');
+            if ((pageAttr === 'home' && pageId === 'homePage') || (pageAttr === 'sorudha' && pageId === 'sorudhaPage') || (pageAttr === 'popular' && pageId === 'popularPage') || (pageAttr === 'hamahangi' && pageId === 'hamahangiPage') || (pageAttr === 'group' && pageId === 'groupPage')) link.classList.add('active');
         });
+        if(pageId === 'sorudhaPage') renderFilteredCards('sorudhaGrid', currentFilter);
     }
 
-    function initCards() {
-        renderCards('homeCardsGrid', songsData);
-        renderPopularHome();
-        renderPopularCards();
-        renderFilteredCards('sorudhaGrid', 'all');
-    }
-
-    function bindMenuEvents() {
-        document.querySelectorAll('#mainMenu a').forEach(link => link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const page = link.getAttribute('data-page');
-            if (page === 'home') switchPage('homePage');
-            else if (page === 'sorudha') { switchPage('sorudhaPage'); renderFilteredCards('sorudhaGrid', currentFilter); }
-            else if (page === 'popular') switchPage('popularPage');
-            else if (page === 'hamahangi') switchPage('hamahangiPage');
-            else if (page === 'group') switchPage('groupPage');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }));
-    }
+    function initCards() { renderCards('homeCardsGrid', songsData); renderPopularHome(); renderPopularCards(); renderFilteredCards('sorudhaGrid', 'all'); }
+    function bindMenuEvents() { document.querySelectorAll('#mainMenu a').forEach(link => link.addEventListener('click', (e) => { e.preventDefault(); const page = link.getAttribute('data-page'); if (page === 'home') switchPage('homePage'); else if (page === 'sorudha') switchPage('sorudhaPage'); else if (page === 'popular') switchPage('popularPage'); else if (page === 'hamahangi') switchPage('hamahangiPage'); else if (page === 'group') switchPage('groupPage'); window.scrollTo({ top: 0, behavior: 'smooth' }); })); }
 
     window.addEventListener('DOMContentLoaded', () => { initCards(); bindMenuEvents(); setupFilters(); switchPage('homePage'); });
 </script>
 </body>
-    </html>
+</html>
