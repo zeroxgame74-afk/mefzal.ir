@@ -336,7 +336,7 @@
 <footer><div>© ۱۴۰۳ - تمامی حقوق برای mefzal.ir محفوظ است</div><div style="margin-top: 6px; font-size: 0.7rem;">هماهنگی و پشتیبانی: 09965955856</div></footer>
 
 <script>
-    // لینک آهنگ با موفقیت به روز شد
+    // ====== داده آهنگ‌ها ======
     const songsData = [
         {
             id: 1,
@@ -348,14 +348,33 @@
             recording: "مهدی اکبری",
             arrangement: "احمد غدیریان",
             mixMastering: "احمد غدیریان",
-            tag: "پرطرفدار",
+            tag: "پرطرفدار",  // فقط این یکی پرطرفدار است
             category: "حماسی",
             moreText: `<div style="direction:rtl; text-align:center; font-weight:normal;">با تشکر از:<br>
             سازمان فرهنگی، ورزشی، اجتماعی شهرداری بیرجند<br>
             ناحیه مقاومت بسیج دانشجویی استان خراسان جنوبی</div>`
+        },
+        {
+            id: 2,
+            title: "رهبر شهید",
+            imageLink: "https://uploadkon.ir/uploads/0b0815_26rahbar-sahid-.jpg",
+            audioLink: "https://uploadkon.ir/uploads/65b715_26367-94388406467273-1-1.mp3",
+            performance: "گروه سرود مفضال",
+            poetry: "عرفان ابوالحسنی",
+            recording: "علی عاملی نیا (استودیو مصباح)",
+            arrangement: "عرفان یامولایی | احسان یامولایی",
+            mixMastering: "علی عاملی نیا (استودیو مصباح)",
+            // این آهنگ تگ پرطرفدار ندارد
+            tag: null,
+            category: "شهادتی",
+            moreText: `<div style="direction:rtl; text-align:center; font-weight:normal;">
+            <strong>طراح کاور:</strong> محمد حسین صنعتی<br>
+            <strong>ملودی:</strong> حسین رضائیان
+            </div>`
         }
     ];
 
+    // ====== توابع پلیر، رندر و ... ======
     function createSimplePlayer(audioSrc, trackTitle) {
         const container = document.createElement('div'); container.className = 'player-simple';
         const progressWrapper = document.createElement('div'); progressWrapper.className = 'progress-wrapper';
@@ -387,6 +406,7 @@
     function buildSongCard(song, showTag = true) {
         const card = document.createElement('div'); card.className = 'song-card';
         let tagHtml = ''; 
+        // فقط در صورتی که showTag فعال باشد و آهنگ tag داشته باشد، نمایش داده می‌شود
         if (showTag && song.tag) {
             tagHtml = `<div class="popular-badge" data-tag="${escapeHtml(song.tag)}"><i class="fas fa-fire"></i> ${escapeHtml(song.tag)}</div>`;
         }
@@ -469,7 +489,8 @@
     }
 
     function renderPopularHome() {
-        const popularSongs = songsData.filter(song => song.tag === "پرطرفدار");
+        // فقط آهنگ‌هایی که tag دارند (پرطرفدار هستند)
+        const popularSongs = songsData.filter(song => song.tag !== null && song.tag !== '');
         const container = document.getElementById('popularHomeGrid'); if (!container) return;
         container.innerHTML = '';
         popularSongs.forEach(song => {
@@ -479,7 +500,8 @@
     }
 
     function renderPopularCards() {
-        const popularSongs = songsData.filter(song => song.tag === "پرطرفدار");
+        // فقط آهنگ‌هایی که tag دارند (پرطرفدار هستند)
+        const popularSongs = songsData.filter(song => song.tag !== null && song.tag !== '');
         const container = document.getElementById('popularGrid'); if (!container) return; container.innerHTML = '';
         popularSongs.forEach(song => {
             const card = buildSongCard(song, true);
