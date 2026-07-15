@@ -547,4 +547,15 @@
         document.querySelectorAll('#mainMenu a').forEach(link => {
             link.classList.remove('active');
             const pageAttr = link.getAttribute('data-page');
-            if ((pageAttr === 'home' && pageId === 'homePage') || (pageAttr === 'sorudha' && pageId === 'sorudhaPage') || (pageAttr
+            if ((pageAttr === 'home' && pageId === 'homePage') || (pageAttr === 'sorudha' && pageId === 'sorudhaPage') || (pageAttr === 'popular' && pageId === 'popularPage') || (pageAttr === 'hamahangi' && pageId === 'hamahangiPage') || (pageAttr === 'group' && pageId === 'groupPage')) link.classList.add('active');
+        });
+        if(pageId === 'sorudhaPage') renderFilteredCards('sorudhaGrid', currentFilter);
+    }
+
+    function initCards() { renderCards('homeCardsGrid', songsData); renderPopularHome(); renderPopularCards(); renderFilteredCards('sorudhaGrid', 'all'); }
+    function bindMenuEvents() { document.querySelectorAll('#mainMenu a').forEach(link => link.addEventListener('click', (e) => { e.preventDefault(); const page = link.getAttribute('data-page'); if (page === 'home') switchPage('homePage'); else if (page === 'sorudha') switchPage('sorudhaPage'); else if (page === 'popular') switchPage('popularPage'); else if (page === 'hamahangi') switchPage('hamahangiPage'); else if (page === 'group') switchPage('groupPage'); window.scrollTo({ top: 0, behavior: 'smooth' }); })); }
+
+    window.addEventListener('DOMContentLoaded', () => { initCards(); bindMenuEvents(); setupFilters(); switchPage('homePage'); });
+</script>
+</body>
+</html>
