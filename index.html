@@ -336,8 +336,25 @@
 <footer><div>© ۱۴۰۳ - تمامی حقوق برای mefzal.ir محفوظ است</div><div style="margin-top: 6px; font-size: 0.7rem;">هماهنگی و پشتیبانی: 09965955856</div></footer>
 
 <script>
-    // ====== داده آهنگ‌ها ======
+    // ====== داده آهنگ‌ها (ترتیب تغییر کرد: رهبر شهید اول است) ======
     const songsData = [
+        {
+            id: 2,
+            title: "رهبر شهید",
+            imageLink: "https://uploadkon.ir/uploads/020f15_26rahbar-sahid-12322.jpg",
+            audioLink: "https://uploadkon.ir/uploads/65b715_26367-94388406467273-1-1.mp3",
+            performance: "گروه سرود مفضال",
+            poetry: "عرفان ابوالحسنی",
+            recording: "علی عاملی نیا (استودیو مصباح)",
+            arrangement: "عرفان یامولایی | احسان یامولایی",
+            mixMastering: "علی عاملی نیا (استودیو مصباح)",
+            coverDesigner: "محمد حسین صنعتی", // اضافه شد
+            tag: null,
+            category: "شهادتی",
+            moreText: `<div style="direction:rtl; text-align:center; font-weight:normal;">
+            <strong>ملودی:</strong> حسین رضائیان
+            </div>`
+        },
         {
             id: 1,
             title: "قــصــه ایــران!",
@@ -348,29 +365,12 @@
             recording: "مهدی اکبری",
             arrangement: "احمد غدیریان",
             mixMastering: "احمد غدیریان",
-            tag: "پرطرفدار",  // فقط این یکی پرطرفدار است
+            coverDesigner: null, // این آهنگ طراح کاور جداگانه ندارد
+            tag: "پرطرفدار",
             category: "حماسی",
             moreText: `<div style="direction:rtl; text-align:center; font-weight:normal;">با تشکر از:<br>
             سازمان فرهنگی، ورزشی، اجتماعی شهرداری بیرجند<br>
             ناحیه مقاومت بسیج دانشجویی استان خراسان جنوبی</div>`
-        },
-        {
-            id: 2,
-            title: "رهبر شهید",
-            imageLink: "https://uploadkon.ir/uploads/0b0815_26rahbar-sahid-.jpg",
-            audioLink: "https://uploadkon.ir/uploads/65b715_26367-94388406467273-1-1.mp3",
-            performance: "گروه سرود مفضال",
-            poetry: "عرفان ابوالحسنی",
-            recording: "علی عاملی نیا (استودیو مصباح)",
-            arrangement: "عرفان یامولایی | احسان یامولایی",
-            mixMastering: "علی عاملی نیا (استودیو مصباح)",
-            // این آهنگ تگ پرطرفدار ندارد
-            tag: null,
-            category: "شهادتی",
-            moreText: `<div style="direction:rtl; text-align:center; font-weight:normal;">
-            <strong>طراح کاور:</strong> محمد حسین صنعتی<br>
-            <strong>ملودی:</strong> حسین رضائیان
-            </div>`
         }
     ];
 
@@ -406,7 +406,6 @@
     function buildSongCard(song, showTag = true) {
         const card = document.createElement('div'); card.className = 'song-card';
         let tagHtml = ''; 
-        // فقط در صورتی که showTag فعال باشد و آهنگ tag داشته باشد، نمایش داده می‌شود
         if (showTag && song.tag) {
             tagHtml = `<div class="popular-badge" data-tag="${escapeHtml(song.tag)}"><i class="fas fa-fire"></i> ${escapeHtml(song.tag)}</div>`;
         }
@@ -420,12 +419,24 @@
         
         let categoryHtml = (song.category) ? `<div class="category-tag"><i class="fas ${categoryIcon}"></i> ${escapeHtml(song.category)}</div>` : '';
         
+        // اضافه کردن ردیف طراح کاور به اطلاعات
+        let coverDesignerHtml = '';
+        if (song.coverDesigner) {
+            coverDesignerHtml = `
+                <div class="meta-row">
+                    <span class="meta-label"><i class="fas fa-paint-brush"></i> طراح کاور:</span>
+                    <span class="meta-value">${escapeHtml(song.coverDesigner)}</span>
+                </div>
+            `;
+        }
+        
         let metaGridHtml = `
             <div class="meta-grid">
                 <div class="meta-row"><span class="meta-label"><i class="fas fa-microphone-alt"></i> اجرا:</span><span class="meta-value">${escapeHtml(song.performance) || '-'}</span></div>
                 <div class="meta-row"><span class="meta-label"><i class="fas fa-feather-alt"></i> شعر و ملودی:</span><span class="meta-value">${escapeHtml(song.poetry) || '-'}</span></div>
                 <div class="meta-row"><span class="meta-label"><i class="fas fa-music"></i> آهنگ سازی:</span><span class="meta-value">${escapeHtml(song.arrangement) || '-'}</span></div>
                 <div class="meta-row"><span class="meta-label"><i class="fas fa-sliders-h"></i> میکس مسترینگ:</span><span class="meta-value">${escapeHtml(song.mixMastering) || '-'}</span></div>
+                ${coverDesignerHtml}
             </div>
         `;
         
@@ -489,7 +500,6 @@
     }
 
     function renderPopularHome() {
-        // فقط آهنگ‌هایی که tag دارند (پرطرفدار هستند)
         const popularSongs = songsData.filter(song => song.tag !== null && song.tag !== '');
         const container = document.getElementById('popularHomeGrid'); if (!container) return;
         container.innerHTML = '';
@@ -500,7 +510,6 @@
     }
 
     function renderPopularCards() {
-        // فقط آهنگ‌هایی که tag دارند (پرطرفدار هستند)
         const popularSongs = songsData.filter(song => song.tag !== null && song.tag !== '');
         const container = document.getElementById('popularGrid'); if (!container) return; container.innerHTML = '';
         popularSongs.forEach(song => {
@@ -538,15 +547,4 @@
         document.querySelectorAll('#mainMenu a').forEach(link => {
             link.classList.remove('active');
             const pageAttr = link.getAttribute('data-page');
-            if ((pageAttr === 'home' && pageId === 'homePage') || (pageAttr === 'sorudha' && pageId === 'sorudhaPage') || (pageAttr === 'popular' && pageId === 'popularPage') || (pageAttr === 'hamahangi' && pageId === 'hamahangiPage') || (pageAttr === 'group' && pageId === 'groupPage')) link.classList.add('active');
-        });
-        if(pageId === 'sorudhaPage') renderFilteredCards('sorudhaGrid', currentFilter);
-    }
-
-    function initCards() { renderCards('homeCardsGrid', songsData); renderPopularHome(); renderPopularCards(); renderFilteredCards('sorudhaGrid', 'all'); }
-    function bindMenuEvents() { document.querySelectorAll('#mainMenu a').forEach(link => link.addEventListener('click', (e) => { e.preventDefault(); const page = link.getAttribute('data-page'); if (page === 'home') switchPage('homePage'); else if (page === 'sorudha') switchPage('sorudhaPage'); else if (page === 'popular') switchPage('popularPage'); else if (page === 'hamahangi') switchPage('hamahangiPage'); else if (page === 'group') switchPage('groupPage'); window.scrollTo({ top: 0, behavior: 'smooth' }); })); }
-
-    window.addEventListener('DOMContentLoaded', () => { initCards(); bindMenuEvents(); setupFilters(); switchPage('homePage'); });
-</script>
-</body>
-</html>
+            if ((pageAttr === 'home' && pageId === 'homePage') || (pageAttr === 'sorudha' && pageId === 'sorudhaPage') || (pageAttr
